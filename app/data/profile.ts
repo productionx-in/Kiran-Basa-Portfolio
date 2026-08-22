@@ -1,0 +1,403 @@
+/**
+ * One file, two outputs.
+ *
+ * The website (`app/page.tsx`) and the print CV (`app/cv/page.tsx`, rendered to
+ * PDF by `scripts/cv.mjs`) both read from here. Edit a fact once and it moves in
+ * both places — which is the only way a portfolio and a résumé stay in agreement
+ * over the months an actual job search takes.
+ *
+ * Every fact below is taken from Kiran's own CV. Where the ProductionX website
+ * makes a larger claim than the CV supports, the CV wins: a recruiter who finds
+ * a contradiction between two of your own pages stops believing both.
+ */
+
+export const person = {
+  /** Legal name on the CV is Basa Kiran Kumar; he works as Kiran Basa. */
+  name: "Kiran Basa",
+  legalName: "Basa Kiran Kumar",
+  /** The role he is actually applying for. Everything on the page argues for it. */
+  title: "Creative Head",
+  subtitle: "Brand Strategy & Content Leadership",
+  /**
+   * The one line a recruiter reads before deciding whether to keep scrolling.
+   * It leads with the arc, because ten years of range is the least replicable
+   * thing on the page — and closes on a number, because numbers get quoted.
+   */
+  strapline:
+    "Ten years from edit suite to creative leadership. I build brands from nothing — three of them at Ujwala Group, to ₹48L+ in sales — and I direct the content that sells them.",
+  location: "Hyderabad, Telangana, India",
+  /** His stated constraint, verbatim in effect: Hyderabad or Vizag, else remote. */
+  availability: "Open to Creative Head roles in Hyderabad or Visakhapatnam — and to remote roles anywhere",
+  email: "basakiran9@gmail.com",
+  phone: "+91 93919 26846",
+  phoneHref: "+919391926846",
+  linkedin: "linkedin.com/in/kiranbasa-45a778293",
+  linkedinUrl: "https://www.linkedin.com/in/kiranbasa-45a778293",
+  studio: "productionx.in",
+  studioUrl: "https://productionx.in",
+  /**
+   * This portfolio's own address. Change it in one place when the domain is
+   * bought — it appears on the CV, in the metadata and in the Person schema.
+   */
+  portfolio: "kiranbasa.vercel.app",
+  portfolioUrl: "https://kiranbasa.vercel.app",
+} as const;
+
+/**
+ * The four numbers, chosen for what a hiring manager can do with them.
+ *
+ * Revenue first — it is the only figure on the page that a CFO recognises, and
+ * a creative who can name a revenue number is rare enough to be memorable.
+ */
+export const figures = [
+  { value: "₹48L+", label: "Sales generated", note: "Three brands built at Ujwala Group" },
+  { value: "50%", label: "Showroom footfall", note: "Increase at Mercedes-Benz Silver Star" },
+  { value: "300+", label: "Qualified enquiries", note: "First four months of paid campaigns" },
+  { value: "10 yrs", label: "Editor to creative lead", note: "100+ projects across the arc" },
+];
+
+export type Role = {
+  org: string;
+  role: string;
+  period: string;
+  place: string;
+  /** Site and CV both use these. Verb first, result last. */
+  points: string[];
+  /** Site only — cut from the one-page CV to keep it to one page. */
+  detail?: string;
+  /** Older roles collapse behind a toggle on the site and compress on the CV. */
+  early?: boolean;
+};
+
+export const experience: Role[] = [
+  {
+    org: "ProductionX",
+    role: "Founder",
+    period: "May 2026 — Present",
+    place: "Hyderabad, India",
+    points: [
+      "Run an independent creative studio for early-stage and startup brands — content, branding and production, from positioning through delivery.",
+      "Design and ship client websites end to end, including three live sites and a launch microsite for a residential development.",
+      "Built an AI production pipeline that earns its place commercially: generated product and model imagery, and real-estate previsualisation that lets a sales team walk a buyer through a building before it is built.",
+      "Own the commercial side alongside the creative — scoping, pricing, pitching and client relationships.",
+    ],
+    detail:
+      "The studio is where I have tested the AI-native side of the craft on real client money rather than on demos. It has made me faster and cheaper at the same standard, which is the argument I would bring in-house.",
+  },
+  {
+    org: "Ujwala Group",
+    role: "Head of Creative & Marketing",
+    period: "Nov 2025 — May 2026",
+    place: "Hyderabad, India",
+    points: [
+      "Inherited inventory with no brand behind it — fashion, luxury furniture, smart-home products — and built three identities from scratch: 1UJ Fashion, 1UJ The International Hub, and the parent Ujwala Group.",
+      "Hired and trained a five-person team across social, content and inventory, and set the creative operations they ran on.",
+      "Took a 600+ SKU fashion catalogue and 150+ luxury and lifestyle SKUs from brand kit to a full Shopify launch.",
+      "Ran Google and Meta campaigns that brought in 300+ qualified enquiries in the first four months.",
+      "Generated ₹30L+ in luxury and lifestyle sales and ₹18L+ in fashion — ₹48L+ in total.",
+      "Used AI-generated model and product imagery alongside live-shot video to hold production costs down without dropping the visual standard, across e-commerce, social and ads.",
+    ],
+    detail:
+      "This is the role the rest of the page is really about. Three brands, one team, one storefront and a revenue number — built inside six months, with the brand kit, the campaigns and the commerce all owned by the same person.",
+  },
+  {
+    org: "Mercedes-Benz Silver Star Hyderabad",
+    role: "Content Producer",
+    period: "Dec 2024 — Nov 2025",
+    place: "Hyderabad, India",
+    points: [
+      "Led creative direction and execution for India's first Mercedes-Maybach showroom, holding the visual storytelling to a global luxury brand's positioning and the dealership's business goals at once.",
+      "Produced photography and video across the Mercedes-Benz and Maybach ranges to the standard the marque requires.",
+      "Worked with the Sales and Service Marketing GMs on multi-channel campaigns — social, print and WhatsApp — that drove a 50% increase in showroom footfall and lead conversion, and an 80% increase in service campaign engagement.",
+      "Aligned content strategy with leadership's marketing and business objectives, supporting the dealership's position as a pioneer in India's luxury automotive space.",
+    ],
+    detail:
+      "Working inside a marque at that level is where I learned that consistency is worth more than any single brilliant asset, and that brand guidelines are the job rather than an obstacle to it.",
+  },
+  {
+    org: "Self-employed",
+    role: "Independent Freelance Producer",
+    period: "Nov 2022 — Nov 2024",
+    place: "Hyderabad, India",
+    points: [
+      "Contract video production and cinematography for corporate and commercial clients across automotive, hospitality, food and beverage, and events.",
+      "Used the period deliberately to add brand strategy and content direction to a production skill set, ahead of moving into full-time creative leadership.",
+    ],
+  },
+  {
+    org: "RVR PRO",
+    role: "Cinematographer",
+    period: "Jun 2022 — Oct 2022",
+    place: "Hyderabad, India",
+    early: true,
+    points: [
+      "Shot 10+ corporate and commercial projects in five months, several recognised within the industry.",
+      "Worked closely with directors to land visuals clients signed off without rework.",
+    ],
+  },
+  {
+    org: "Telugu Desam Party",
+    role: "Content Creator",
+    period: "Feb 2020 — May 2021",
+    place: "Mangalagiri, Andhra Pradesh",
+    early: true,
+    points: [
+      "Grew the organisation's online following by 35%+ in six months through creative social campaigns.",
+      "Produced video campaigns that crossed 1M+ views on Facebook and YouTube.",
+      "Delivered against a 24/7 news cycle, keeping campaign updates consistently live.",
+    ],
+  },
+  {
+    org: "Camzooms Services Pvt Ltd",
+    role: "Video Producer",
+    period: "Dec 2018 — Jan 2020",
+    place: "Hyderabad, India",
+    early: true,
+    points: [
+      "Ran production end to end — pre-production through final delivery — for a steady pipeline of corporate, event and media projects.",
+      "Handled on-set scheduling, resource allocation and quality control across a regular client roster.",
+      "Improved workflows and cross-team collaboration, which kept deliveries on time and built the company's reputation in events and media.",
+    ],
+  },
+  {
+    org: "7th Creations",
+    role: "Video Editor",
+    period: "Oct 2016 — Nov 2018",
+    place: "Visakhapatnam, Andhra Pradesh",
+    early: true,
+    points: [
+      "Edited 100+ projects, from corporate videos to promotional films and ads.",
+      "Added animation and VFX work that lifted client satisfaction by 40%.",
+      "Built lasting client relationships, including with three major corporations.",
+    ],
+  },
+];
+
+/**
+ * Brands worked with across the ten years — in-house, agency and studio.
+ * Named because they are checkable. Order is recognition first.
+ */
+export const clients = [
+  "Mercedes-Benz",
+  "Maybach",
+  "BMW",
+  "Tanishq",
+  "IRDAI",
+  "Ujwala Group",
+  "1UJ Fashion",
+  "1UJ International Hub",
+  "Silver Star Hyderabad",
+  "Krishna Motors",
+  "Everest Abercorn",
+  "Pit Stop Group",
+  "European Wellness",
+  "Hole in the Wall",
+  "Coastal Star",
+];
+
+export type Project = {
+  code: string;
+  name: string;
+  kind: string;
+  blurb: string;
+  /** Says plainly whether this was in-house, freelance or studio work. */
+  credit: string;
+  result?: string;
+  poster: string;
+  video?: string;
+  href?: string;
+};
+
+/**
+ * Selected work, ordered by what it proves rather than by date.
+ *
+ * Each entry states the relationship honestly — in-house work as employment,
+ * client work as client work. That distinction is more defensible than a flat
+ * logo wall, and it is the stronger claim besides: having sat inside the brand
+ * beats having invoiced it.
+ */
+export const work: Project[] = [
+  {
+    code: "01",
+    name: "1UJ Fashion, 1UJ International Hub & Ujwala Group",
+    kind: "Brand build · Retail & e-commerce",
+    blurb:
+      "Three brands from nothing: identity, brand kit, campaign system and a full Shopify launch across a 600+ SKU fashion catalogue and 150+ luxury and lifestyle lines — with AI-generated model and product imagery cutting the shoot bill without cutting the standard.",
+    credit: "In-house · Head of Creative & Marketing, Ujwala Group",
+    result: "₹48L+ in sales · 300+ qualified enquiries in four months · five-person team hired and trained",
+    poster: "/work/fashion.jpg",
+  },
+  {
+    code: "02",
+    name: "India's first Mercedes-Maybach showroom",
+    kind: "Automotive · Luxury launch",
+    blurb:
+      "Led creative direction and execution for the launch of the first Maybach showroom in India — film, photography and multi-channel campaign work, produced inside a global marque's guidelines and sign-off process.",
+    credit: "In-house · Content Producer, Mercedes-Benz Silver Star Hyderabad",
+    result: "50% increase in showroom footfall and lead conversion · 80% increase in service campaign engagement",
+    poster: "/work/mercedes.jpg",
+  },
+  {
+    code: "03",
+    name: "Real-estate previsualisation",
+    kind: "AI · Previz pipeline",
+    blurb:
+      "An in-house AI pipeline that generates walkthroughs of buildings that do not exist yet, so a sales team can show a buyer the apartment while the site is still soil. Built at ProductionX and sold as a service.",
+    credit: "Studio · ProductionX",
+    poster: "/work/previz.jpg",
+    video: "/work/previz.webm",
+  },
+  {
+    code: "04",
+    name: "Premium automotive retail",
+    kind: "Automotive · Drive & performance",
+    blurb:
+      "Tracking-vehicle and gimbal cinematography for premium auto retail, cut twice over — once for the launch screen, once for the feed.",
+    credit: "Freelance & studio · BMW, Krishna Motors, Silver Star Hyderabad",
+    poster: "/work/bmw.jpg",
+  },
+  {
+    code: "05",
+    name: "Hospitality property films",
+    kind: "Hospitality · Cinematic",
+    blurb:
+      "Property content for hotels and resorts — rooms, ambience, service, and the quiet hours nobody photographs.",
+    credit: "Freelance & studio · Hotels, resorts and bars",
+    poster: "/work/hotel.jpg",
+  },
+  {
+    code: "06",
+    name: "Always-on food & beverage social",
+    kind: "F&B · Content systems",
+    blurb:
+      "A month of café and restaurant content out of one morning of coverage — food styling, ambience, staff and stills, planned as a system rather than as a shoot.",
+    credit: "Freelance & studio · Hole in the Wall and others",
+    poster: "/work/cafe.jpg",
+  },
+  {
+    code: "07",
+    name: "Corporate launches & event coverage",
+    kind: "Corporate · Multi-camera",
+    blurb:
+      "Brand launches, corporate films, product reveals and multi-camera event coverage, delivered on the schedule the event set rather than the one production wanted.",
+    credit: "Across roles · IRDAI, Everest Abercorn, Pit Stop Group",
+    poster: "/work/event.jpg",
+  },
+];
+
+/** Live sites — the part that separates him from producers who only shoot. */
+export const digital: Project[] = [
+  {
+    code: "08",
+    name: "Mahati Bhikshu",
+    kind: "Website · Design & build",
+    blurb:
+      "Portfolio site for a Kuchipudi artist, actor and educator — film, gallery, teaching and press held in one narrative scroll.",
+    credit: "ProductionX · Live",
+    poster: "/work/mahati.jpg",
+    video: "/work/mahati.webm",
+  },
+  {
+    code: "09",
+    name: "Aruna Bhikshu",
+    kind: "Website · Design & build",
+    blurb:
+      "Built around repertoire, teaching and enquiry, with a structure that keeps decades of work navigable.",
+    credit: "ProductionX · Live",
+    poster: "/work/aruna.jpg",
+    video: "/work/aruna.webm",
+  },
+  {
+    code: "10",
+    name: "Sattva Amora",
+    kind: "Website · Launch microsite",
+    blurb:
+      "Launch microsite for a residential project — narrative scroll, floor plans and enquiry capture.",
+    credit: "ProductionX · Live",
+    poster: "/work/sattva.jpg",
+    video: "/work/sattva.webm",
+  },
+];
+
+export type SkillGroup = { group: string; items: string[] };
+
+/**
+ * Grouped rather than listed flat — someone scanning for one competence should
+ * find its whole cluster in one place rather than reading thirty loose nouns.
+ * The group names double as the shape of the job being applied for.
+ */
+export const skills: SkillGroup[] = [
+  {
+    group: "Brand & strategy",
+    items: [
+      "Brand identity & positioning",
+      "Creative strategy",
+      "Campaign planning",
+      "Go-to-market execution",
+      "Brand systems & guidelines",
+    ],
+  },
+  {
+    group: "Leadership",
+    items: [
+      "Team hiring & training (5–8)",
+      "Cross-functional leadership",
+      "Creative operations",
+      "Budget & vendor management",
+      "Client & stakeholder relationships",
+    ],
+  },
+  {
+    group: "Marketing & e-commerce",
+    items: [
+      "Performance marketing (Google & Meta Ads)",
+      "Shopify storefronts",
+      "Integrated multi-channel campaigns",
+      "SEO & local search",
+      "Analytics & reporting",
+    ],
+  },
+  {
+    group: "Creative production",
+    items: [
+      "Film direction & cinematography",
+      "Visual storytelling",
+      "Product & fashion shoots",
+      "Multi-camera events",
+      "Post supervision & grade",
+    ],
+  },
+  {
+    group: "AI-augmented workflows",
+    items: [
+      "Photorealistic AI imagery & video (Higgsfield)",
+      "AI web builds (Lovable, Emergent)",
+      "Claude & ChatGPT for script, copy and SEO",
+      "Real-estate previsualisation",
+    ],
+  },
+  {
+    group: "Software",
+    items: [
+      "Adobe Premiere Pro",
+      "DaVinci Resolve",
+      "Adobe After Effects",
+      "Adobe Photoshop",
+      "Shopify",
+      "Meta Ads Manager · Google Ads",
+    ],
+  },
+];
+
+export const education = [
+  {
+    qualification: "B.A. in VFX & Animation",
+    institution: "Mahatma Gandhi University — Arena Multimedia",
+    period: "2013 — 2016",
+  },
+];
+
+export const languages = ["English", "Telugu", "Hindi"];
+
+/** Used by both the site footer and the CV file name. */
+export const cvFileName = "Kiran-Basa-Creative-Head-CV.pdf";

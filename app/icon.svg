@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KB">
+  <!-- Monogram, not a logo: a personal site earns a mark that is legible at
+       16px in a crowded tab strip, and initials are the only thing that is. -->
+  <rect width="64" height="64" rx="14" fill="#16151a"/>
+  <path d="M17 17v30M17 32l12-15M17 32l13 15" stroke="#faf8f5" stroke-width="5.5"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M40 17h6a7 7 0 0 1 0 14h-6zM40 31h7a8 8 0 0 1 0 16h-7z" fill="#b0442a"/>
+</svg>

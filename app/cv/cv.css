@@ -1,0 +1,99 @@
+/*
+ * Print-first stylesheet.
+ *
+ * Sized in millimetres against A4 because the PDF is the artefact that matters
+ * — the screen rendering is a by-product. Colours are constrained to ink, one
+ * accent and a grey: anything more costs contrast on the office laser printer
+ * a hiring manager will inevitably run it through, and many ATS parsers strip
+ * colour entirely before a human ever sees it.
+ */
+
+.cv {
+  --cv-ink: #16151a;
+  --cv-mid: #45424b;
+  --cv-grey: #6f6b74;
+  --cv-line: #d9d4cc;
+  --cv-accent: #a03d24;
+
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 14mm 15mm 12mm;
+  background: #fff;
+  color: var(--cv-ink);
+  font-family: var(--font-body), -apple-system, "Segoe UI", sans-serif;
+  font-size: 9.4pt;
+  line-height: 1.42;
+  box-sizing: border-box;
+}
+
+/* On screen, sit the sheet on a grey desk so it reads as a document. */
+@media screen {
+  body { background: #55525a; }
+  .cv { margin-block: 24px; box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35); }
+}
+
+.cv a { color: var(--cv-ink); text-decoration: none; }
+
+.cv__head { border-bottom: 1.5pt solid var(--cv-ink); padding-bottom: 3mm; margin-bottom: 4mm; }
+.cv__head h1 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 22pt; font-weight: 500; letter-spacing: 0.02em;
+  text-transform: uppercase; margin: 0;
+}
+.cv__title { margin: 1.2mm 0 0; font-size: 9.6pt; font-weight: 600; color: var(--cv-accent); }
+.cv__contact { margin: 1.6mm 0 0; font-size: 8.6pt; color: var(--cv-mid); }
+
+.cv section { margin-bottom: 4.5mm; }
+.cv h2 {
+  font-family: var(--font-body), sans-serif;
+  font-size: 8pt; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--cv-accent);
+  margin: 0 0 2mm; padding-bottom: 1mm; border-bottom: 0.5pt solid var(--cv-line);
+}
+.cv__sub {
+  font-size: 8pt; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--cv-grey); margin: 3.5mm 0 2mm;
+}
+
+.cv__summary { margin: 0; text-align: justify; color: var(--cv-mid); }
+
+/* Results band */
+.cv__figs {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm;
+  padding: 3mm 0; margin-bottom: 4.5mm;
+  border-top: 0.5pt solid var(--cv-line); border-bottom: 0.5pt solid var(--cv-line);
+}
+.cv__figs > div { display: flex; flex-direction: column; }
+.cv__fig-v {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 15pt; line-height: 1.05; color: var(--cv-accent);
+}
+.cv__fig-l { font-size: 8.4pt; font-weight: 650; margin-top: 0.6mm; }
+.cv__fig-n { font-size: 7.6pt; color: var(--cv-grey); }
+
+.cv__skills { margin: 0; padding: 0; list-style: none; }
+.cv__skills li { margin-bottom: 1.2mm; color: var(--cv-mid); padding-left: 3mm; text-indent: -3mm; }
+.cv__skills li::before { content: "▪ "; color: var(--cv-accent); }
+.cv__skills strong { color: var(--cv-ink); }
+
+.cv__role { margin-bottom: 3.4mm; break-inside: avoid; }
+.cv__role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+.cv__role-title { font-size: 10pt; font-weight: 700; }
+.cv__role-when { font-size: 8.2pt; color: var(--cv-grey); white-space: nowrap; font-weight: 600; }
+.cv__role-place { font-size: 8.2pt; color: var(--cv-grey); margin-bottom: 1.2mm; }
+.cv__role ul { margin: 0; padding-left: 4mm; }
+.cv__role li { margin-bottom: 0.9mm; color: var(--cv-mid); }
+.cv__role li::marker { color: var(--cv-accent); }
+.cv__role--slim { margin-bottom: 2mm; }
+
+.cv__foot-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 6mm; }
+.cv__edu { margin: 0; color: var(--cv-mid); }
+
+@media print {
+  @page { size: A4; margin: 0; }
+  body { background: #fff; }
+  .cv { margin: 0; box-shadow: none; width: auto; min-height: 0; }
+  .cv section { break-inside: auto; }
+  .cv h2 { break-after: avoid; }
+}
