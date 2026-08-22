@@ -113,6 +113,21 @@ const schema = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
+      <head>
+        {/*
+          Runs before first paint. The intro curtain is display:none by default
+          and only becomes visible under this class, so a reader with no
+          JavaScript never gets a full-screen overlay that nothing will lift —
+          and neither does one who asked for reduced motion.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)" +
+              "document.documentElement.classList.add('js-intro')}catch(e){}",
+          }}
+        />
+      </head>
       <body>
         {children}
         <script
