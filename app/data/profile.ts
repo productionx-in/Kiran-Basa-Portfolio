@@ -95,7 +95,7 @@ export const experience: Role[] = [
       "Took a 600+ SKU fashion catalogue and 150+ luxury and lifestyle SKUs from brand kit to a full Shopify launch.",
       "Ran Google and Meta campaigns that brought in 300+ qualified enquiries in the first four months.",
       "Generated ₹30L+ in luxury and lifestyle sales and ₹18L+ in fashion — ₹48L+ in total.",
-      "Used AI-generated model and product imagery alongside live-shot video to hold production costs down without dropping the visual standard, across e-commerce, social and ads.",
+      "Produced the entire e-commerce catalogue with AI — every garment through to the premium furniture line, including the Bugatti office, dining and bedroom ranges — holding a luxury visual standard across storefront, social and ads with no photo shoot behind it.",
     ],
     detail:
       "This is the role the rest of the page is really about. Three brands, one team, one storefront and a revenue number — built inside six months, with the brand kit, the campaigns and the commerce all owned by the same person.",
@@ -193,6 +193,7 @@ export const clients = [
   "European Wellness",
   "Hole in the Wall",
   "Coastal Star",
+  "OTHO Realty",
 ];
 
 export type Project = {
@@ -239,10 +240,10 @@ export const work: Project[] = [
   },
   {
     code: "03",
-    name: "Real-estate previsualisation",
-    kind: "AI · Previz pipeline",
+    name: "AI previsualisation & generated content",
+    kind: "AI · Production pipeline",
     blurb:
-      "An in-house AI pipeline that generates walkthroughs of buildings that do not exist yet, so a sales team can show a buyer the apartment while the site is still soil. Built at ProductionX and sold as a service.",
+      "A pipeline for making the thing that cannot be photographed yet — because it is not built, not manufactured, or not affordable to shoot. Property walkthroughs before the slab is poured are one application; product, model and campaign imagery are the others. Not a real-estate tool: a way to originate any visual a brief calls for.",
     credit: "Studio · ProductionX",
     poster: "/work/previz.jpg",
     video: "/work/previz.webm",
@@ -309,6 +310,16 @@ export const digital: Project[] = [
   },
   {
     code: "10",
+    name: "OTHO Realty",
+    kind: "Real estate · Brand & prototype",
+    blurb:
+      "Brand building and a working site prototype for a realty client — the commercial home for the previsualisation pipeline, where generated walkthroughs sit beside the brand they are selling.",
+    credit: "ProductionX · Live prototype",
+    href: "https://otho-prototype.vercel.app/",
+    poster: "/work/previz.jpg",
+  },
+  {
+    code: "11",
     name: "Sattva Amora",
     kind: "Website · Launch microsite",
     blurb:
@@ -342,7 +353,8 @@ export const skills: SkillGroup[] = [
     items: [
       "Team hiring & training (5–8)",
       "Cross-functional leadership",
-      "Creative operations",
+      "Creative operations & workflow automation",
+      "Process design (Zapier, ClickUp) to cut cost and turnaround",
       "Budget & vendor management",
       "Client & stakeholder relationships",
     ],
@@ -370,21 +382,24 @@ export const skills: SkillGroup[] = [
   {
     group: "AI-augmented workflows",
     items: [
-      "Photorealistic AI imagery & video (Higgsfield)",
-      "AI web builds (Lovable, Emergent)",
-      "Claude & ChatGPT for script, copy and SEO",
-      "Real-estate previsualisation",
+      "AI product & model imagery at commercial scale",
+      "Generative video (Veo 3.0)",
+      "Image generation & editing (Nano Banana)",
+      "Previsualisation — anything not yet built or shot",
+      "AI-assisted brand building",
+      "Script, copy and SEO with Claude and ChatGPT",
     ],
   },
   {
     group: "Software",
     items: [
-      "Adobe Premiere Pro",
-      "DaVinci Resolve",
-      "Adobe After Effects",
-      "Adobe Photoshop",
-      "Shopify",
-      "Meta Ads Manager · Google Ads",
+      "Adobe Creative Suite",
+      "DaVinci Resolve Studio",
+      "Claude Code · Cursor",
+      "ChatGPT · Claude",
+      "Veo 3.0 · Nano Banana",
+      "Shopify · Meta Ads Manager · Google Ads",
+      "Zapier · ClickUp",
     ],
   },
 ];
