@@ -39,8 +39,8 @@ export const person = {
    * This portfolio's own address. Change it in one place when the domain is
    * bought — it appears on the CV, in the metadata and in the Person schema.
    */
-  portfolio: "kiranbasa.vercel.app",
-  portfolioUrl: "https://kiranbasa.vercel.app",
+  portfolio: "kiran-basa-portfolio.vercel.app",
+  portfolioUrl: "https://kiran-basa-portfolio.vercel.app",
 } as const;
 
 /**

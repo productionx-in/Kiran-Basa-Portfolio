@@ -29,7 +29,7 @@ const body = Inter({
  * Set this once the domain is live. Everything canonical, OG and schema-related
  * derives from it, so there is exactly one string to change.
  */
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kiranbasa.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kiran-basa-portfolio.vercel.app";
 
 const title = `${person.name} — ${person.title}, ${person.subtitle}`;
 const description =
