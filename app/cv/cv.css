@@ -9,11 +9,11 @@
  */
 
 .cv {
-  --cv-ink: #16151a;
-  --cv-mid: #45424b;
-  --cv-grey: #6f6b74;
-  --cv-line: #d9d4cc;
-  --cv-accent: #a03d24;
+  --cv-ink: #111014;
+  --cv-mid: #3b3941;
+  --cv-grey: #615e55;
+  --cv-line: #d3cfc4;
+  --cv-accent: #1f2fd0;
 
   width: 210mm;
   min-height: 297mm;

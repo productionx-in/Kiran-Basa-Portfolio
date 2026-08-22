@@ -20,6 +20,7 @@ const src = readFileSync(join(root, "app/data/profile.ts"), "utf8");
 const pick = (k) => src.match(new RegExp(`${k}:\\s*"([^"]+)"`))?.[1] ?? "";
 
 const name = pick("name");
+const headline = pick("headline");
 const title = pick("title");
 const subtitle = pick("subtitle");
 const figures = [...src.matchAll(/\{ value: "([^"]+)", label: "([^"]+)"/g)].map((m) => ({
@@ -30,26 +31,26 @@ const figures = [...src.matchAll(/\{ value: "([^"]+)", label: "([^"]+)"/g)].map(
 const html = `<!doctype html><html><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..700&family=Inter+Tight:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box;margin:0}
-  body{width:1200px;height:630px;background:#faf8f5;color:#16151a;
-       font-family:Inter,sans-serif;padding:72px 80px;display:flex;
+  body{width:1200px;height:630px;background:#f2f1ed;color:#111014;
+       font-family:"Inter Tight",sans-serif;padding:72px 80px;display:flex;
        flex-direction:column;justify-content:space-between}
-  .rule{width:64px;height:4px;background:#b0442a}
-  h1{font-family:Fraunces,serif;font-weight:400;font-size:84px;line-height:1.02;letter-spacing:-0.02em}
-  h1 span{color:#b0442a}
-  .sub{font-size:22px;color:#45424b;margin-top:22px;max-width:44ch;line-height:1.45}
-  .figs{display:flex;gap:56px;border-top:1px solid #e3ded6;padding-top:26px}
-  .v{font-family:Fraunces,serif;font-size:40px;color:#b0442a;line-height:1}
+  .rule{width:64px;height:4px;background:#1f2fd0}
+  h1{font-family:"Bricolage Grotesque",sans-serif;font-weight:400;font-size:84px;line-height:1.02;letter-spacing:-0.02em}
+  h1 span{color:#1f2fd0}
+  .sub{font-size:22px;color:#3b3941;margin-top:22px;max-width:44ch;line-height:1.45}
+  .figs{display:flex;gap:56px;border-top:2px solid #111014;padding-top:26px}
+  .v{font-family:"Bricolage Grotesque",sans-serif;font-size:40px;color:#1f2fd0;line-height:1}
   .l{font-size:15px;font-weight:600;margin-top:4px}
-  .who{font-size:17px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#706c76}
+  .who{font-size:17px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#615e55}
 </style></head><body>
   <div>
     <div class="rule"></div>
     <div class="who" style="margin-top:18px">${name}</div>
-    <h1 style="margin-top:14px">${title}.<br><span>${subtitle}</span></h1>
-    <p class="sub">Ten years from edit suite to creative leadership — brand strategy, campaigns and production, owned end to end.</p>
+    <h1 style="margin-top:14px">${headline.replace("content that sells them", '<span>content that sells them</span>')}</h1>
+    <p class="sub">${title} — ${subtitle}. Ten years from the edit suite to creative leadership.</p>
   </div>
   <div class="figs">
     ${figures.map((f) => `<div><div class="v">${f.v}</div><div class="l">${f.l}</div></div>`).join("")}

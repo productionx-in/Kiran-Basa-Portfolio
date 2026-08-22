@@ -19,12 +19,19 @@ export const person = {
   title: "Creative Head",
   subtitle: "Brand Strategy & Content Leadership",
   /**
+   * The headline claim. Craft and leadership carry it; AI appears as one of
+   * three tools in the strapline, which is the true proportion. An earlier
+   * draft led on "AI-native creative leader" and Kiran corrected it: the AI
+   * makes the work smart, it is not the skill being sold.
+   */
+  headline: "I build brands, and the content that sells them.",
+  /**
    * The one line a recruiter reads before deciding whether to keep scrolling.
    * It leads with the arc, because ten years of range is the least replicable
    * thing on the page — and closes on a number, because numbers get quoted.
    */
   strapline:
-    "Ten years from edit suite to creative leadership. I build brands from nothing — three of them at Ujwala Group, to ₹48L+ in sales — and I direct the content that sells them.",
+    "Ten years from the edit suite to creative leadership. Three brands built from nothing to ₹48L+ in sales, India's first Mercedes-Maybach showroom, 100+ projects shot and cut. I shoot when only a crew will do, generate when a camera cannot go, and automate the rest.",
   location: "Hyderabad, Telangana, India",
   /** His stated constraint, verbatim in effect: Hyderabad or Vizag, else remote. */
   availability: "Open to Creative Head roles in Hyderabad or Visakhapatnam — and to remote roles anywhere",
@@ -196,8 +203,13 @@ export const clients = [
   "OTHO Realty",
 ];
 
+export const DISCIPLINES = ["Brand & strategy", "Production", "Digital", "AI"] as const;
+export type Discipline = (typeof DISCIPLINES)[number];
+
 export type Project = {
   code: string;
+  /** One project can belong to several — most of the real ones do. */
+  tags: Discipline[];
   name: string;
   kind: string;
   blurb: string;
@@ -221,6 +233,7 @@ export const work: Project[] = [
   {
     code: "01",
     name: "1UJ Fashion, 1UJ International Hub & Ujwala Group",
+    tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Brand build · Retail & e-commerce",
     blurb:
       "Three brands from nothing: identity, brand kit, campaign system and a full Shopify launch across a 600+ SKU fashion catalogue and 150+ luxury and lifestyle lines — with AI-generated model and product imagery cutting the shoot bill without cutting the standard.",
@@ -231,6 +244,7 @@ export const work: Project[] = [
   {
     code: "02",
     name: "India's first Mercedes-Maybach showroom",
+    tags: ["Brand & strategy", "Production"],
     kind: "Automotive · Luxury launch",
     blurb:
       "Led creative direction and execution for the launch of the first Maybach showroom in India — film, photography and multi-channel campaign work, produced inside a global marque's guidelines and sign-off process.",
@@ -241,6 +255,7 @@ export const work: Project[] = [
   {
     code: "03",
     name: "AI previsualisation & generated content",
+    tags: ["AI", "Production"],
     kind: "AI · Production pipeline",
     blurb:
       "A pipeline for making the thing that cannot be photographed yet — because it is not built, not manufactured, or not affordable to shoot. Property walkthroughs before the slab is poured are one application; product, model and campaign imagery are the others. Not a real-estate tool: a way to originate any visual a brief calls for.",
@@ -251,6 +266,7 @@ export const work: Project[] = [
   {
     code: "04",
     name: "Premium automotive retail",
+    tags: ["Production"],
     kind: "Automotive · Drive & performance",
     blurb:
       "Tracking-vehicle and gimbal cinematography for premium auto retail, cut twice over — once for the launch screen, once for the feed.",
@@ -260,6 +276,7 @@ export const work: Project[] = [
   {
     code: "05",
     name: "Hospitality property films",
+    tags: ["Production"],
     kind: "Hospitality · Cinematic",
     blurb:
       "Property content for hotels and resorts — rooms, ambience, service, and the quiet hours nobody photographs.",
@@ -269,6 +286,7 @@ export const work: Project[] = [
   {
     code: "06",
     name: "Always-on food & beverage social",
+    tags: ["Production", "Brand & strategy"],
     kind: "F&B · Content systems",
     blurb:
       "A month of café and restaurant content out of one morning of coverage — food styling, ambience, staff and stills, planned as a system rather than as a shoot.",
@@ -278,6 +296,7 @@ export const work: Project[] = [
   {
     code: "07",
     name: "Corporate launches & event coverage",
+    tags: ["Production"],
     kind: "Corporate · Multi-camera",
     blurb:
       "Brand launches, corporate films, product reveals and multi-camera event coverage, delivered on the schedule the event set rather than the one production wanted.",
@@ -291,6 +310,7 @@ export const digital: Project[] = [
   {
     code: "08",
     name: "Mahati Bhikshu",
+    tags: ["Digital"],
     kind: "Website · Design & build",
     blurb:
       "Portfolio site for a Kuchipudi artist, actor and educator — film, gallery, teaching and press held in one narrative scroll.",
@@ -301,6 +321,7 @@ export const digital: Project[] = [
   {
     code: "09",
     name: "Aruna Bhikshu",
+    tags: ["Digital"],
     kind: "Website · Design & build",
     blurb:
       "Built around repertoire, teaching and enquiry, with a structure that keeps decades of work navigable.",
@@ -311,6 +332,7 @@ export const digital: Project[] = [
   {
     code: "10",
     name: "OTHO Realty",
+    tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Real estate · Brand & prototype",
     blurb:
       "Brand building and a working site prototype for a realty client — the commercial home for the previsualisation pipeline, where generated walkthroughs sit beside the brand they are selling.",
@@ -321,6 +343,7 @@ export const digital: Project[] = [
   {
     code: "11",
     name: "Sattva Amora",
+    tags: ["Digital"],
     kind: "Website · Launch microsite",
     blurb:
       "Launch microsite for a residential project — narrative scroll, floor plans and enquiry capture.",
@@ -328,6 +351,21 @@ export const digital: Project[] = [
     poster: "/work/sattva.jpg",
     video: "/work/sattva.webm",
   },
+];
+
+/**
+ * How the work actually gets made. This is the section that answers "what is
+ * he like to work with" — the question every hiring manager has and almost no
+ * portfolio answers. Generation sits at step three of six, between direction
+ * and shooting, which is where it honestly belongs.
+ */
+export const method = [
+  { step: "Brief & positioning", body: "What the brand needs to say, and who it needs to say it to. Nothing gets made before this is settled.", detail: "Discovery, competitor study, and the one sentence the brand has to own. Most bad campaigns are a positioning failure wearing a production budget." },
+  { step: "Direction", body: "References, art direction and the look locked before a single asset exists.", detail: "A board, a palette, a type system and a shot list. Locking the look early is what keeps a small team from re-doing work twice." },
+  { step: "Generate", body: "AI imagery and video where a camera cannot go, or cannot justify the cost.", detail: "Product on a set that was never built, a garment on a model never booked, a tower before the slab is poured. Used where it wins on time or money, never as a default." },
+  { step: "Shoot", body: "A real crew where only real footage will do. The two are not in competition.", detail: "People, places, texture, the thing that has to be true. Ten years behind a camera is what tells me which of the two a brief needs." },
+  { step: "Art-direct & finish", body: "Grade, retouch, layout. The standard is identical whichever way the frame was made.", detail: "This is the step that decides whether generated work reads as premium or as a shortcut. It is craft, and it does not get skipped." },
+  { step: "Ship & measure", body: "Storefront, campaign, analytics, next iteration.", detail: "Shopify, Meta and Google, then the numbers. Work that is not measured is decoration." },
 ];
 
 export type SkillGroup = { group: string; items: string[] };

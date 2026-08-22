@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Bricolage_Grotesque, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { person, experience, skills, education, clients } from "./data/profile";
 
 /**
  * Two faces, each with a job.
  *
- * Fraunces is a variable serif with real character in its optical sizes — it
- * carries the name and the section heads. Inter does everything a recruiter
- * actually reads at speed. Deliberately not the studio's Instrument Serif +
- * Inter pairing: this page belongs to Kiran, not to ProductionX.
+ * Bricolage Grotesque is a contemporary variable grotesque with genuine
+ * character in its wider optical sizes — it carries the headlines, where a
+ * creative director's page has to look art-directed rather than typeset. Inter
+ * Tight does everything read at speed. Neither is the studio's Instrument
+ * Serif pairing, and neither is a serif: the earlier serif draft read as the
+ * same designer's hand as productionx.in, which was the point of rebuilding.
  */
-const display = Fraunces({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
   weight: "variable",
-  axes: ["SOFT", "WONK", "opsz"],
   variable: "--font-display",
   display: "swap",
 });
 
-const body = Inter({
+const body = Inter_Tight({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
@@ -33,7 +34,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kiran-basa-portfoli
 
 const title = `${person.name} — ${person.title}, ${person.subtitle}`;
 const description =
-  "Creative Head with ten years from edit suite to creative leadership. Built three brands at Ujwala Group to ₹48L+ in sales; led content for India's first Mercedes-Maybach showroom. Hyderabad, India — open to remote.";
+  "Creative Head in Hyderabad. Ten years from the edit suite to creative leadership — three brands built to ₹48L+ in sales, India's first Mercedes-Maybach showroom, 100+ projects. Open to roles in Hyderabad or Visakhapatnam, and remote anywhere.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

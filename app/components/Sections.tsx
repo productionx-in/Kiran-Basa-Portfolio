@@ -1,58 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
-import type { Project, Role } from "../data/profile";
-
-/**
- * A work card. Video is used only where a still cannot carry the point — a
- * website scroll or a previz walkthrough — and it is muted, looping, playsInline
- * and lazily loaded so it never costs a reader their data plan or their
- * attention. Everything else is a poster image, which loads faster and reads
- * better on a phone.
- */
-export function WorkCard({ p, i }: { p: Project; i: number }) {
-  return (
-    <article className="card" data-reveal data-i={i}>
-      <div className="card__media">
-        <span className="card__code">{p.code}</span>
-        {p.video ? (
-          <video
-            poster={p.poster}
-            src={p.video}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-label={`${p.name} — walkthrough`}
-          />
-        ) : (
-          /* `fill` because the container already fixes the aspect ratio, and the
-             sizes hint stops a phone downloading the desktop-width variant. */
-          <Image
-            src={p.poster}
-            alt={p.name}
-            fill
-            sizes="(max-width: 780px) 100vw, 50vw"
-            priority={i === 0}
-          />
-        )}
-      </div>
-      <div className="card__body">
-        <span className="card__kind">{p.kind}</span>
-        <h3>{p.name}</h3>
-        <p>{p.blurb}</p>
-        {p.result && (
-          <p className="card__result">
-            <strong>Result</strong> {p.result}
-          </p>
-        )}
-        <span className="card__credit">{p.credit}</span>
-      </div>
-    </article>
-  );
-}
+import type { Role } from "../data/profile";
 
 /**
  * The experience list.

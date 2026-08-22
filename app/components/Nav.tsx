@@ -5,8 +5,8 @@ import { person, cvFileName } from "../data/profile";
 
 const LINKS = [
   { href: "#work", label: "Work" },
+  { href: "#method", label: "Method" },
   { href: "#experience", label: "Experience" },
-  { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -26,7 +26,7 @@ export default function Nav() {
         <a href="#top" className="nav__name">
           {person.name}
         </a>
-        <div className="nav__links">
+        <div className="nav__right">
           {LINKS.map((l) => (
             <a key={l.href} href={l.href}>
               {l.label}
