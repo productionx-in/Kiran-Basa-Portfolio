@@ -928,3 +928,104 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
   position: static; transform: none !important; filter: none; opacity: 1;
   flex: 0 0 12rem; scroll-snap-align: center;
 }
+
+/* ==========================================================================
+   PORTRAIT-LED HERO
+   Every reference leads with the person. The name is set as a graphic behind
+   the figure, the way Janice and Ethan Brady do it, rather than as a caption.
+   ========================================================================== */
+
+.hero__stage {
+  position: relative; display: grid; place-items: center;
+  margin-block: var(--s5) var(--s4); perspective: 1000px;
+  min-height: clamp(20rem, 42vw, 34rem);
+}
+.hero__name {
+  position: absolute; inset: 0; z-index: 1;
+  display: grid; align-content: center; justify-items: center;
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(3.6rem, 15vw, 12rem); line-height: 0.82;
+  letter-spacing: -0.05em; color: var(--bone); pointer-events: none;
+  margin: 0;
+}
+/* Second line sits behind the figure and is knocked back, so the portrait
+   reads as standing in front of the name rather than on top of it. */
+.hero__name span:last-child { color: transparent; -webkit-text-stroke: 1px var(--line); }
+
+.pt {
+  position: relative; z-index: 2;
+  width: clamp(13rem, 26vw, 21rem); aspect-ratio: 3 / 4;
+  transform-style: preserve-3d; will-change: transform;
+  border: 1px solid var(--line); background: var(--surface); overflow: hidden;
+}
+.pt__img { object-fit: cover; }
+.pt__slot {
+  display: grid; align-content: center; gap: var(--s2);
+  height: 100%; padding: var(--s3); text-align: center;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 9px,
+      color-mix(in srgb, var(--chrome) 8%, transparent) 9px 10px),
+    var(--surface);
+}
+.pt__k {
+  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 700; color: var(--chrome);
+}
+.pt__t { font-size: 0.82rem; color: var(--muted); margin: 0; line-height: 1.5; }
+.pt__t code {
+  display: block; margin-top: 0.4rem; color: var(--bone-2);
+  font-size: 0.76rem; word-break: break-all;
+}
+
+.hero__role {
+  position: absolute; z-index: 3; right: 0; bottom: 8%;
+  display: grid; gap: 0.1rem; text-align: right; margin: 0;
+  background: var(--ink); padding: 0.55rem 0.85rem; border-left: 2px solid var(--chrome);
+}
+.hero__role span:first-child { font-weight: 700; font-size: 1.02rem; }
+.hero__role span:last-child { font-size: 0.78rem; color: var(--muted); }
+@media (max-width: 720px) { .hero__role { position: static; text-align: left; margin-top: var(--s3); justify-self: start; } }
+
+.hero__under { display: grid; gap: var(--s4); margin-top: var(--s4); }
+
+/* --------------------------------------------------------- disciplines */
+
+.disc { list-style: none; margin: var(--s5) 0 0; padding: 0; border-top: 1px solid var(--line); }
+.disc__row { border-bottom: 1px solid var(--line); }
+.disc__btn {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s3); background: none; border: 0; cursor: pointer;
+  padding: clamp(0.9rem, 2vw, 1.6rem) 0; text-align: left;
+  transition: padding-left 0.35s cubic-bezier(0.22,1,0.36,1), color 0.3s ease;
+}
+.disc__title {
+  font-family: var(--display); font-weight: 600; letter-spacing: -0.035em;
+  font-size: clamp(1.8rem, 5.2vw, 4rem); line-height: 0.98;
+  color: var(--muted); transition: color 0.3s ease;
+}
+.disc__row[data-on="true"] .disc__btn { padding-left: var(--s3); }
+.disc__row[data-on="true"] .disc__title { color: var(--bone); }
+.disc__mark {
+  width: 12px; height: 12px; flex: none; border: 2px solid var(--line);
+  border-radius: 50%; transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.disc__row[data-on="true"] .disc__mark { background: var(--chrome); border-color: var(--chrome); transform: scale(1.4); }
+
+.disc__panel {
+  display: grid; grid-template-columns: 22rem 1fr; gap: var(--s4);
+  padding: 0 0 var(--s4);
+}
+.disc__panel[hidden] { display: none; }
+@media (max-width: 900px) { .disc__panel { grid-template-columns: 1fr; } }
+.disc__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border: 1px solid var(--line); }
+.disc__media img { object-fit: cover; }
+.disc__body { display: grid; gap: var(--s2); align-content: center; }
+.disc__line { font-size: 1.05rem; color: var(--bone); margin: 0; max-width: 48ch; }
+.disc__points { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+.disc__points li {
+  position: relative; padding-left: 1.3rem; color: var(--bone-2); font-size: 0.95rem;
+}
+.disc__points li::before {
+  content: ""; position: absolute; left: 0; top: 0.58em;
+  width: 7px; height: 7px; background: var(--chrome);
+}

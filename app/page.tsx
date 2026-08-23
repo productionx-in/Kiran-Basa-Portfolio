@@ -1,5 +1,7 @@
 import Nav from "./components/Nav";
 import Arc from "./components/Arc";
+import Disciplines from "./components/Disciplines";
+import Portrait from "./components/Portrait";
 import { ExperienceList } from "./components/Sections";
 import {
   Motion, Cursor, Intro, Lines, Rise, Marquee, MethodPin, Counter, Magnetic,
@@ -31,6 +33,8 @@ export default function Home() {
 
       <main id="main" tabIndex={-1}>
         {/* ------------------------------------------------------------ hero */}
+        {/* Portrait-led, like every reference Kiran sent. The name is set as a
+            graphic behind the figure rather than as a caption beside it. */}
         <section className="band hero">
           <div className="shell">
             <Rise>
@@ -40,32 +44,52 @@ export default function Home() {
               </p>
             </Rise>
 
-            <Lines as="h1">I build brands, and the content that sells them.</Lines>
+            <div className="hero__stage">
+              <h1 className="hero__name" aria-label={person.name}>
+                <span aria-hidden="true">KIRAN</span>
+                <span aria-hidden="true">BASA</span>
+              </h1>
+              <Portrait />
+              <p className="hero__role">
+                <span>{person.title}</span>
+                <span>{person.subtitle}</span>
+              </p>
+            </div>
 
-            <Rise delay={0.1}>
-              <p className="hero__lead">{person.strapline}</p>
-            </Rise>
-
-            <Rise delay={0.16}>
-              <div className="hero__cta">
-                <Magnetic>
-                  <a className="btn" href={`/${cvFileName}`} download data-cursor="Download">
-                    Download CV
-                  </a>
-                </Magnetic>
-                <Magnetic>
-                  <a className="btn btn--ghost" href="#work" data-cursor="See work">
-                    See the work
-                  </a>
-                </Magnetic>
-              </div>
-            </Rise>
+            <div className="hero__under">
+              <Rise delay={0.06}>
+                <p className="hero__lead">{person.strapline}</p>
+              </Rise>
+              <Rise delay={0.12}>
+                <div className="hero__cta">
+                  <Magnetic>
+                    <a className="btn" href={`/${cvFileName}`} download data-cursor="Download">
+                      Download CV
+                    </a>
+                  </Magnetic>
+                  <Magnetic>
+                    <a className="btn btn--ghost" href="#work" data-cursor="See work">
+                      See the work
+                    </a>
+                  </Magnetic>
+                </div>
+              </Rise>
+            </div>
 
             <div className="figures">
               {figures.map((f) => (
                 <Counter key={f.label} value={f.value} label={f.label} note={f.note} />
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ----------------------------------------------------- disciplines */}
+        <section className="band band--stone" id="disciplines">
+          <div className="shell">
+            <span className="label idx">01 — Disciplines</span>
+            <Lines className="mt">Three things, done by one person.</Lines>
+            <Disciplines />
           </div>
         </section>
 
@@ -78,7 +102,7 @@ export default function Home() {
         {/* ------------------------------------------------------------ work */}
         <section className="band band--stone" id="work">
           <div className="shell">
-            <span className="label idx">01 — Selected work</span>
+            <span className="label idx">02 — Selected work</span>
             <Lines className="mt">Eleven pieces. Turn the arc.</Lines>
             <Rise delay={0.1}>
               <p className="lead">
@@ -95,7 +119,7 @@ export default function Home() {
         {/* ---------------------------------------------------------- method */}
         <section className="band" id="method">
           <div className="shell">
-            <span className="label idx">02 — Method</span>
+            <span className="label idx">03 — Method</span>
             <Lines className="mt">How the work actually gets made.</Lines>
             <Rise delay={0.1}>
               <p className="lead">
@@ -116,7 +140,7 @@ export default function Home() {
         {/* ------------------------------------------------------ experience */}
         <section className="band band--stone" id="experience">
           <div className="shell">
-            <span className="label idx">03 — Experience</span>
+            <span className="label idx">04 — Experience</span>
             <Lines className="mt">Edit suite to creative lead, in ten years.</Lines>
             <Rise delay={0.1}>
               <p className="lead">
@@ -132,7 +156,7 @@ export default function Home() {
         {/* ---------------------------------------------------------- skills */}
         <section className="band" id="skills">
           <div className="shell">
-            <span className="label idx">04 — Capability</span>
+            <span className="label idx">05 — Capability</span>
             <Lines className="mt">What I own end to end.</Lines>
             <div className="skills">
               {skills.map((g, i) => (
@@ -185,7 +209,7 @@ export default function Home() {
         {/* --------------------------------------------------------- contact */}
         <section className="band band--ink" id="contact">
           <div className="shell">
-            <span className="label idx">05 — Contact</span>
+            <span className="label idx">06 — Contact</span>
             <Lines className="mt">Want someone to own the whole brand?</Lines>
             <div className="contact__grid" style={{ marginTop: "2rem" }}>
               <Rise>
