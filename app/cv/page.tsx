@@ -54,15 +54,14 @@ export default function CV() {
       <section>
         <h2>Profile</h2>
         <p className="cv__summary">
-          Creative leader with ten years across the whole production chain — from cutting
-          other people&rsquo;s footage to owning brand strategy, campaigns and a creative
-          team. Built three brands from zero to market at Ujwala Group, taking them to
-          ₹48L+ in sales inside six months; before that, directed content for
-          India&rsquo;s first Mercedes-Maybach showroom, where multi-channel campaign work
-          lifted showroom footfall 50%. Comfortable owning brand identity, performance
-          marketing and creative production end to end, and fluent in the AI-augmented
-          workflows that now decide what a small team can deliver. Seeking a Creative Head
-          role owning brand strategy end to end.
+          Ten years in production, the last three running the brand as well as the film.
+          At Ujwala Group I built three brands from nothing and took them to ₹48L+ in
+          sales inside six months, hiring the team, running the Shopify launch and
+          owning the ad spend myself. Before that I directed content for India&rsquo;s
+          first Mercedes-Maybach showroom, where the campaign work put showroom footfall
+          up 50%. I still shoot and I still cut. I also build the sites, run the ads, and
+          use AI where it takes cost out, which is how a team of five ships like a bigger
+          one. Looking for a Creative Head role.
         </p>
       </section>
 

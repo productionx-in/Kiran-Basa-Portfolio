@@ -60,7 +60,7 @@
   color: var(--cv-grey); margin: 3.5mm 0 2mm;
 }
 
-.cv__summary { margin: 0; text-align: justify; color: var(--cv-mid); }
+.cv__summary { margin: 0; color: var(--cv-mid); }
 
 /* Results band */
 .cv__figs {

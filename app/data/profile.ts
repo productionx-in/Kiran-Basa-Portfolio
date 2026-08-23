@@ -28,10 +28,14 @@ export const person = {
   /**
    * The one line a recruiter reads before deciding whether to keep scrolling.
    * It leads with the arc, because ten years of range is the least replicable
-   * thing on the page — and closes on a number, because numbers get quoted.
+   * thing on the page, and closes on the three ways he actually makes a frame.
+   *
+   * Written as four short sentences rather than one balanced one. An earlier
+   * draft ran the last clause as a tidy comma triad and read like a machine
+   * had set it; breaking the rhythm is most of what makes prose sound written.
    */
   strapline:
-    "Ten years from the edit suite to creative leadership. Three brands built from nothing to ₹48L+ in sales, India's first Mercedes-Maybach showroom, 100+ projects shot and cut. I shoot when only a crew will do, generate when a camera cannot go, and automate the rest.",
+    "Ten years, editor to creative lead. Three brands built from nothing to ₹48L+ in sales, India's first Mercedes-Maybach showroom, 100+ projects shot and cut. I shoot when a crew is the only way to get it. I generate when a camera can't get there. The rest I automate.",
   location: "Hyderabad, Telangana, India",
   /** His stated constraint, verbatim in effect: Hyderabad or Vizag, else remote. */
   availability: "Open to Creative Head roles in Hyderabad or Visakhapatnam — and to remote roles anywhere",
@@ -57,10 +61,10 @@ export const person = {
  * a creative who can name a revenue number is rare enough to be memorable.
  */
 export const figures = [
-  { value: "₹48L+", label: "Sales generated", note: "Three brands built at Ujwala Group" },
+  { value: "₹48L+", label: "Sales generated", note: "Three brands, six months, Ujwala Group" },
   { value: "50%", label: "Showroom footfall", note: "Increase at Mercedes-Benz Silver Star" },
-  { value: "300+", label: "Qualified enquiries", note: "First four months of paid campaigns" },
-  { value: "10 yrs", label: "Editor to creative lead", note: "100+ projects across the arc" },
+  { value: "300+", label: "Qualified enquiries", note: "First four months of paid spend" },
+  { value: "10 yrs", label: "Editor to creative lead", note: "Cutting in 2016. Running creative by 2025." },
 ];
 
 export type Role = {
@@ -83,13 +87,13 @@ export const experience: Role[] = [
     period: "May 2026 — Present",
     place: "Hyderabad, India",
     points: [
-      "Run an independent creative studio for early-stage and startup brands — content, branding and production, from positioning through delivery.",
-      "Design and ship client websites end to end, including three live sites and a launch microsite for a residential development.",
-      "Built an AI production pipeline that earns its place commercially: generated product and model imagery, and real-estate previsualisation that lets a sales team walk a buyer through a building before it is built.",
-      "Own the commercial side alongside the creative — scoping, pricing, pitching and client relationships.",
+      "A small studio working with early-stage brands. Branding, content, production, and the site it all lands on.",
+      "Three client sites live, plus a launch microsite for a residential development. I design them and I build them.",
+      "Built an AI pipeline that pays for itself. Product and model shots with no studio booked, and property walkthroughs a sales team can show before the building exists.",
+      "Scoping, pricing, pitching, invoicing. The commercial side is mine as well as the creative.",
     ],
     detail:
-      "The studio is where I have tested the AI-native side of the craft on real client money rather than on demos. It has made me faster and cheaper at the same standard, which is the argument I would bring in-house.",
+      "The studio is where I tested the AI side on real client money instead of on demos. It made me quicker and cheaper without dropping the standard. That is the thing I would bring in-house.",
   },
   {
     org: "Ujwala Group",
@@ -97,15 +101,15 @@ export const experience: Role[] = [
     period: "Nov 2025 — May 2026",
     place: "Hyderabad, India",
     points: [
-      "Inherited inventory with no brand behind it — fashion, luxury furniture, smart-home products — and built three identities from scratch: 1UJ Fashion, 1UJ The International Hub, and the parent Ujwala Group.",
-      "Hired and trained a five-person team across social, content and inventory, and set the creative operations they ran on.",
-      "Took a 600+ SKU fashion catalogue and 150+ luxury and lifestyle SKUs from brand kit to a full Shopify launch.",
-      "Ran Google and Meta campaigns that brought in 300+ qualified enquiries in the first four months.",
-      "Generated ₹30L+ in luxury and lifestyle sales and ₹18L+ in fashion — ₹48L+ in total.",
-      "Produced the entire e-commerce catalogue with AI — every garment through to the premium furniture line, including the Bugatti office, dining and bedroom ranges — holding a luxury visual standard across storefront, social and ads with no photo shoot behind it.",
+      "Walked into a warehouse of stock with no brand on any of it. Fashion, luxury furniture, smart-home. Built three identities from nothing: 1UJ Fashion, 1UJ The International Hub, and the parent Ujwala Group.",
+      "Hired five people across social, content and inventory, trained them, and wrote the process they worked to.",
+      "Took 600+ fashion SKUs and 150+ luxury and lifestyle lines from brand kit to a live Shopify store.",
+      "Ran the Google and Meta spend. 300+ qualified enquiries in the first four months.",
+      "₹30L+ in luxury and lifestyle, ₹18L+ in fashion. ₹48L+ altogether.",
+      "Shot the entire e-commerce catalogue without a shoot. Every garment, then the premium furniture line including the Bugatti office, dining and bedroom ranges, generated and retouched to something that held up on the storefront and in paid social.",
     ],
     detail:
-      "This is the role the rest of the page is really about. Three brands, one team, one storefront and a revenue number — built inside six months, with the brand kit, the campaigns and the commerce all owned by the same person.",
+      "Six months, three brands, one team, one storefront, and a revenue number at the end of it. The brand kit, the ad spend and the commerce were all mine. That is unusual, and it is most of why I would do it again.",
   },
   {
     org: "Mercedes-Benz Silver Star Hyderabad",
@@ -113,13 +117,13 @@ export const experience: Role[] = [
     period: "Dec 2024 — Nov 2025",
     place: "Hyderabad, India",
     points: [
-      "Led creative direction and execution for India's first Mercedes-Maybach showroom, holding the visual storytelling to a global luxury brand's positioning and the dealership's business goals at once.",
-      "Produced photography and video across the Mercedes-Benz and Maybach ranges to the standard the marque requires.",
-      "Worked with the Sales and Service Marketing GMs on multi-channel campaigns — social, print and WhatsApp — that drove a 50% increase in showroom footfall and lead conversion, and an 80% increase in service campaign engagement.",
-      "Aligned content strategy with leadership's marketing and business objectives, supporting the dealership's position as a pioneer in India's luxury automotive space.",
+      "Ran creative for the launch of India's first Mercedes-Maybach showroom, inside the marque's guidelines and its sign-off chain.",
+      "Photography and film across both ranges, to the standard the marque requires. 50+ campaign and delivery films directed and cut.",
+      "Worked with the Sales and Service Marketing GMs on campaigns across social, print and WhatsApp. Showroom footfall and lead conversion up 50%, service campaign engagement up 80%.",
+      "One service campaign brought in ₹14L of business inside a month. Grew the showroom's Instagram from 6,000 to 17,000 in eight months.",
     ],
     detail:
-      "Working inside a marque at that level is where I learned that consistency is worth more than any single brilliant asset, and that brand guidelines are the job rather than an obstacle to it.",
+      "Working inside a marque that size taught me consistency beats any one brilliant asset. Guidelines are not the obstacle. They are the job.",
   },
   {
     org: "Self-employed",
@@ -127,8 +131,8 @@ export const experience: Role[] = [
     period: "Nov 2022 — Nov 2024",
     place: "Hyderabad, India",
     points: [
-      "Contract video production and cinematography for corporate and commercial clients across automotive, hospitality, food and beverage, and events.",
-      "Used the period deliberately to add brand strategy and content direction to a production skill set, ahead of moving into full-time creative leadership.",
+      "Two years of contract shooting. Automotive, hotels, restaurants, corporate, events.",
+      "I used the time to learn the strategy side rather than only the camera side. That is what got me the Mercedes job.",
     ],
   },
   {
@@ -138,7 +142,7 @@ export const experience: Role[] = [
     place: "Hyderabad, India",
     early: true,
     points: [
-      "Shot 10+ corporate and commercial projects in five months, several recognised within the industry.",
+      "10+ corporate and commercial projects in five months, several of them recognised in the industry.",
       "Worked closely with directors to land visuals clients signed off without rework.",
     ],
   },
@@ -149,7 +153,7 @@ export const experience: Role[] = [
     place: "Mangalagiri, Andhra Pradesh",
     early: true,
     points: [
-      "Grew the organisation's online following by 35%+ in six months through creative social campaigns.",
+      "Grew the party's following by 35%+ in six months, with several videos past a million views.",
       "Produced video campaigns that crossed 1M+ views on Facebook and YouTube.",
       "Delivered against a 24/7 news cycle, keeping campaign updates consistently live.",
     ],
@@ -161,7 +165,7 @@ export const experience: Role[] = [
     place: "Hyderabad, India",
     early: true,
     points: [
-      "Ran production end to end — pre-production through final delivery — for a steady pipeline of corporate, event and media projects.",
+      "Ran production start to finish on a steady roster of corporate, event and media work.",
       "Handled on-set scheduling, resource allocation and quality control across a regular client roster.",
       "Improved workflows and cross-team collaboration, which kept deliveries on time and built the company's reputation in events and media.",
     ],
@@ -173,7 +177,7 @@ export const experience: Role[] = [
     place: "Visakhapatnam, Andhra Pradesh",
     early: true,
     points: [
-      "Edited 100+ projects, from corporate videos to promotional films and ads.",
+      "Edited 100+ projects. Corporate films, promos, ads.",
       "Added animation and VFX work that lifted client satisfaction by 40%.",
       "Built lasting client relationships, including with three major corporations.",
     ],
@@ -265,7 +269,7 @@ export const work: Project[] = [
     tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Brand build · Retail & e-commerce",
     blurb:
-      "Three brands from nothing: identity, brand kit, campaign system and a full Shopify launch across a 600+ SKU fashion catalogue and 150+ luxury and lifestyle lines — with AI-generated model and product imagery cutting the shoot bill without cutting the standard.",
+      "Three brands from nothing. Identity, brand kit, campaign system, and a Shopify launch across 600+ fashion SKUs and 150+ luxury lines. The model and product imagery was generated, which took the shoot bill out without taking the standard out.",
     credit: "In-house · Head of Creative & Marketing, Ujwala Group",
     result: "₹48L+ in sales · 300+ qualified enquiries in four months · five-person team hired and trained",
     poster: "/work/fashion.jpg",
@@ -279,7 +283,7 @@ export const work: Project[] = [
     tags: ["Brand & strategy", "Production"],
     kind: "Automotive · Luxury launch",
     blurb:
-      "Led creative direction and execution for the launch of the first Maybach showroom in India — film, photography and multi-channel campaign work, produced inside a global marque's guidelines and sign-off process.",
+      "Creative direction and execution for the launch of the first Maybach showroom in India. Film, photography and campaign work, all of it made inside a global marque's guidelines and its sign-off chain.",
     credit: "In-house · Content Producer, Mercedes-Benz Silver Star Hyderabad",
     result: "50% increase in showroom footfall and lead conversion · 80% increase in service campaign engagement",
     href: "https://www.instagram.com/mercedesbenzsilverstar/",
@@ -295,7 +299,7 @@ export const work: Project[] = [
     tags: ["AI", "Production"],
     kind: "AI · Production pipeline",
     blurb:
-      "A pipeline for making the thing that cannot be photographed yet — because it is not built, not manufactured, or not affordable to shoot. Property walkthroughs before the slab is poured are one application; product, model and campaign imagery are the others. Not a real-estate tool: a way to originate any visual a brief calls for.",
+      "A pipeline for making the thing that cannot be photographed yet, because it is not built, not manufactured, or not worth what a shoot would cost. Property walkthroughs before the slab is poured are one use. Product, model and campaign imagery are the others. It is not a real-estate tool. It is a way to originate whatever visual a brief needs.",
     credit: "Studio · ProductionX",
     /* No image: the only frame to hand was a property render, and this card
        exists to say previz is not a real-estate tool. Awaiting a correct
@@ -311,7 +315,7 @@ export const work: Project[] = [
     tags: ["Production"],
     kind: "Automotive · Drive & performance",
     blurb:
-      "Tracking-vehicle and gimbal cinematography for premium auto retail, cut twice over — once for the launch screen, once for the feed.",
+      "Tracking-vehicle and gimbal work for premium auto retail. Cut twice: once long for the launch screen, once short for the feed.",
     credit: "Freelance & studio · BMW, Krishna Motors, Silver Star Hyderabad",
     poster: "/work/bmw.jpg",
   },
@@ -324,7 +328,7 @@ export const work: Project[] = [
     tags: ["Production"],
     kind: "Hospitality · Cinematic",
     blurb:
-      "Property content for hotels and resorts — rooms, ambience, service, and the quiet hours nobody photographs.",
+      "Property content for hotels and resorts. Rooms, ambience, service, and the quiet hours nobody photographs.",
     credit: "Freelance & studio · Hotels, resorts and bars",
     poster: "/work/hotel.jpg",
   },
@@ -337,7 +341,7 @@ export const work: Project[] = [
     tags: ["Production", "Brand & strategy"],
     kind: "F&B · Content systems",
     blurb:
-      "A month of café and restaurant content out of one morning of coverage — food styling, ambience, staff and stills, planned as a system rather than as a shoot.",
+      "A month of café and restaurant content out of one morning of coverage. Food styling, ambience, staff and stills, planned as a system instead of as a shoot.",
     credit: "Freelance & studio · Hole in the Wall and others",
     poster: "/work/cafe.jpg",
   },
@@ -350,7 +354,7 @@ export const work: Project[] = [
     tags: ["Production"],
     kind: "Corporate · Multi-camera",
     blurb:
-      "Brand launches, corporate films, product reveals and multi-camera event coverage, delivered on the schedule the event set rather than the one production wanted.",
+      "Brand launches, corporate films, product reveals, multi-camera event coverage. Delivered on the schedule the event set, not the one production wanted.",
     credit: "Across roles · IRDAI, Everest Abercorn, Pit Stop Group",
     poster: "/work/event.jpg",
   },
@@ -367,7 +371,7 @@ export const digital: Project[] = [
     tags: ["Digital"],
     kind: "Website · Design & build",
     blurb:
-      "Portfolio site for a Kuchipudi artist, actor and educator — film, gallery, teaching and press held in one narrative scroll.",
+      "Portfolio site for a Kuchipudi artist, actor and educator. Film, gallery, teaching and press held together in one scroll.",
     credit: "ProductionX · Live",
     poster: "/work/mahati.jpg",
     video: "/work/mahati.webm",
@@ -381,7 +385,7 @@ export const digital: Project[] = [
     tags: ["Digital"],
     kind: "Website · Design & build",
     blurb:
-      "Built around repertoire, teaching and enquiry, with a structure that keeps decades of work navigable.",
+      "Built around repertoire, teaching and enquiry. The structure is what keeps decades of work findable.",
     credit: "ProductionX · Live",
     poster: "/work/aruna.jpg",
     video: "/work/aruna.webm",
@@ -395,7 +399,7 @@ export const digital: Project[] = [
     tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Real estate · Brand & prototype",
     blurb:
-      "Brand building and a working site prototype for a realty client — the commercial home for the previsualisation pipeline, where generated walkthroughs sit beside the brand they are selling.",
+      "Brand building and a working site prototype for a realty client. This is where the previsualisation pipeline earns its money, with generated walkthroughs sitting next to the brand they are selling.",
     credit: "ProductionX · Live prototype",
     href: "https://otho-prototype.vercel.app/",
     /* The property render belongs here rather than on the previsualisation
@@ -414,7 +418,7 @@ export const digital: Project[] = [
     tags: ["Digital"],
     kind: "Website · White-label prototype",
     blurb:
-      "Website prototype for a residential launch — narrative scroll, floor plans and enquiry capture. Built white-label: my build, delivered under another party's name.",
+      "Website prototype for a residential launch. Narrative scroll, floor plans, enquiry capture. Built white-label, so it went out under someone else's name.",
     credit: "White-label · Prototype build only",
     poster: "/work/sattva.jpg",
     video: "/work/sattva.webm",
@@ -428,12 +432,12 @@ export const digital: Project[] = [
  * and shooting, which is where it honestly belongs.
  */
 export const method = [
-  { step: "Brief & positioning", body: "What the brand needs to say, and who it needs to say it to. Nothing gets made before this is settled.", detail: "Discovery, competitor study, and the one sentence the brand has to own. Most bad campaigns are a positioning failure wearing a production budget." },
-  { step: "Direction", body: "References, art direction and the look locked before a single asset exists.", detail: "A board, a palette, a type system and a shot list. Locking the look early is what keeps a small team from re-doing work twice." },
-  { step: "Generate", body: "AI imagery and video where a camera cannot go, or cannot justify the cost.", detail: "Product on a set that was never built, a garment on a model never booked, a tower before the slab is poured. Used where it wins on time or money, never as a default." },
-  { step: "Shoot", body: "A real crew where only real footage will do. The two are not in competition.", detail: "People, places, texture, the thing that has to be true. Ten years behind a camera is what tells me which of the two a brief needs." },
-  { step: "Art-direct & finish", body: "Grade, retouch, layout. The standard is identical whichever way the frame was made.", detail: "This is the step that decides whether generated work reads as premium or as a shortcut. It is craft, and it does not get skipped." },
-  { step: "Ship & measure", body: "Storefront, campaign, analytics, next iteration.", detail: "Shopify, Meta and Google, then the numbers. Work that is not measured is decoration." },
+  { step: "Brief & positioning", body: "What the brand needs to say, and who to. Nothing gets made before that is settled.", detail: "Discovery, a look at the competition, and the one sentence the brand has to own. Most bad campaigns are a positioning failure wearing a production budget." },
+  { step: "Direction", body: "References, art direction, and the look locked before a single asset exists.", detail: "A board, a palette, a type system, a shot list. Locking the look early is the thing that stops a small team making everything twice." },
+  { step: "Generate", body: "AI imagery and video where a camera cannot go, or cannot justify the cost.", detail: "Product on a set nobody built. A garment on a model nobody booked. A tower before the slab is poured. It gets used where it wins on time or on money, never by default." },
+  { step: "Shoot", body: "A real crew where only real footage will do. The two are not in competition.", detail: "People, places, texture, anything that has to actually be true. Ten years behind a camera is what tells me which of the two a brief needs." },
+  { step: "Art-direct & finish", body: "Grade, retouch, layout. The standard is the same whichever way the frame was made.", detail: "This is the step that decides whether generated work reads as premium or as a shortcut. It is craft, and it does not get skipped." },
+  { step: "Ship & measure", body: "Storefront, campaign, analytics, then round two.", detail: "Shopify, Meta and Google, then the numbers. Work nobody measures is decoration." },
 ];
 
 export type SkillGroup = { group: string; items: string[] };
@@ -490,7 +494,7 @@ export const skills: SkillGroup[] = [
     items: [
       "AI product & model imagery at commercial scale",
       "Generative video",
-      "Previsualisation — anything not yet built or shot",
+      "Previsualisation of anything not yet built or shot",
       "AI-assisted brand building",
     ],
   },
@@ -507,7 +511,7 @@ export type Tool = { name: string; use: string; group: string };
  * is why a small team around him delivers past its headcount.
  */
 export const stack: Tool[] = [
-  { group: "Craft", name: "Adobe Creative Suite", use: "Edit, motion graphics and retouch — Premiere, After Effects, Photoshop" },
+  { group: "Craft", name: "Adobe Creative Suite", use: "Premiere, After Effects, Photoshop. Edit, motion and retouch." },
   { group: "Craft", name: "DaVinci Resolve Studio", use: "Grade and finish, where a film gets its final look" },
 
   { group: "Generative", name: "Runway", use: "Generative video and shot extension inside an edit" },
@@ -515,15 +519,15 @@ export const stack: Tool[] = [
   { group: "Generative", name: "Nano Banana", use: "Product and model imagery, and precise image editing" },
   { group: "Generative", name: "Higgsfield", use: "Photoreal stills and motion for campaign work" },
 
-  { group: "Build", name: "Claude Code · Cursor", use: "Building the client sites and the tools around them" },
+  { group: "Build", name: "Claude Code · Cursor", use: "Building the client sites, and the small tools around them" },
   { group: "Build", name: "Lovable · Emergent", use: "Fast front-end builds when a brief needs a page this week" },
   { group: "Build", name: "Shopify", use: "Storefronts — a 600+ SKU catalogue taken live" },
 
-  { group: "Growth", name: "Meta Ads Manager", use: "Paid social, tied to the content it runs on" },
+  { group: "Growth", name: "Meta Ads Manager", use: "Paid social, planned against the content it runs on" },
   { group: "Growth", name: "Google Ads", use: "Search and demand capture" },
   { group: "Growth", name: "Google Analytics", use: "What the work actually moved" },
 
-  { group: "Ops", name: "Zapier", use: "Wiring the tools together so nobody re-types anything" },
+  { group: "Ops", name: "Zapier", use: "Wiring the tools together so nobody re-types anything twice" },
   { group: "Ops", name: "ClickUp", use: "Running the pipeline — briefs, review, delivery" },
   { group: "Ops", name: "Claude · ChatGPT", use: "Script, copy and SEO drafting against a brief" },
 ];
