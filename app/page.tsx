@@ -1,5 +1,5 @@
 import Nav from "./components/Nav";
-import Showcase from "./components/Showcase";
+import Arc from "./components/Arc";
 import { ExperienceList } from "./components/Sections";
 import {
   Motion, Cursor, Intro, Lines, Rise, Marquee, MethodPin, Counter, Magnetic,
@@ -79,7 +79,7 @@ export default function Home() {
         <section className="band band--stone" id="work">
           <div className="shell">
             <span className="label idx">01 — Selected work</span>
-            <Lines className="mt">Eleven pieces. Scroll through them.</Lines>
+            <Lines className="mt">Eleven pieces. Turn the arc.</Lines>
             <Rise delay={0.1}>
               <p className="lead">
                 Each says plainly whether it was in-house, contract or studio work — having
@@ -88,7 +88,7 @@ export default function Home() {
             </Rise>
           </div>
           <div className="shell">
-            <Showcase projects={allWork} />
+            <Arc projects={allWork} />
           </div>
         </section>
 
