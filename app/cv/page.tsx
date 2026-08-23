@@ -40,14 +40,26 @@ export default function CV() {
         <p className="cv__title">
           {person.title} &nbsp;|&nbsp; {person.subtitle} &nbsp;|&nbsp; Founder, ProductionX
         </p>
+        {/*
+          Two deliberate rows rather than one line left to wrap. Six items on
+          one line orphaned the last link onto a row of its own, which looked
+          like an accident.
+
+          The studio's own site is not here. It sells studio services, and a
+          founder applying for a full-time role does not want the reader's one
+          click landing on a page that pitches for client work — it feeds the
+          exact doubt the application has to answer. It moves down to the
+          ProductionX entry instead, where it reads as a citation. GitHub takes
+          the slot: nine public repositories are evidence, not a pitch.
+        */}
         <p className="cv__contact">
           {person.location} &nbsp;·&nbsp; {person.phone} &nbsp;·&nbsp;{" "}
-          <a href={`mailto:${person.email}`}>{person.email}</a> &nbsp;·&nbsp;{" "}
+          <a href={`mailto:${person.email}`}>{person.email}</a>
+        </p>
+        <p className="cv__contact">
           <a href={person.linkedinUrl}>{person.linkedin}</a> &nbsp;·&nbsp;{" "}
-          {/* Portfolio before the studio: this CV's job is to get the reader
-              onto the page with the work on it. */}
           <a href={person.portfolioUrl}>{person.portfolio}</a> &nbsp;·&nbsp;{" "}
-          <a href={person.studioUrl}>{person.studio}</a>
+          <a href={person.githubUrl}>{person.github}</a>
         </p>
       </header>
 
@@ -94,6 +106,9 @@ export default function CV() {
             <div className="cv__role-head">
               <span className="cv__role-title">
                 {r.role} &nbsp;|&nbsp; {r.org}
+                {/* The studio's address sits with the studio, where it reads as
+                    a citation rather than as a pitch at the top of the page. */}
+                {r.urlLabel && <span className="cv__role-url"> &nbsp;·&nbsp; {r.urlLabel}</span>}
               </span>
               <span className="cv__role-when">{r.period}</span>
             </div>

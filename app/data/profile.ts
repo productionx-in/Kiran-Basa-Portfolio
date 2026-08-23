@@ -47,6 +47,15 @@ export const person = {
   studio: "productionx.in",
   studioUrl: "https://productionx.in",
   /**
+   * Nine public repositories of real client work — the studio site, OTHO
+   * Realty, Mahati, Aruna, NeXtHer, and the skills toolkit. This is the only
+   * link on the CV that proves the "I design them and I build them" claim
+   * rather than asserting it, which is why it earns a place in the contact
+   * line and the studio's marketing site does not.
+   */
+  github: "github.com/productionx-in",
+  githubUrl: "https://github.com/productionx-in",
+  /**
    * This portfolio's own address. Change it in one place when the domain is
    * bought — it appears on the CV, in the metadata and in the Person schema.
    */
@@ -78,6 +87,9 @@ export type Role = {
   detail?: string;
   /** Older roles collapse behind a toggle on the site and compress on the CV. */
   early?: boolean;
+  /** Printed next to the organisation. Used where the work is public. */
+  url?: string;
+  urlLabel?: string;
 };
 
 export const experience: Role[] = [
@@ -86,6 +98,8 @@ export const experience: Role[] = [
     role: "Founder",
     period: "May 2026 — Present",
     place: "Hyderabad, India",
+    url: "https://productionx.in",
+    urlLabel: "productionx.in",
     points: [
       "A small studio working with early-stage brands. Branding, content, production, and the site it all lands on.",
       "Three client sites live, plus a launch microsite for a residential development. I design them and I build them.",
@@ -477,6 +491,15 @@ export const skills: SkillGroup[] = [
       "Integrated multi-channel campaigns",
       "SEO & local search",
       "Analytics & reporting",
+    ],
+  },
+  {
+    group: "Web & build",
+    items: [
+      "Website design and build (Next.js, React)",
+      "AI-assisted development (Claude Code, Cursor)",
+      "Git & GitHub",
+      "Rapid prototyping for client pitches",
     ],
   },
   {
