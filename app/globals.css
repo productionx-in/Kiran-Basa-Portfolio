@@ -636,8 +636,9 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 
 .cl__btn {
   position: relative; display: block; width: 100%; height: 100%;
-  padding: 0; border: 1px solid var(--line); background: var(--surface);
-  overflow: hidden; cursor: pointer;
+  padding: 0; border: 2px solid color-mix(in srgb, var(--bone) 22%, transparent);
+  background: var(--surface); overflow: hidden; cursor: pointer;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.75);
   transform: rotate(var(--r)) scale(1);
   transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease;
 }
@@ -826,10 +827,13 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
    A single custom property on the wheel rotates all of them at once.
    ========================================================================== */
 
-.arc { --R: 980px; margin-top: var(--s5); }
+.arc { --R: 820px; margin-top: var(--s4); }
 
+/* Breaks the shell so the arc has room to be an arc. The fan was wider than
+   its container and being sliced off at both edges. */
 .arc__stage {
-  position: relative; height: 54vh; min-height: 26rem;
+  position: relative; height: clamp(19rem, 34vh, 26rem);
+  width: 100vw; margin-left: calc(50% - 50vw);
   overflow: hidden; touch-action: pan-y;
 }
 .arc__wheel { position: absolute; inset: 0; --rot: 0deg; cursor: grab; }
@@ -838,9 +842,10 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 .arc__card {
   position: absolute;
   left: 50%; top: var(--R);
-  width: clamp(7.5rem, 11.5vw, 11.5rem); aspect-ratio: 3 / 4;
-  padding: 0; border: 1px solid var(--line); background: var(--surface);
-  overflow: hidden; cursor: pointer;
+  width: clamp(8rem, 13vw, 13rem); aspect-ratio: 3 / 4;
+  padding: 0; border: 2px solid color-mix(in srgb, var(--bone) 22%, transparent);
+  background: var(--surface); overflow: hidden; cursor: pointer;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.75);
   /* Centre on the pivot, swing to this card's angle, then push out along the
      radius. Rotating by the same angle is what keeps it tangent to the arc. */
   transform:
@@ -848,14 +853,18 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
     rotate(var(--a))
     translateY(calc(-1 * var(--R)));
   transition: filter 0.4s ease, opacity 0.4s ease, border-color 0.4s ease;
-  filter: brightness(0.55) saturate(0.75);
-  opacity: 0.8;
+  filter: brightness(0.42) saturate(0.6);
+  opacity: 0.92;
   will-change: transform;
 }
+/* The focal point has to win on scale as well as brightness, or a dense fan
+   swallows it. */
 .arc__card[data-on="true"] {
   filter: none; opacity: 1; border-color: var(--chrome);
-  box-shadow: 0 26px 70px rgba(0,0,0,0.6);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.85), 0 0 0 1px var(--chrome);
+  z-index: 40;
 }
+.arc__card[data-on="true"] .arc__img { scale: 1.06; }
 .arc__img { object-fit: cover; }
 /* The type tile. Composed like a title card, not like a failed image. */
 .arc__none {
@@ -913,9 +922,9 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 @media (max-width: 900px) {
   /* A shallower wheel and smaller cards, so the arc still reads on a phone
      without the outer cards flying off the edges. */
-  .arc { --R: 620px; }
-  .arc__stage { height: 34vh; min-height: 15rem; }
-  .arc__card { width: clamp(6rem, 27vw, 8.5rem); }
+  .arc { --R: 520px; }
+  .arc__stage { height: clamp(13rem, 26vh, 17rem); }
+  .arc__card { width: clamp(7rem, 32vw, 10rem); }
 }
 
 /* Motion off: the wheel is meaningless, so it becomes a plain scroll strip. */
@@ -1029,3 +1038,30 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
   content: ""; position: absolute; left: 0; top: 0.58em;
   width: 7px; height: 7px; background: var(--chrome);
 }
+
+
+/* Shelves — the work split by craft, so one arc holds three or four pieces
+   rather than eleven, and freelance work never reads as in-house work. */
+.arc__shelves { display: flex; flex-wrap: wrap; gap: var(--s1); margin-top: var(--s4); }
+.arc__shelf {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  min-height: 44px; padding: 0.6rem 1.05rem;
+  background: transparent; border: 1px solid var(--line); color: var(--bone-2);
+  font-size: 0.9rem; font-weight: 600; cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.arc__shelf:hover { border-color: var(--bone-2); color: var(--bone); }
+.arc__shelf[data-on="true"] { background: var(--chrome); border-color: var(--chrome); color: var(--chrome-ink); }
+.arc__shelf-n { font-size: 0.74rem; opacity: 0.65; font-variant-numeric: tabular-nums; }
+.arc__shelf-line { margin: var(--s2) 0 0; font-size: 0.92rem; color: var(--muted); }
+
+/* Engagement badge. Freelance and in-house are different claims and are
+   coloured differently so the distinction survives a fast scan. */
+.arc__eng {
+  font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; padding: 0.22rem 0.5rem; border: 1px solid currentColor;
+}
+.arc__eng[data-e="In-house"] { color: var(--chrome); }
+.arc__eng[data-e="Freelance"] { color: #d8a05a; }
+.arc__eng[data-e="Studio"] { color: var(--bone-2); }
+.arc__eng[data-e="White-label"] { color: var(--muted); }

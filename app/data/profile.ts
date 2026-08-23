@@ -206,9 +206,31 @@ export const clients = [
 export const DISCIPLINES = ["Brand & strategy", "Production", "Digital", "AI"] as const;
 export type Discipline = (typeof DISCIPLINES)[number];
 
+/**
+ * How the work was engaged, kept separate from what it was.
+ *
+ * A hiring manager reads in-house work and freelance work differently, and
+ * they are right to — sitting inside a brand through its approval chain is a
+ * different job from being briefed by one. Every piece states which it was, so
+ * nobody has to guess and nothing is quietly upgraded.
+ */
+export const ENGAGEMENTS = ["In-house", "Freelance", "Studio", "White-label"] as const;
+export type Engagement = (typeof ENGAGEMENTS)[number];
+
+/** The shelves the work sits on. Named by craft, not by client. */
+export const GROUPS = [
+  { key: "brand", label: "Brand & Campaign", blurb: "Identity, positioning and the campaigns that carry them." },
+  { key: "production", label: "Content Production", blurb: "Films, shoots and events — ten years behind the camera." },
+  { key: "digital", label: "Web & Digital", blurb: "Sites and storefronts, designed and built end to end." },
+  { key: "ai", label: "AI & Generative", blurb: "Making the frame that cannot be photographed yet." },
+] as const;
+export type GroupKey = (typeof GROUPS)[number]["key"];
+
 export type Project = {
   /** What the image is, so a caption can say it rather than implying it. */
   shot?: string;
+  group: GroupKey;
+  engagement: Engagement;
   code: string;
   /** One project can belong to several — most of the real ones do. */
   tags: Discipline[];
@@ -237,6 +259,8 @@ export const work: Project[] = [
   {
     code: "01",
     name: "1UJ Fashion, 1UJ International Hub & Ujwala Group",
+    group: "brand",
+    engagement: "In-house",
     shot: "Campaign frame, 1UJ Fashion",
     tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Brand build · Retail & e-commerce",
@@ -249,6 +273,8 @@ export const work: Project[] = [
   {
     code: "02",
     name: "India's first Mercedes-Maybach showroom",
+    group: "brand",
+    engagement: "In-house",
     shot: "Marque detail, Mercedes-Benz Silver Star",
     tags: ["Brand & strategy", "Production"],
     kind: "Automotive · Luxury launch",
@@ -263,6 +289,8 @@ export const work: Project[] = [
   {
     code: "03",
     name: "AI previsualisation & generated content",
+    group: "ai",
+    engagement: "Studio",
     shot: "",
     tags: ["AI", "Production"],
     kind: "AI · Production pipeline",
@@ -277,6 +305,8 @@ export const work: Project[] = [
   {
     code: "04",
     name: "Premium automotive retail",
+    group: "production",
+    engagement: "Freelance",
     shot: "Tracking-vehicle frame, premium auto retail",
     tags: ["Production"],
     kind: "Automotive · Drive & performance",
@@ -288,6 +318,8 @@ export const work: Project[] = [
   {
     code: "05",
     name: "Hospitality property films",
+    group: "production",
+    engagement: "Freelance",
     shot: "Property film still",
     tags: ["Production"],
     kind: "Hospitality · Cinematic",
@@ -299,6 +331,8 @@ export const work: Project[] = [
   {
     code: "06",
     name: "Always-on food & beverage social",
+    group: "production",
+    engagement: "Freelance",
     shot: "Interior coverage, food & beverage",
     tags: ["Production", "Brand & strategy"],
     kind: "F&B · Content systems",
@@ -310,6 +344,8 @@ export const work: Project[] = [
   {
     code: "07",
     name: "Corporate launches & event coverage",
+    group: "production",
+    engagement: "Freelance",
     shot: "Multi-camera event coverage",
     tags: ["Production"],
     kind: "Corporate · Multi-camera",
@@ -325,6 +361,8 @@ export const digital: Project[] = [
   {
     code: "08",
     name: "Mahati Bhikshu",
+    group: "digital",
+    engagement: "Studio",
     shot: "Live site, scrolling",
     tags: ["Digital"],
     kind: "Website · Design & build",
@@ -337,6 +375,8 @@ export const digital: Project[] = [
   {
     code: "09",
     name: "Aruna Bhikshu",
+    group: "digital",
+    engagement: "Studio",
     shot: "Live site, scrolling",
     tags: ["Digital"],
     kind: "Website · Design & build",
@@ -349,6 +389,8 @@ export const digital: Project[] = [
   {
     code: "10",
     name: "OTHO Realty",
+    group: "digital",
+    engagement: "Studio",
     shot: "Live prototype",
     tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Real estate · Brand & prototype",
@@ -361,6 +403,8 @@ export const digital: Project[] = [
   {
     code: "11",
     name: "Sattva Amora",
+    group: "digital",
+    engagement: "White-label",
     shot: "Prototype build, scrolling",
     tags: ["Digital"],
     kind: "Website · White-label prototype",

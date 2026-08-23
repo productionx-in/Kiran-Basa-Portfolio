@@ -103,11 +103,13 @@ export default function Home() {
         <section className="band band--stone" id="work">
           <div className="shell">
             <span className="label idx">02 — Selected work</span>
-            <Lines className="mt">Eleven pieces. Turn the arc.</Lines>
+            <Lines className="mt">Shelved by craft. Turn the arc.</Lines>
             <Rise delay={0.1}>
               <p className="lead">
-                Each says plainly whether it was in-house, contract or studio work — having
-                sat inside the brand is a different claim from having invoiced it.
+                Eleven pieces across four crafts. Every one carries how it was engaged —
+                in-house, freelance, studio or white-label — because sitting inside a brand
+                through its approval chain is a different job from being briefed by one,
+                and a reader deserves to know which they are looking at.
               </p>
             </Rise>
           </div>

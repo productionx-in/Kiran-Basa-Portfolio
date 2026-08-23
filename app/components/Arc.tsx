@@ -3,11 +3,12 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { gsap, ScrollTrigger, reduced } from "../lib/motion";
-import type { Project } from "../data/profile";
+import type { Project, GroupKey } from "../data/profile";
+import { GROUPS } from "../data/profile";
 
 /* Degrees between cards on the wheel. The radius lives in CSS (--R) so the
    arc can flatten on a phone without this file knowing about breakpoints. */
-const STEP = 9;
+const STEP = 15;
 
 /**
  * The work as a rotating arc.
@@ -27,13 +28,22 @@ const STEP = 9;
  * resolves to one legible project.
  */
 export default function Arc({ projects }: { projects: Project[] }) {
+  /**
+   * The work is shelved by craft, and only one shelf is on the wheel at a
+   * time. That is a content decision that also fixes a geometry problem:
+   * eleven cards on one arc overlapped by more than they were wide and read
+   * as a single smear. Three or four cards fan with air between them.
+   */
+  const [group, setGroup] = useState<GroupKey>("brand");
+  const shown = projects.filter((p) => p.group === group);
+
   const root = useRef<HTMLDivElement>(null);
   const wheel = useRef<HTMLDivElement>(null);
   const rot = useRef(0);
   const drift = useRef(true);
   const [active, setActive] = useState(0);
 
-  const mid = (projects.length - 1) / 2;
+  const mid = (shown.length - 1) / 2;
 
   /**
    * Places every card and works out which one is on top.
@@ -44,7 +54,7 @@ export default function Arc({ projects }: { projects: Project[] }) {
    */
   const apply = useCallback((deg: number) => {
     rot.current = deg;
-    const span = projects.length * STEP;
+    const span = Math.max(shown.length, 3) * STEP;
     const w = wheel.current;
     if (!w) return;
 
@@ -59,7 +69,7 @@ export default function Arc({ projects }: { projects: Project[] }) {
       if (abs < bestAbs) { bestAbs = abs; best = i; }
     }
     setActive((cur) => (cur === best ? cur : best));
-  }, [mid, projects.length]);
+  }, [mid, shown.length]);
 
   useEffect(() => {
     apply(mid * STEP);
@@ -80,7 +90,7 @@ export default function Arc({ projects }: { projects: Project[] }) {
         onUpdate: (self) => {
           if (!drift.current) return;
           // One full turn of the wheel across the section's travel.
-          apply(mid * STEP - self.progress * projects.length * STEP);
+          apply(mid * STEP - self.progress * shown.length * STEP);
         },
       });
 
@@ -125,7 +135,7 @@ export default function Arc({ projects }: { projects: Project[] }) {
     }, root);
 
     return () => ctx.revert();
-  }, [apply, mid, projects.length]);
+  }, [apply, mid, shown.length, group]);
 
   const go = useCallback((i: number) => {
     drift.current = false;
@@ -136,13 +146,35 @@ export default function Arc({ projects }: { projects: Project[] }) {
     });
   }, [apply, mid]);
 
-  const p = projects[active];
+  const p = shown[Math.min(active, shown.length - 1)];
+  if (!p) return null;
 
   return (
     <div className="arc" ref={root} data-drag="false">
+      <div className="arc__shelves" role="tablist" aria-label="Work by craft">
+        {GROUPS.map((g) => {
+          const n = projects.filter((x) => x.group === g.key).length;
+          return (
+            <button
+              key={g.key}
+              role="tab"
+              type="button"
+              className="arc__shelf"
+              data-on={group === g.key}
+              aria-selected={group === g.key}
+              onClick={() => { setGroup(g.key); setActive(0); }}
+            >
+              {g.label}
+              <span className="arc__shelf-n">{n}</span>
+            </button>
+          );
+        })}
+      </div>
+      <p className="arc__shelf-line">{GROUPS.find((g) => g.key === group)?.blurb}</p>
+
       <div className="arc__stage">
-        <div className="arc__wheel" ref={wheel} data-cursor="Drag">
-          {projects.map((pr, i) => (
+        <div className="arc__wheel" ref={wheel} data-cursor="Drag" key={group}>
+          {shown.map((pr, i) => (
             <button
               type="button"
               className="arc__card"
@@ -174,7 +206,8 @@ export default function Arc({ projects }: { projects: Project[] }) {
       {/* The motion always resolves here. */}
       <div className="arc__read" role="status" aria-live="polite">
         <div className="arc__meta">
-          <span className="arc__count">{p.code} / {String(projects.length).padStart(2, "0")}</span>
+          <span className="arc__count">{String(active + 1).padStart(2, "0")} / {String(shown.length).padStart(2, "0")}</span>
+          <span className="arc__eng" data-e={p.engagement}>{p.engagement}</span>
           <span className="arc__kind">{p.kind}</span>
         </div>
         <h3>{p.name}</h3>
