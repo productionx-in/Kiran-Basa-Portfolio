@@ -1,7 +1,6 @@
 import Nav from "./components/Nav";
-import Arc from "./components/Arc";
+import Work from "./components/Work";
 import Disciplines from "./components/Disciplines";
-import Portrait from "./components/Portrait";
 import { ExperienceList } from "./components/Sections";
 import {
   Motion, Cursor, Intro, Lines, Rise, Marquee, MethodPin, Counter, Magnetic,
@@ -49,7 +48,6 @@ export default function Home() {
                 <span aria-hidden="true">KIRAN</span>
                 <span aria-hidden="true">BASA</span>
               </h1>
-              <Portrait />
               <p className="hero__role">
                 <span>{person.title}</span>
                 <span>{person.subtitle}</span>
@@ -103,7 +101,7 @@ export default function Home() {
         <section className="band band--stone" id="work">
           <div className="shell">
             <span className="label idx">02 — Selected work</span>
-            <Lines className="mt">Shelved by craft. Turn the arc.</Lines>
+            <Lines className="mt">Eleven pieces, shelved by craft.</Lines>
             <Rise delay={0.1}>
               <p className="lead">
                 Eleven pieces across four crafts. Every one carries how it was engaged —
@@ -114,7 +112,7 @@ export default function Home() {
             </Rise>
           </div>
           <div className="shell">
-            <Arc projects={allWork} />
+            <Work projects={allWork} />
           </div>
         </section>
 
