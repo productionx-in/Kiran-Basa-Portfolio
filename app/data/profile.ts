@@ -38,8 +38,8 @@ export const person = {
   email: "basakiran9@gmail.com",
   phone: "+91 93919 26846",
   phoneHref: "+919391926846",
-  linkedin: "linkedin.com/in/kiranbasa-45a778293",
-  linkedinUrl: "https://www.linkedin.com/in/kiranbasa-45a778293",
+  linkedin: "linkedin.com/in/kiranbasa",
+  linkedinUrl: "https://www.linkedin.com/in/kiranbasa/",
   studio: "productionx.in",
   studioUrl: "https://productionx.in",
   /**
@@ -221,6 +221,8 @@ export type Project = {
   poster: string;
   video?: string;
   href?: string;
+  /** Overrides the default "Open live site" wording. */
+  hrefLabel?: string;
 };
 
 /**
@@ -254,19 +256,23 @@ export const work: Project[] = [
       "Led creative direction and execution for the launch of the first Maybach showroom in India — film, photography and multi-channel campaign work, produced inside a global marque's guidelines and sign-off process.",
     credit: "In-house · Content Producer, Mercedes-Benz Silver Star Hyderabad",
     result: "50% increase in showroom footfall and lead conversion · 80% increase in service campaign engagement",
+    href: "https://www.instagram.com/mercedesbenzsilverstar/",
+    hrefLabel: "See the account this work fed ↗",
     poster: "/work/mercedes.jpg",
   },
   {
     code: "03",
     name: "AI previsualisation & generated content",
-    shot: "One output of the pipeline — a residential walkthrough generated before the building existed. Product and campaign imagery come off the same pipeline.",
+    shot: "",
     tags: ["AI", "Production"],
     kind: "AI · Production pipeline",
     blurb:
       "A pipeline for making the thing that cannot be photographed yet — because it is not built, not manufactured, or not affordable to shoot. Property walkthroughs before the slab is poured are one application; product, model and campaign imagery are the others. Not a real-estate tool: a way to originate any visual a brief calls for.",
     credit: "Studio · ProductionX",
-    poster: "/work/previz.jpg",
-    video: "/work/previz.webm",
+    /* No image: the only frame to hand was a property render, and this card
+       exists to say previz is not a real-estate tool. Awaiting a correct
+       still from the pipeline. */
+    poster: "",
   },
   {
     code: "04",
@@ -355,12 +361,12 @@ export const digital: Project[] = [
   {
     code: "11",
     name: "Sattva Amora",
-    shot: "Launch microsite, scrolling",
+    shot: "Prototype build, scrolling",
     tags: ["Digital"],
-    kind: "Website · Launch microsite",
+    kind: "Website · White-label prototype",
     blurb:
-      "Launch microsite for a residential project — narrative scroll, floor plans and enquiry capture.",
-    credit: "ProductionX · Live",
+      "Website prototype for a residential launch — narrative scroll, floor plans and enquiry capture. Built white-label: my build, delivered under another party's name.",
+    credit: "White-label · Prototype build only",
     poster: "/work/sattva.jpg",
     video: "/work/sattva.webm",
   },

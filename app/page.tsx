@@ -1,5 +1,5 @@
 import Nav from "./components/Nav";
-import Cluster from "./components/Cluster";
+import Showcase from "./components/Showcase";
 import { ExperienceList } from "./components/Sections";
 import {
   Motion, Cursor, Intro, Lines, Rise, Marquee, MethodPin, Counter, Magnetic,
@@ -79,14 +79,16 @@ export default function Home() {
         <section className="band band--stone" id="work">
           <div className="shell">
             <span className="label idx">01 — Selected work</span>
-            <Lines className="mt">Eleven pieces, in the dark they were shot in.</Lines>
+            <Lines className="mt">Eleven pieces. Scroll through them.</Lines>
             <Rise delay={0.1}>
               <p className="lead">
                 Each says plainly whether it was in-house, contract or studio work — having
                 sat inside the brand is a different claim from having invoiced it.
               </p>
             </Rise>
-            <Cluster projects={allWork} />
+          </div>
+          <div className="shell">
+            <Showcase projects={allWork} />
           </div>
         </section>
 

@@ -731,3 +731,91 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 @media (max-width: 720px) { .stack__group li { grid-template-columns: 1fr; gap: 0.2rem; } }
 .stack__name { font-weight: 650; font-size: 0.98rem; }
 .stack__use { color: var(--muted); font-size: 0.92rem; }
+
+/* ==========================================================================
+   SHOWCASE — the work as a scroll
+   Each project owns a viewport. Media reveals through a mask and settles from
+   1.15; copy tracks faster on its own plane. A fixed index says where you are.
+   ========================================================================== */
+
+.sc { position: relative; margin-top: var(--s5); }
+.sc__list { list-style: none; margin: 0; padding: 0; }
+
+.sc__panel { min-height: 88vh; display: flex; align-items: center; padding-block: var(--s6); }
+.sc__inner {
+  display: grid; grid-template-columns: 1.05fr 0.95fr; gap: var(--s6);
+  align-items: center; width: 100%;
+}
+/* Alternate sides so the eye is not tracking one gutter for eleven screens. */
+.sc__panel[data-alt="true"] .sc__media { order: 2; }
+@media (max-width: 900px) {
+  .sc__inner { grid-template-columns: 1fr; gap: var(--s4); }
+  .sc__panel { min-height: 0; padding-block: var(--s5); }
+  .sc__panel[data-alt="true"] .sc__media { order: 0; }
+}
+
+.sc__media {
+  position: relative; aspect-ratio: 4 / 3; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.sc__img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
+.sc__shot {
+  position: absolute; left: 0; bottom: 0; z-index: 2;
+  padding: 0.45rem 0.7rem; max-width: 100%;
+  background: rgba(12,11,10,0.82); color: var(--bone-2);
+  font-size: 0.72rem; letter-spacing: 0.04em;
+}
+/* The honest empty state: type, not a misleading picture. */
+.sc__media--none {
+  display: grid; align-content: center; gap: var(--s2);
+  padding: var(--s4); border-style: dashed;
+}
+.sc__none-k { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--chrome); }
+.sc__none-t {
+  font-family: var(--display); font-weight: 600; letter-spacing: -0.03em;
+  font-size: clamp(1.5rem, 3vw, 2.4rem); line-height: 1.02; color: var(--bone); margin: 0;
+}
+
+.sc__copy { display: grid; gap: 0.7rem; align-content: center; will-change: transform; }
+.sc__code { font-size: 0.72rem; letter-spacing: 0.16em; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sc__kind { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--chrome); }
+.sc__copy h3 { font-size: clamp(1.6rem, 3.4vw, 2.6rem); line-height: 1.02; }
+.sc__blurb { font-size: 1rem; color: var(--bone-2); margin: 0; max-width: 48ch; }
+.sc__result {
+  font-size: 0.92rem !important; color: var(--bone) !important;
+  background: var(--chrome-dim); border-left: 3px solid var(--chrome);
+  padding: 0.75rem 0.9rem; margin: 0;
+}
+.sc__result strong {
+  display: block; font-size: 0.66rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--chrome); margin-bottom: 0.2rem;
+}
+.sc__foot {
+  display: flex; flex-wrap: wrap; gap: var(--s2) var(--s3); align-items: center;
+  padding-top: var(--s2); border-top: 1px solid var(--line);
+}
+.sc__credit { font-size: 0.84rem; color: var(--muted); }
+.sc__link {
+  font-size: 0.84rem; font-weight: 700; color: var(--chrome); text-decoration: none;
+  border-bottom: 1px solid var(--chrome); padding-bottom: 2px;
+}
+.sc__tags { display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none; margin: 0; padding: 0; }
+.sc__tags li {
+  font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 600; color: var(--muted); border: 1px solid var(--line); padding: 0.2rem 0.45rem;
+}
+
+/* Fixed index rail. Hidden on narrow screens where it would sit over content. */
+.sc__index {
+  position: fixed; left: 1.75rem; top: 50%; transform: translateY(-50%); z-index: 20;
+  display: grid; justify-items: center; gap: 0.6rem;
+  font-variant-numeric: tabular-nums;
+}
+.sc__now { font-family: var(--display); font-size: 1.4rem; font-weight: 600; color: var(--chrome); }
+.sc__total { font-size: 0.78rem; color: var(--muted); }
+.sc__rule { display: block; width: 2px; height: 7rem; background: var(--line); position: relative; }
+.sc__rule span {
+  position: absolute; inset: 0; background: var(--chrome);
+  transform-origin: top; transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+@media (max-width: 1200px) { .sc__index { display: none; } }
