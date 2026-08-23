@@ -11,26 +11,35 @@
  * intent.
  */
 
+/*
+ * The palette is measured, not chosen.
+ *
+ * Sampling every image in this portfolio gives a mean luminance of 77/255 —
+ * eight of ten sit below 100. Chrome on black, night interiors, spotlight,
+ * dusk. It is a dark body of work, and a light ground fights every frame of
+ * it; that is why the previous stone-and-ultramarine scheme never sat right
+ * whatever accent went on top.
+ *
+ * So: the shadows come from his own shadows (#121110, #13140d, #100000 —
+ * warm, never blue-black). The text comes from his own highlights (#d3c5ba,
+ * #f1f1f5). And the single accent is the blue-steel specular the two
+ * automotive pieces share (#89abbb) — the highlight that appears on chrome,
+ * glass and wet paint, which is the exact condition this work is shot in.
+ * Every pair below is verified at AA or better.
+ */
 :root {
-  /* Ground */
-  --paper: #f2f1ed;      /* gallery neutral — warm enough not to glare */
-  --stone: #e4e1d8;      /* the second ground, for alternating blocks */
-  --raised: #fbfaf8;
-  --ink: #111014;
-  --ink-2: #3b3941;
-  --muted: #615e55;   /* clears AA on both paper and the stone bands */
-  --line: #d3cfc4;
+  --ink: #0c0b0a;        /* warm near-black, from his shadow cluster */
+  --surface: #151312;
+  --raised: #1d1a18;
+  --line: #2a2725;
 
-  /* One accent, used as a block colour rather than a highlighter.
-     Ultramarine: it reads art-directed rather than corporate, and it is
-     nowhere near the studio's ember. */
-  --accent: #1f2fd0;
-  --accent-ink: #f4f4ff;
-  --accent-soft: #e2e3fb;
+  --bone: #ece7e0;       /* from his warm highlights */
+  --bone-2: #b9b2a9;
+  --muted: #8c847a;
 
-  /* Reserved for exactly one moment on the page. A second accent used twice
-     stops being an accent. */
-  --flare: #e0452b;
+  --chrome: #9fc4d6;     /* the specular, from the automotive frames */
+  --chrome-ink: #08131a;
+  --chrome-dim: #1b2a33;
 
   --s1: 0.5rem;
   --s2: 0.875rem;
@@ -46,6 +55,17 @@
   --sans: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* Names kept from the old scheme so nothing downstream had to be rewritten. */
+:root {
+  --paper: var(--ink);
+  --stone: var(--surface);
+  --ink-2: var(--bone-2);
+  --accent: var(--chrome);
+  --accent-ink: var(--chrome-ink);
+  --accent-soft: var(--chrome-dim);
+  --flare: #d8a05a;      /* used once, in the pull quote */
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; }
@@ -53,8 +73,8 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-t
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--bone);
   font-family: var(--sans);
   font-size: 17px;
   line-height: 1.6;
@@ -85,9 +105,9 @@ button { font: inherit; color: inherit; }
 
 .shell { width: min(100% - 2.5rem, var(--shell)); margin-inline: auto; }
 .band { padding-block: var(--s7); }
-.band--stone { background: var(--stone); }
-.band--ink { background: var(--ink); color: var(--paper); }
-.band--ink .lead, .band--ink .muted { color: #a8a49c; }
+.band--stone { background: var(--surface); }
+.band--ink { background: var(--chrome-dim); color: var(--bone); }
+.band--ink .lead, .band--ink .muted { color: var(--bone-2); }
 
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -97,7 +117,7 @@ button { font: inherit; color: inherit; }
 /* Skip link — first focusable thing on the page. */
 .skip {
   position: fixed; top: -100px; left: 1rem; z-index: 100;
-  background: var(--accent); color: var(--accent-ink);
+  background: var(--chrome); color: var(--chrome-ink);
   padding: 0.9rem 1.25rem; font-weight: 600; text-decoration: none;
   transition: top 0.16s ease;
 }
@@ -109,7 +129,7 @@ button { font: inherit; color: inherit; }
 }
 .idx { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--accent); }
 .idx::before { content: ""; width: 2rem; height: 2px; background: currentColor; }
-.band--ink .idx { color: #8f9bff; }
+.band--ink .idx { color: var(--chrome); }
 
 .em { color: var(--accent); }
 .muted { color: var(--muted); }
@@ -120,7 +140,7 @@ button { font: inherit; color: inherit; }
 
 .nav {
   position: sticky; top: 0; z-index: 50;
-  background: color-mix(in srgb, var(--paper) 90%, transparent);
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
   backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease;
@@ -145,14 +165,14 @@ button { font: inherit; color: inherit; }
   display: inline-flex; align-items: center; gap: 0.55rem;
   min-height: 46px; padding: 0.7rem 1.35rem;
   font-size: 0.9rem; font-weight: 600; text-decoration: none;
-  background: var(--ink); color: var(--paper); border: 2px solid var(--ink);
+  background: var(--bone); color: var(--ink); border: 2px solid var(--bone);
   transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
   cursor: pointer;
 }
 .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-.btn--ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn--ghost { background: transparent; color: var(--bone); border-color: var(--line); }
 .btn--ghost:hover { color: var(--accent-ink); }
-.band--ink .btn--ghost { color: var(--paper); border-color: var(--paper); }
+.band--ink .btn--ghost { color: var(--bone); border-color: var(--bone); }
 
 /* ------------------------------------------------------------------ hero */
 
@@ -160,13 +180,13 @@ button { font: inherit; color: inherit; }
 .hero h1 { margin: var(--s4) 0; }
 /* The claim's operative half is set in the accent, as a block of colour the
    eye lands on before it reads a word. */
-.hero h1 mark { background: none; color: var(--accent); }
+.hero h1 mark { background: none; color: var(--chrome); }
 .hero__lead { max-width: 62ch; font-size: clamp(1.08rem, 1.9vw, 1.35rem); color: var(--ink-2); }
 .hero__cta { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s5); }
 
 .avail {
   display: inline-flex; align-items: flex-start; gap: 0.65rem;
-  background: var(--accent); color: var(--accent-ink);
+  background: var(--chrome); color: var(--chrome-ink);
   padding: 0.6rem 1.1rem; font-size: 0.85rem; font-weight: 600;
 }
 .avail__dot {
@@ -182,7 +202,7 @@ button { font: inherit; color: inherit; }
 
 .figures {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  border-top: 2px solid var(--ink); margin-top: var(--s6);
+  border-top: 1px solid var(--line); margin-top: var(--s6);
 }
 @media (max-width: 820px) { .figures { grid-template-columns: repeat(2, 1fr); } }
 .fig { padding: var(--s3) var(--s3) var(--s4) 0; border-right: 1px solid var(--line); }
@@ -229,7 +249,7 @@ button { font: inherit; color: inherit; }
 .card__media img, .card__media video { width: 100%; height: 100%; object-fit: cover; }
 .card__code {
   position: absolute; top: 0; left: 0; z-index: 2;
-  padding: 0.35rem 0.7rem; background: var(--ink); color: var(--paper);
+  padding: 0.35rem 0.7rem; background: var(--chrome); color: var(--chrome-ink);
   font-size: 0.72rem; letter-spacing: 0.1em; font-weight: 700;
 }
 .card__hint {
@@ -298,7 +318,7 @@ button { font: inherit; color: inherit; }
 
 .pull {
   margin-top: var(--s5); padding: var(--s4);
-  background: var(--ink); color: var(--paper);
+  background: var(--surface); border-left: 3px solid var(--chrome); color: var(--bone);
   font-family: var(--display); font-weight: 600; letter-spacing: -0.025em;
   font-size: clamp(1.3rem, 2.6vw, 1.9rem); line-height: 1.2;
 }
@@ -321,13 +341,13 @@ button { font: inherit; color: inherit; }
 .cmp__grip {
   position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   width: 44px; height: 44px; border-radius: 50%;
-  background: var(--paper); border: 2px solid var(--ink);
+  background: var(--bone); border: 2px solid var(--ink);
 }
 .cmp__tag {
   position: absolute; bottom: 0.75rem; z-index: 2;
   padding: 0.3rem 0.6rem; font-size: 0.72rem; letter-spacing: 0.1em;
   text-transform: uppercase; font-weight: 700;
-  background: var(--ink); color: var(--paper);
+  background: var(--chrome); color: var(--chrome-ink);
 }
 .cmp__tag--l { left: 0.75rem; }
 .cmp__tag--r { right: 0.75rem; background: var(--accent); color: var(--accent-ink); }
@@ -357,7 +377,7 @@ button { font: inherit; color: inherit; }
 
 /* ------------------------------------------------------------ experience */
 
-.exp { display: grid; gap: 0; margin-top: var(--s5); border-top: 2px solid var(--ink); }
+.exp { display: grid; gap: 0; margin-top: var(--s5); border-top: 1px solid var(--line); }
 .exp__row {
   display: grid; grid-template-columns: 14rem 1fr; gap: var(--s4);
   padding-block: var(--s4); border-bottom: 1px solid var(--line);
@@ -382,7 +402,7 @@ button { font: inherit; color: inherit; }
 
 /* ---------------------------------------------------- brands / skills */
 
-.brands { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--ink); margin-top: var(--s5); }
+.brands { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); margin-top: var(--s5); }
 @media (max-width: 900px) { .brands { grid-template-columns: repeat(2, 1fr); } }
 .brands li {
   list-style: none; padding: var(--s3) var(--s2);
@@ -402,7 +422,7 @@ button { font: inherit; color: inherit; }
 .skills ul { margin: var(--s2) 0 0; padding: 0; list-style: none; display: grid; gap: 0.42rem; }
 .skills li { color: var(--ink-2); font-size: 0.98rem; }
 
-.edu { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); margin-top: var(--s6); padding-top: var(--s4); border-top: 2px solid var(--ink); }
+.edu { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s4); margin-top: var(--s6); padding-top: var(--s4); border-top: 1px solid var(--line); }
 @media (max-width: 640px) { .edu { grid-template-columns: 1fr; } }
 .edu__q { font-weight: 700; margin-top: 0.35rem; font-size: 1.05rem; }
 
@@ -415,10 +435,10 @@ button { font: inherit; color: inherit; }
   display: grid; grid-template-columns: 6rem 1fr; gap: var(--s2);
   padding-block: var(--s2); border-bottom: 1px solid rgba(255,255,255,0.18);
 }
-.contact__list dt { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #a8a49c; font-weight: 700; padding-top: 0.25rem; }
+.contact__list dt { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding-top: 0.25rem; }
 .contact__list dd { margin: 0; font-size: 1.05rem; }
 .contact__list a { text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); }
-.contact__list a:hover { color: #8f9bff; border-bottom-color: #8f9bff; }
+.contact__list a:hover { color: var(--chrome); border-bottom-color: var(--chrome); }
 
 .foot { padding-block: var(--s4); border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
 .foot__in { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); justify-content: space-between; }
@@ -457,7 +477,7 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 .cur-dot { width: 8px; height: 8px; background: var(--accent); }
 .cur-ring {
   width: 40px; height: 40px; margin-top: -20px; margin-left: -20px;
-  border: 2px solid var(--ink); display: grid; place-items: center;
+  border: 2px solid var(--bone); display: grid; place-items: center;
   transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease, background 0.3s ease;
 }
 .cur-ring span {
@@ -477,7 +497,7 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 /* Hidden unless the head script proved JS is live and motion is wanted. */
 .intro { display: none; }
 .js-intro .intro {
-  position: fixed; inset: 0; z-index: 9000; background: var(--ink); color: var(--paper);
+  position: fixed; inset: 0; z-index: 9000; background: var(--ink); color: var(--bone);
   display: flex; align-items: center; justify-content: center;
 }
 .intro__name { display: flex; overflow: hidden; }
@@ -507,14 +527,14 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 }
 .rail__card {
   flex: 0 0 min(86vw, 38rem);
-  background: var(--raised); border: 2px solid var(--ink);
+  background: var(--raised); border: 1px solid var(--line);
   display: flex; flex-direction: column;
 }
 .rail__frame { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--stone); }
 .rail__img { object-fit: cover; scale: 1.18; }   /* headroom for the parallax */
 .rail__code {
   position: absolute; top: 0; left: 0; z-index: 2; padding: 0.4rem 0.8rem;
-  background: var(--ink); color: var(--paper); font-size: 0.75rem;
+  background: var(--chrome); color: var(--chrome-ink); font-size: 0.75rem;
   font-weight: 700; letter-spacing: 0.1em;
 }
 .rail__meta { padding: var(--s3); display: grid; gap: 0.6rem; align-content: start; flex: 1; }
@@ -548,7 +568,7 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 }
 .method__live h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-top: var(--s3); }
 .method__live p { margin-top: var(--s2); color: var(--ink-2); max-width: 44ch; }
-.method__list { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.method__list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .method__list li { border-bottom: 1px solid var(--line); }
 .method__list button {
   width: 100%; display: grid; grid-template-columns: 3rem 1fr; gap: var(--s2);
@@ -562,7 +582,7 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 
 /* -------------------------------------------------------------- marquee */
 
-.mq { overflow: hidden; padding-block: var(--s4); border-block: 2px solid var(--ink); }
+.mq { overflow: hidden; padding-block: var(--s4); border-block: 1px solid var(--line); }
 .mq__row { display: flex; gap: 0; width: max-content; will-change: transform; }
 .mq__row span {
   display: inline-flex; align-items: center;
@@ -594,3 +614,120 @@ html.motion-on, html.motion-on body { overscroll-behavior-y: none; }
 .motion-off .rail__img { scale: 1; }
 
 .mt { margin: var(--s3) 0 var(--s4); }
+
+/* ==========================================================================
+   CLUSTER GALLERY
+   Eleven tiles composed in space rather than laid in a grid. Depth drives
+   parallax; hover dims the rest; selection opens the detail beside it.
+   ========================================================================== */
+
+.cl { display: grid; grid-template-columns: 1fr 22rem; gap: var(--s5); margin-top: var(--s5); }
+@media (max-width: 1100px) { .cl { grid-template-columns: 1fr; } }
+
+.cl__stage { position: relative; aspect-ratio: 16 / 11; min-height: 30rem; }
+.cl__tile {
+  position: absolute; aspect-ratio: 4 / 3;
+  transition: opacity 0.45s ease, filter 0.45s ease;
+  will-change: transform;
+}
+/* Everything recedes when one tile is engaged — the way a gallery light works. */
+.cl__stage[data-dim="true"] .cl__tile { opacity: 0.28; filter: saturate(0.4); }
+.cl__stage[data-dim="true"] .cl__tile[data-on="true"] { opacity: 1; filter: none; }
+
+.cl__btn {
+  position: relative; display: block; width: 100%; height: 100%;
+  padding: 0; border: 1px solid var(--line); background: var(--surface);
+  overflow: hidden; cursor: pointer;
+  transform: rotate(var(--r)) scale(1);
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease;
+}
+.cl__tile[data-on="true"] .cl__btn {
+  transform: rotate(0deg) scale(1.1);
+  border-color: var(--chrome);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.55);
+}
+.cl__img { object-fit: cover; }
+.cl__code {
+  position: absolute; top: 0; left: 0; z-index: 2; padding: 0.25rem 0.55rem;
+  background: var(--chrome); color: var(--chrome-ink);
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+}
+.cl__cap {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 0.5rem 0.6rem; text-align: left;
+  background: linear-gradient(to top, rgba(12,11,10,0.94), rgba(12,11,10,0));
+  color: var(--bone); font-size: 0.74rem; font-weight: 600; line-height: 1.25;
+  opacity: 0; transform: translateY(6px); transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cl__tile[data-on="true"] .cl__cap { opacity: 1; transform: none; }
+
+.cl__panel {
+  align-self: start; position: sticky; top: 6rem;
+  border-left: 1px solid var(--line); padding-left: var(--s3); min-height: 18rem;
+}
+.cl__panel h3 { font-size: clamp(1.3rem, 2.2vw, 1.9rem); margin-bottom: var(--s2); }
+.cl__panel p { font-size: 0.95rem; color: var(--bone-2); }
+.cl__panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s2); margin-bottom: var(--s2); }
+.cl__kind { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--chrome); }
+.cl__close {
+  background: none; border: 0; cursor: pointer; padding: 0.5rem;
+  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); min-height: 44px;
+}
+.cl__close:hover { color: var(--bone); }
+.cl__result {
+  font-size: 0.9rem !important; color: var(--bone) !important;
+  background: var(--chrome-dim); border-left: 3px solid var(--chrome);
+  padding: 0.7rem 0.85rem; margin-top: var(--s2);
+}
+.cl__result strong {
+  display: block; font-size: 0.66rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--chrome); margin-bottom: 0.2rem;
+}
+.cl__facts { margin: var(--s3) 0 0; display: grid; gap: var(--s2); }
+.cl__facts div { display: grid; gap: 0.15rem; }
+.cl__facts dt { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.cl__facts dd { margin: 0; font-size: 0.88rem; color: var(--bone-2); }
+.cl__link {
+  display: inline-block; margin-top: var(--s3);
+  font-size: 0.85rem; font-weight: 700; color: var(--chrome); text-decoration: none;
+  border-bottom: 1px solid var(--chrome); padding-bottom: 2px;
+}
+.cl__hint { font-size: 0.9rem; color: var(--muted); }
+.cl__hint span { color: var(--chrome); margin-right: 0.4rem; }
+
+/* Phones: the scatter becomes a snapping column. Overlapping absolute tiles
+   on a small screen are unusable, and a clever layout nobody can operate is
+   not a clever layout. */
+@media (max-width: 899px) {
+  .cl__stage {
+    position: static; aspect-ratio: auto; min-height: 0;
+    display: grid; grid-auto-flow: column; grid-auto-columns: 78vw; gap: var(--s3);
+    overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: var(--s3);
+  }
+  .cl__tile { position: static !important; width: auto !important; transform: none !important; scroll-snap-align: center; }
+  .cl__btn { transform: none; }
+  .cl__tile[data-on="true"] .cl__btn { transform: none; }
+  .cl__cap { opacity: 1; transform: none; }
+  .cl__stage[data-dim="true"] .cl__tile { opacity: 1; filter: none; }
+  .cl__panel { position: static; border-left: 0; border-top: 1px solid var(--line); padding: var(--s3) 0 0; }
+}
+
+/* The stack: name on the left, what it is for on the right. The second column
+   is the whole point — the names alone are a commodity. */
+.stack { display: grid; gap: var(--s4); margin-top: var(--s6); }
+.stack__group { border-top: 1px solid var(--line); padding-top: var(--s3); }
+.stack__group h3 {
+  font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--chrome); font-weight: 700; margin-bottom: var(--s2);
+}
+.stack__group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+.stack__group li {
+  display: grid; grid-template-columns: 15rem 1fr; gap: var(--s3);
+  padding: 0.7rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+.stack__group li:hover { background: var(--surface); padding-left: var(--s2); }
+@media (max-width: 720px) { .stack__group li { grid-template-columns: 1fr; gap: 0.2rem; } }
+.stack__name { font-weight: 650; font-size: 0.98rem; }
+.stack__use { color: var(--muted); font-size: 0.92rem; }

@@ -1,0 +1,32 @@
+import { chromium } from "playwright-core";
+const b = await chromium.launch({ executablePath:"/opt/pw-browsers/chromium" });
+const p = await b.newPage({ viewport:{width:1440,height:950} });
+const errs=[]; p.on("pageerror",e=>errs.push(e.message));
+p.on("response",r=>r.status()>=400&&errs.push(r.status()+" "+r.url().slice(0,70)));
+await p.goto("http://127.0.0.1:3000/",{waitUntil:"networkidle"});
+await p.evaluate(()=>document.fonts.ready); await p.waitForTimeout(3400);
+await p.screenshot({path:"/tmp/c-hero.png"});
+await p.evaluate(()=>document.getElementById("work").scrollIntoView());
+await p.waitForTimeout(1100);
+await p.screenshot({path:"/tmp/c-cluster.png"});
+// hover a tile -> others dim
+await p.hover(".cl__tile:nth-child(3) .cl__btn"); await p.waitForTimeout(700);
+const dim = await p.$eval(".cl__stage", e=>e.dataset.dim);
+await p.screenshot({path:"/tmp/c-hover.png"});
+// click -> panel opens
+await p.click(".cl__tile:nth-child(3) .cl__btn"); await p.waitForTimeout(700);
+const panel = await p.$eval(".cl__panel", e=>({open:e.dataset.open, txt:(e.textContent||"").slice(0,60)}));
+await p.screenshot({path:"/tmp/c-open.png"});
+console.log("CLUSTER dim-on-hover:", dim, "| panel:", JSON.stringify(panel));
+await p.evaluate(()=>document.getElementById("skills").scrollIntoView());
+await p.waitForTimeout(900);
+await p.screenshot({path:"/tmp/c-stack.png"});
+const rows = await p.$$eval(".stack__group li", e=>e.length);
+console.log("STACK rows:", rows);
+console.log("ERRORS:", errs.length?errs.slice(0,4):"none");
+const m = await b.newPage({ viewport:{width:390,height:844} });
+await m.goto("http://127.0.0.1:3000/",{waitUntil:"networkidle"}); await m.waitForTimeout(3400);
+await m.evaluate(()=>document.getElementById("work").scrollIntoView()); await m.waitForTimeout(800);
+await m.screenshot({path:"/tmp/c-mobile.png"});
+console.log("mobile overflow:", await m.evaluate(()=>document.documentElement.scrollWidth>innerWidth));
+await b.close();

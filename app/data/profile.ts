@@ -207,6 +207,8 @@ export const DISCIPLINES = ["Brand & strategy", "Production", "Digital", "AI"] a
 export type Discipline = (typeof DISCIPLINES)[number];
 
 export type Project = {
+  /** What the image is, so a caption can say it rather than implying it. */
+  shot?: string;
   code: string;
   /** One project can belong to several — most of the real ones do. */
   tags: Discipline[];
@@ -233,6 +235,7 @@ export const work: Project[] = [
   {
     code: "01",
     name: "1UJ Fashion, 1UJ International Hub & Ujwala Group",
+    shot: "Campaign frame, 1UJ Fashion",
     tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Brand build · Retail & e-commerce",
     blurb:
@@ -244,6 +247,7 @@ export const work: Project[] = [
   {
     code: "02",
     name: "India's first Mercedes-Maybach showroom",
+    shot: "Marque detail, Mercedes-Benz Silver Star",
     tags: ["Brand & strategy", "Production"],
     kind: "Automotive · Luxury launch",
     blurb:
@@ -255,6 +259,7 @@ export const work: Project[] = [
   {
     code: "03",
     name: "AI previsualisation & generated content",
+    shot: "One output of the pipeline — a residential walkthrough generated before the building existed. Product and campaign imagery come off the same pipeline.",
     tags: ["AI", "Production"],
     kind: "AI · Production pipeline",
     blurb:
@@ -266,6 +271,7 @@ export const work: Project[] = [
   {
     code: "04",
     name: "Premium automotive retail",
+    shot: "Tracking-vehicle frame, premium auto retail",
     tags: ["Production"],
     kind: "Automotive · Drive & performance",
     blurb:
@@ -276,6 +282,7 @@ export const work: Project[] = [
   {
     code: "05",
     name: "Hospitality property films",
+    shot: "Property film still",
     tags: ["Production"],
     kind: "Hospitality · Cinematic",
     blurb:
@@ -286,6 +293,7 @@ export const work: Project[] = [
   {
     code: "06",
     name: "Always-on food & beverage social",
+    shot: "Interior coverage, food & beverage",
     tags: ["Production", "Brand & strategy"],
     kind: "F&B · Content systems",
     blurb:
@@ -296,6 +304,7 @@ export const work: Project[] = [
   {
     code: "07",
     name: "Corporate launches & event coverage",
+    shot: "Multi-camera event coverage",
     tags: ["Production"],
     kind: "Corporate · Multi-camera",
     blurb:
@@ -310,6 +319,7 @@ export const digital: Project[] = [
   {
     code: "08",
     name: "Mahati Bhikshu",
+    shot: "Live site, scrolling",
     tags: ["Digital"],
     kind: "Website · Design & build",
     blurb:
@@ -321,6 +331,7 @@ export const digital: Project[] = [
   {
     code: "09",
     name: "Aruna Bhikshu",
+    shot: "Live site, scrolling",
     tags: ["Digital"],
     kind: "Website · Design & build",
     blurb:
@@ -332,17 +343,19 @@ export const digital: Project[] = [
   {
     code: "10",
     name: "OTHO Realty",
+    shot: "Live prototype",
     tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Real estate · Brand & prototype",
     blurb:
       "Brand building and a working site prototype for a realty client — the commercial home for the previsualisation pipeline, where generated walkthroughs sit beside the brand they are selling.",
     credit: "ProductionX · Live prototype",
     href: "https://otho-prototype.vercel.app/",
-    poster: "/work/previz.jpg",
+    poster: "/work/sattva.jpg",
   },
   {
     code: "11",
     name: "Sattva Amora",
+    shot: "Launch microsite, scrolling",
     tags: ["Digital"],
     kind: "Website · Launch microsite",
     blurb:
@@ -421,25 +434,43 @@ export const skills: SkillGroup[] = [
     group: "AI-augmented workflows",
     items: [
       "AI product & model imagery at commercial scale",
-      "Generative video (Veo 3.0)",
-      "Image generation & editing (Nano Banana)",
+      "Generative video",
       "Previsualisation — anything not yet built or shot",
       "AI-assisted brand building",
-      "Script, copy and SEO with Claude and ChatGPT",
     ],
   },
-  {
-    group: "Software",
-    items: [
-      "Adobe Creative Suite",
-      "DaVinci Resolve Studio",
-      "Claude Code · Cursor",
-      "ChatGPT · Claude",
-      "Veo 3.0 · Nano Banana",
-      "Shopify · Meta Ads Manager · Google Ads",
-      "Zapier · ClickUp",
-    ],
-  },
+];
+
+export type Tool = { name: string; use: string; group: string };
+
+/**
+ * The stack, with what each tool is actually for.
+ *
+ * A bare list of software names tells a hiring manager nothing — everyone
+ * lists Photoshop. What separates this stack is the shape of it: craft tools
+ * and generative tools and build tools and ops tools, run by one person, which
+ * is why a small team around him delivers past its headcount.
+ */
+export const stack: Tool[] = [
+  { group: "Craft", name: "Adobe Creative Suite", use: "Edit, motion graphics and retouch — Premiere, After Effects, Photoshop" },
+  { group: "Craft", name: "DaVinci Resolve Studio", use: "Grade and finish, where a film gets its final look" },
+
+  { group: "Generative", name: "Runway", use: "Generative video and shot extension inside an edit" },
+  { group: "Generative", name: "Veo 3.0", use: "Generated footage for shots a camera cannot get" },
+  { group: "Generative", name: "Nano Banana", use: "Product and model imagery, and precise image editing" },
+  { group: "Generative", name: "Higgsfield", use: "Photoreal stills and motion for campaign work" },
+
+  { group: "Build", name: "Claude Code · Cursor", use: "Building the client sites and the tools around them" },
+  { group: "Build", name: "Lovable · Emergent", use: "Fast front-end builds when a brief needs a page this week" },
+  { group: "Build", name: "Shopify", use: "Storefronts — a 600+ SKU catalogue taken live" },
+
+  { group: "Growth", name: "Meta Ads Manager", use: "Paid social, tied to the content it runs on" },
+  { group: "Growth", name: "Google Ads", use: "Search and demand capture" },
+  { group: "Growth", name: "Google Analytics", use: "What the work actually moved" },
+
+  { group: "Ops", name: "Zapier", use: "Wiring the tools together so nobody re-types anything" },
+  { group: "Ops", name: "ClickUp", use: "Running the pipeline — briefs, review, delivery" },
+  { group: "Ops", name: "Claude · ChatGPT", use: "Script, copy and SEO drafting against a brief" },
 ];
 
 export const education = [

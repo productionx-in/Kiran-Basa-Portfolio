@@ -1,11 +1,12 @@
 import Nav from "./components/Nav";
+import Cluster from "./components/Cluster";
 import { ExperienceList } from "./components/Sections";
 import {
-  Motion, Cursor, Intro, Lines, Rise, WorkRail, Marquee, MethodPin, Counter, Magnetic,
+  Motion, Cursor, Intro, Lines, Rise, Marquee, MethodPin, Counter, Magnetic,
 } from "./components/Experience";
 import {
   person, figures, experience, clients, work, digital, skills,
-  education, languages, cvFileName, method,
+  education, languages, cvFileName, method, stack,
 } from "./data/profile";
 
 /**
@@ -78,15 +79,15 @@ export default function Home() {
         <section className="band band--stone" id="work">
           <div className="shell">
             <span className="label idx">01 — Selected work</span>
-            <Lines className="mt">Eleven projects. Push them sideways.</Lines>
+            <Lines className="mt">Eleven pieces, in the dark they were shot in.</Lines>
             <Rise delay={0.1}>
               <p className="lead">
                 Each says plainly whether it was in-house, contract or studio work — having
                 sat inside the brand is a different claim from having invoiced it.
               </p>
             </Rise>
+            <Cluster projects={allWork} />
           </div>
-          <WorkRail projects={allWork} />
         </section>
 
         {/* ---------------------------------------------------------- method */}
@@ -139,6 +140,28 @@ export default function Home() {
                 </Rise>
               ))}
             </div>
+            {/* The stack, with what each tool is for. A bare list of software
+                names says nothing — everyone lists Photoshop. The shape of the
+                stack is the argument: craft, generative, build, growth and ops
+                run by one person. */}
+            <div className="stack">
+              {["Craft", "Generative", "Build", "Growth", "Ops"].map((g, gi) => (
+                <Rise key={g} delay={gi * 0.04}>
+                  <div className="stack__group">
+                    <h3>{g}</h3>
+                    <ul>
+                      {stack.filter((t) => t.group === g).map((t) => (
+                        <li key={t.name}>
+                          <span className="stack__name">{t.name}</span>
+                          <span className="stack__use">{t.use}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Rise>
+              ))}
+            </div>
+
             <Rise>
               <div className="edu">
                 {education.map((e) => (
