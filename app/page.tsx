@@ -1,258 +1,382 @@
-import Nav from "./components/Nav";
-import Work from "./components/Work";
-import Disciplines from "./components/Disciplines";
-import { ExperienceList } from "./components/Sections";
 import {
-  Motion, Cursor, Intro, Lines, Rise, Marquee, MethodPin, Counter, Magnetic,
-} from "./components/Experience";
-import {
-  person, figures, experience, clients, work, digital, skills,
-  education, languages, cvFileName, method, stack,
+  person,
+  figures,
+  experience,
+  clients,
+  work,
+  digital,
+  method,
+  skills,
+  stack,
+  education,
+  languages,
+  cvFileName,
 } from "./data/profile";
+import { WorkIndex } from "./components/Index";
+import { Ledger } from "./components/Ledger";
+import {
+  Motion,
+  Progress,
+  Cursor,
+  Intro,
+  Rise,
+  Lines,
+  NameFill,
+  Counter,
+  Marquee,
+  Magnetic,
+  Spy,
+} from "./components/Chrome";
 
 /**
- * The page is written as a sequence of moments, not a stack of sections.
+ * One page, read as a document.
  *
- * Every heading arrives word by word out of a mask, the work is a rail you
- * push sideways by scrolling, the method pins and steps through itself, and
- * the brand list runs at the speed you scroll. Under prefers-reduced-motion
- * none of that happens and the same markup reads as a clean document — which
- * is the test any of this has to pass.
+ * The order is the argument, in the sequence a hiring manager actually reads
+ * in: who and where (masthead) → what it was worth (figures) → the work itself
+ * (index) → how it gets made (method) → where he has done it (ledger) → what
+ * with (stack and capabilities) → who for (clients) → how to reach him.
+ *
+ * Everything below is server-rendered. The interactive parts are islands that
+ * take content already on the page and animate or fold it; none of them is
+ * required for the page to be read.
  */
-export default function Home() {
-  const allWork = [...work, ...digital];
 
+const SECTIONS = [
+  { id: "work", label: "Work" },
+  { id: "method", label: "Method" },
+  { id: "experience", label: "Experience" },
+  { id: "stack", label: "Stack" },
+  { id: "contact", label: "Contact" },
+];
+
+const projects = [...work, ...digital];
+
+/** Grouped in source order so the stack reads Craft → Generative → Build → Growth → Ops. */
+const stackGroups = stack.reduce<{ group: string; items: typeof stack }[]>((acc, tool) => {
+  const last = acc[acc.length - 1];
+  if (last && last.group === tool.group) last.items.push(tool);
+  else acc.push({ group: tool.group, items: [tool] });
+  return acc;
+}, []);
+
+export default function Page() {
   return (
     <>
-      <a className="skip" href="#main">Skip to content</a>
       <Motion />
+      <Progress />
       <Cursor />
-      <Intro />
-      <Nav />
+      <Intro name={person.name} role={person.title} />
 
-      <main id="main" tabIndex={-1}>
-        {/* ------------------------------------------------------------ hero */}
-        {/* Portrait-led, like every reference Kiran sent. The name is set as a
-            graphic behind the figure rather than as a caption beside it. */}
-        <section className="band hero">
-          <div className="shell">
-            <Rise>
-              <p className="avail">
-                <span className="avail__dot" aria-hidden="true" />
+      <a className="skip" href="#work">
+        Skip to the work
+      </a>
+
+      <header className="topbar">
+        <div className="wrap topbar__in">
+          <span>
+            {person.name} <span style={{ color: "var(--muted)" }}>— {person.title}</span>
+          </span>
+          <Spy items={SECTIONS} />
+          <span style={{ color: "var(--muted)" }}>Hyderabad · IN</span>
+        </div>
+      </header>
+
+      <main id="top">
+        {/* ---------------------------------------------------------- masthead */}
+        <section className="wrap mast" aria-labelledby="name">
+          <div className="mast__head">
+            <h1 className="name" id="name">
+              <span className="name__row">Kiran</span>
+              <span className="name__row">
+                <NameFill>Basa</NameFill>
+              </span>
+            </h1>
+
+            {/* Contents, the way an index opens. Counts are derived from the
+                data rather than typed, so they cannot drift out of date. */}
+            <div className="contents">
+              <div className="contents__k">In this document</div>
+              <ul className="contents__l">
+                <li>
+                  <b>{projects.length}</b>
+                  <span>projects indexed</span>
+                </li>
+                <li>
+                  <b>{experience.length}</b>
+                  <span>roles, 2016 — 2026</span>
+                </li>
+                <li>
+                  <b>{clients.length}</b>
+                  <span>brands worked with</span>
+                </li>
+                <li>
+                  <b>{stack.length}</b>
+                  <span>tools, and what for</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mast__meta">
+            <div>
+              <div className="mast__k">Role</div>
+              <div className="mast__v">{person.title}</div>
+            </div>
+            <div>
+              <div className="mast__k">Practice</div>
+              <div className="mast__v">Brand · Production · Digital · AI</div>
+            </div>
+            <div>
+              <div className="mast__k">Track record</div>
+              <div className="mast__v">10 years · 100+ projects</div>
+            </div>
+            <div>
+              <div className="mast__k">Status</div>
+              <div className="mast__v">
+                <span className="flag">Open to roles</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mast__body">
+            <Lines as="p" className="mast__strap">
+              {person.strapline}
+            </Lines>
+            <div className="mast__actions">
+              <Magnetic>
+                <a className="btn btn--solid" href="#work">
+                  See the work
+                </a>
+              </Magnetic>
+              <Magnetic>
+                <a className="btn" href={`/${cvFileName}`} download>
+                  Download CV ↓
+                </a>
+              </Magnetic>
+              <p className="mast__k" style={{ flexBasis: "100%", marginTop: "0.4rem" }}>
                 {person.availability}
               </p>
-            </Rise>
-
-            <div className="hero__stage">
-              <h1 className="hero__name" aria-label={person.name}>
-                <span aria-hidden="true">KIRAN</span>
-                <span aria-hidden="true">BASA</span>
-              </h1>
-              <p className="hero__role">
-                <span>{person.title}</span>
-                <span>{person.subtitle}</span>
-              </p>
-            </div>
-
-            <div className="hero__under">
-              <Rise delay={0.06}>
-                <p className="hero__lead">{person.strapline}</p>
-              </Rise>
-              <Rise delay={0.12}>
-                <div className="hero__cta">
-                  <Magnetic>
-                    <a className="btn" href={`/${cvFileName}`} download data-cursor="Download">
-                      Download CV
-                    </a>
-                  </Magnetic>
-                  <Magnetic>
-                    <a className="btn btn--ghost" href="#work" data-cursor="See work">
-                      See the work
-                    </a>
-                  </Magnetic>
-                </div>
-              </Rise>
-            </div>
-
-            <div className="figures">
-              {figures.map((f) => (
-                <Counter key={f.label} value={f.value} label={f.label} note={f.note} />
-              ))}
             </div>
           </div>
         </section>
 
-        {/* ----------------------------------------------------- disciplines */}
-        <section className="band band--stone" id="disciplines">
-          <div className="shell">
-            <span className="label idx">01 — Disciplines</span>
-            <Lines className="mt">Three things, done by one person.</Lines>
-            <Disciplines />
+        {/* ----------------------------------------------------------- figures */}
+        <section className="wrap" aria-label="Results">
+          <div className="kicker">
+            <b>What it was worth</b>
+            <span>Figures from the last two roles</span>
+          </div>
+          <div className="figs">
+            {figures.map((f) => (
+              <Counter key={f.label} value={f.value} label={f.label} note={f.note} />
+            ))}
           </div>
         </section>
 
-        {/* --------------------------------------------------------- marquee */}
-        <Marquee items={clients} />
-        <p className="sr-only">
-          Brands worked on: {clients.slice(0, -1).join(", ")} and {clients.at(-1)}.
-        </p>
-
-        {/* ------------------------------------------------------------ work */}
-        <section className="band band--stone" id="work">
-          <div className="shell">
-            <span className="label idx">02 — Selected work</span>
-            <Lines className="mt">Eleven pieces, shelved by craft.</Lines>
-            <Rise delay={0.1}>
-              <p className="lead">
-                Eleven pieces across four crafts. Every one carries how it was engaged —
-                in-house, freelance, studio or white-label — because sitting inside a brand
-                through its approval chain is a different job from being briefed by one,
-                and a reader deserves to know which they are looking at.
-              </p>
-            </Rise>
+        {/* ------------------------------------------------------------- index */}
+        <section className="wrap" id="work" aria-labelledby="work-h" style={{ paddingTop: "clamp(2.5rem,6vw,5rem)" }}>
+          <div className="kicker">
+            <b id="work-h">Index — selected work</b>
+            <span>
+              {projects.length} entries · filter by craft or by engagement
+            </span>
           </div>
-          <div className="shell">
-            <Work projects={allWork} />
-          </div>
+          <Rise>
+            <p className="lede" style={{ paddingBottom: "1.2rem" }}>
+              Labelled twice: what the work was, and how it was engaged. In-house
+              and freelance are different jobs and are not merged here.
+            </p>
+          </Rise>
+          <WorkIndex projects={projects} />
         </section>
 
-        {/* ---------------------------------------------------------- method */}
-        <section className="band" id="method">
-          <div className="shell">
-            <span className="label idx">03 — Method</span>
-            <Lines className="mt">How the work actually gets made.</Lines>
-            <Rise delay={0.1}>
-              <p className="lead">
-                Ten years of craft decides what a brief needs. Generation is one of six
-                steps — it removed a constraint, it did not replace the job.
-              </p>
-            </Rise>
-            <MethodPin steps={method} />
-            <Rise>
-              <p className="pull">
-                A catalogue that would once have needed a studio, a crew and six weeks —
-                <span> delivered by a small team, on a retainer.</span>
-              </p>
-            </Rise>
+        {/* ------------------------------------------------------------ method */}
+        <section
+          className="wrap"
+          id="method"
+          aria-labelledby="method-h"
+          style={{ paddingTop: "clamp(3rem,7vw,6rem)" }}
+        >
+          <div className="kicker">
+            <b id="method-h">How it gets made</b>
+            <span>Six steps · generation sits at three</span>
           </div>
-        </section>
-
-        {/* ------------------------------------------------------ experience */}
-        <section className="band band--stone" id="experience">
-          <div className="shell">
-            <span className="label idx">04 — Experience</span>
-            <Lines className="mt">Edit suite to creative lead, in ten years.</Lines>
-            <Rise delay={0.1}>
-              <p className="lead">
-                I learned this business from the timeline up — cutting other people&rsquo;s
-                footage, then shooting it, then producing it, then deciding what should be
-                shot at all. It is why the strategy I write can actually be made.
-              </p>
-            </Rise>
-            <ExperienceList roles={experience} />
-          </div>
-        </section>
-
-        {/* ---------------------------------------------------------- skills */}
-        <section className="band" id="skills">
-          <div className="shell">
-            <span className="label idx">05 — Capability</span>
-            <Lines className="mt">What I own end to end.</Lines>
-            <div className="skills">
-              {skills.map((g, i) => (
-                <Rise key={g.group} delay={i * 0.05}>
-                  <h3>{g.group}</h3>
-                  <ul>{g.items.map((s) => <li key={s}>{s}</li>)}</ul>
-                </Rise>
-              ))}
-            </div>
-            {/* The stack, with what each tool is for. A bare list of software
-                names says nothing — everyone lists Photoshop. The shape of the
-                stack is the argument: craft, generative, build, growth and ops
-                run by one person. */}
-            <div className="stack">
-              {["Craft", "Generative", "Build", "Growth", "Ops"].map((g, gi) => (
-                <Rise key={g} delay={gi * 0.04}>
-                  <div className="stack__group">
-                    <h3>{g}</h3>
-                    <ul>
-                      {stack.filter((t) => t.group === g).map((t) => (
-                        <li key={t.name}>
-                          <span className="stack__name">{t.name}</span>
-                          <span className="stack__use">{t.use}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Rise>
-              ))}
-            </div>
-
-            <Rise>
-              <div className="edu">
-                {education.map((e) => (
-                  <div key={e.qualification}>
-                    <span className="label">Education</span>
-                    <div className="edu__q">{e.qualification}</div>
-                    <div className="ctr__n">{e.institution} · {e.period}</div>
-                  </div>
-                ))}
-                <div>
-                  <span className="label">Languages</span>
-                  <div className="edu__q">{languages.join(" · ")}</div>
-                </div>
-              </div>
-            </Rise>
-          </div>
-        </section>
-
-        {/* --------------------------------------------------------- contact */}
-        <section className="band band--ink" id="contact">
-          <div className="shell">
-            <span className="label idx">06 — Contact</span>
-            <Lines className="mt">Want someone to own the whole brand?</Lines>
-            <div className="contact__grid" style={{ marginTop: "2rem" }}>
+          <div className="method">
+            <div className="method__aside">
               <Rise>
-                <p className="lead">
-                  I&rsquo;m open to Creative Head and creative leadership roles in Hyderabad
-                  or Visakhapatnam, and to remote roles anywhere. Send a brief or a job
-                  description and I&rsquo;ll reply within 24 hours with an honest read on
-                  whether I&rsquo;m the right fit — including when I&rsquo;m not.
+                <p className="lede">
+                  Every portfolio shows the output. This is the part a hiring
+                  manager actually needs: what I am like to work with.
                 </p>
-                <div className="hero__cta">
-                  <Magnetic>
-                    <a className="btn btn--ghost" href={`mailto:${person.email}`} data-cursor="Email">
-                      {person.email}
-                    </a>
-                  </Magnetic>
-                  <Magnetic>
-                    <a className="btn btn--ghost" href={`/${cvFileName}`} download data-cursor="Download">
-                      Download CV
-                    </a>
-                  </Magnetic>
-                </div>
-              </Rise>
-
-              <Rise delay={0.08}>
-                <dl className="contact__list">
-                  <div><dt>Email</dt><dd><a href={`mailto:${person.email}`}>{person.email}</a></dd></div>
-                  <div><dt>Phone</dt><dd><a href={`tel:${person.phoneHref}`}>{person.phone}</a></dd></div>
-                  <div><dt>LinkedIn</dt><dd><a href={person.linkedinUrl} target="_blank" rel="noreferrer">{person.linkedin}</a></dd></div>
-                  <div><dt>Studio</dt><dd><a href={person.studioUrl} target="_blank" rel="noreferrer">{person.studio}</a></dd></div>
-                  <div><dt>Based in</dt><dd>{person.location}</dd></div>
-                </dl>
+                <p className="prose" style={{ marginTop: "1rem" }}>
+                  Generation sits at step three of six, between direction and
+                  shooting, which is honestly where it belongs. It is one tool
+                  among several — used where it wins on time or money, and never
+                  as a default.
+                </p>
               </Rise>
             </div>
+            <ol className="steps">
+              {method.map((m, i) => (
+                <Rise as="li" className="step" key={m.step} delay={i * 0.03}>
+                  <span className="step__n">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3 className="step__t">{m.step}</h3>
+                    <p className="step__b">{m.body}</p>
+                    <p className="step__d">{m.detail}</p>
+                  </div>
+                </Rise>
+              ))}
+            </ol>
           </div>
         </section>
 
-        <footer className="foot">
-          <div className="shell foot__in">
-            <span>© {new Date().getFullYear()} {person.name} · {person.legalName}</span>
-            <span><a href="/cv">Text CV</a> · <a href={`/${cvFileName}`} download>PDF</a></span>
+        {/* ------------------------------------------------------------ ledger */}
+        <section
+          className="wrap"
+          id="experience"
+          aria-labelledby="exp-h"
+          style={{ paddingTop: "clamp(3rem,7vw,6rem)" }}
+        >
+          <div className="kicker">
+            <b id="exp-h">Ledger — where the work was done</b>
+            <span>Editor · 2016 → Creative Head · 2026</span>
           </div>
-        </footer>
+          <Ledger roles={experience} />
+        </section>
+
+        {/* ------------------------------------------------------------- stack */}
+        <section
+          className="wrap"
+          id="stack"
+          aria-labelledby="stack-h"
+          style={{ paddingTop: "clamp(3rem,7vw,6rem)" }}
+        >
+          <div className="kicker">
+            <b id="stack-h">Stack — and what each one is for</b>
+            <span>Craft · Generative · Build · Growth · Ops</span>
+          </div>
+          <Rise>
+            <p className="lede">
+              A list of software names tells you nothing — everyone lists
+              Photoshop. What matters is the shape: craft, generation, build and
+              operations, run by one person.
+            </p>
+          </Rise>
+          <div className="cols">
+            {stackGroups.map((g, i) => (
+              <Rise className="tool" key={g.group} delay={i * 0.04}>
+                <div className="tool__g">{g.group}</div>
+                <ul className="tool__list">
+                  {g.items.map((t) => (
+                    <li key={t.name}>
+                      <div className="tool__n">{t.name}</div>
+                      <div className="tool__u">{t.use}</div>
+                    </li>
+                  ))}
+                </ul>
+              </Rise>
+            ))}
+          </div>
+
+          <div className="kicker" style={{ marginTop: "clamp(1.5rem,4vw,3rem)" }}>
+            <b>Capabilities</b>
+            <span>What the role would be getting</span>
+          </div>
+          <div className="caps">
+            {skills.map((s) => (
+              <div className="cap" key={s.group}>
+                <h3 className="cap__g">{s.group}</h3>
+                <ul className="cap__list">
+                  {s.items.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ----------------------------------------------------------- clients */}
+        <section aria-label="Brands worked with" style={{ paddingTop: "clamp(3rem,7vw,6rem)" }}>
+          <div className="wrap">
+            <div className="kicker">
+              <b>Brands worked with</b>
+              <span>In-house, agency and studio · {clients.length} named</span>
+            </div>
+          </div>
+          <Marquee items={clients} />
+        </section>
+
+        {/* ----------------------------------------------------------- contact */}
+        <section className="wrap contact" id="contact" aria-labelledby="contact-h">
+          <div className="kicker" style={{ paddingLeft: 0 }}>
+            <b id="contact-h">Contact</b>
+            <span>Replies within a day</span>
+          </div>
+          <Lines as="p" className="contact__h">
+            Looking for a creative head who can direct it and also build it.
+          </Lines>
+
+          <div className="contact__grid">
+            <div>
+              <div className="contact__k">Email</div>
+              <a className="contact__v" href={`mailto:${person.email}`}>
+                {person.email}
+              </a>
+            </div>
+            <div>
+              <div className="contact__k">Phone</div>
+              <a className="contact__v" href={`tel:${person.phoneHref}`}>
+                {person.phone}
+              </a>
+            </div>
+            <div>
+              <div className="contact__k">LinkedIn</div>
+              <a className="contact__v" href={person.linkedinUrl} target="_blank" rel="noreferrer noopener">
+                {person.linkedin} ↗
+              </a>
+            </div>
+            <div>
+              <div className="contact__k">Based</div>
+              <div className="contact__v">{person.location}</div>
+            </div>
+            <div>
+              <div className="contact__k">Open to</div>
+              <div className="contact__v">Hyderabad · Visakhapatnam · Remote</div>
+            </div>
+            <div>
+              <div className="contact__k">Studio</div>
+              <a className="contact__v" href={person.studioUrl} target="_blank" rel="noreferrer noopener">
+                {person.studio} ↗
+              </a>
+            </div>
+          </div>
+
+          <div className="mast__actions" style={{ marginTop: "clamp(1.5rem,3vw,2.4rem)" }}>
+            <Magnetic>
+              <a className="btn btn--solid" href={`mailto:${person.email}`}>
+                Start a conversation
+              </a>
+            </Magnetic>
+            <Magnetic>
+              <a className="btn" href={`/${cvFileName}`} download>
+                Download CV ↓
+              </a>
+            </Magnetic>
+          </div>
+        </section>
       </main>
+
+      <footer className="wrap foot">
+        <span>
+          {person.legalName} · {education[0].qualification}, {education[0].period}
+        </span>
+        <span>{languages.join(" · ")}</span>
+        <span>
+          <a href="#top">Back to top ↑</a>
+        </span>
+      </footer>
     </>
   );
 }

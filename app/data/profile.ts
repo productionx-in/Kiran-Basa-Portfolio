@@ -391,14 +391,19 @@ export const digital: Project[] = [
     name: "OTHO Realty",
     group: "digital",
     engagement: "Studio",
-    shot: "Live prototype",
+    shot: "Generated walkthrough frame, OTHO Realty",
     tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Real estate · Brand & prototype",
     blurb:
       "Brand building and a working site prototype for a realty client — the commercial home for the previsualisation pipeline, where generated walkthroughs sit beside the brand they are selling.",
     credit: "ProductionX · Live prototype",
     href: "https://otho-prototype.vercel.app/",
-    poster: "/work/sattva.jpg",
+    /* The property render belongs here rather than on the previsualisation
+       entry: this is the realty client the pipeline was built for, so the frame
+       is about the client rather than a claim that previz is a realty tool.
+       It also stops OTHO and Sattva Amora sharing one image, which labelled one
+       client's build as another's. */
+    poster: "/work/previz.jpg",
   },
   {
     code: "11",

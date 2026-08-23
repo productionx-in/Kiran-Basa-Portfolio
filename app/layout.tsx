@@ -1,22 +1,39 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter_Tight } from "next/font/google";
+import { Newsreader, IBM_Plex_Mono, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { person, experience, skills, education, clients } from "./data/profile";
 
 /**
- * Two faces, each with a job.
+ * Three faces, three jobs, no overlap. The page is built as an index — a
+ * document that lists a body of work — and an index needs a voice, a hand and
+ * a reading face.
  *
- * Bricolage Grotesque is a contemporary variable grotesque with genuine
- * character in its wider optical sizes — it carries the headlines, where a
- * creative director's page has to look art-directed rather than typeset. Inter
- * Tight does everything read at speed. Neither is the studio's Instrument
- * Serif pairing, and neither is a serif: the earlier serif draft read as the
- * same designer's hand as productionx.in, which was the point of rebuilding.
+ * Newsreader is the voice: a modern transitional serif with real editorial
+ * weight, drawn for screen at display sizes. It carries the name, the headings
+ * and the lead, and it is what stops the page reading as a template.
+ *
+ * IBM Plex Mono is the archive's own hand — every number, label, badge and
+ * piece of metadata. Mono is doing semantic work here rather than decoration:
+ * if it is set in mono it is a fact about the work rather than a claim.
+ *
+ * Inter Tight reads at speed and does the body copy and the interface.
+ *
+ * None of the three is the studio's own pairing on productionx.in. This page
+ * has to look like a different hand from the company's, because it is arguing
+ * for a person rather than a business.
  */
-const display = Bricolage_Grotesque({
+const display = Newsreader({
   subsets: ["latin"],
   weight: "variable",
+  style: ["normal", "italic"],
   variable: "--font-display",
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -112,19 +129,26 @@ const schema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${mono.variable} ${body.variable}`}>
       <head>
         {/*
-          Runs before first paint. The intro curtain is display:none by default
-          and only becomes visible under this class, so a reader with no
-          JavaScript never gets a full-screen overlay that nothing will lift —
-          and neither does one who asked for reduced motion.
+          Runs before first paint, and does two separate jobs.
+
+          `js` says a script ran at all. Collapsible panels default to open in
+          CSS and are only collapsed under this class, so a reader whose bundle
+          never arrives gets every project and every role in full rather than a
+          column of headings that will not open.
+
+          `js-intro` additionally says motion is welcome. The title card is
+          display:none without it, so nobody is left under a black overlay that
+          nothing will ever lift.
         */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)" +
-              "document.documentElement.classList.add('js-intro')}catch(e){}",
+              "try{var d=document.documentElement;d.classList.add('js');" +
+              "if(!matchMedia('(prefers-reduced-motion: reduce)').matches)" +
+              "d.classList.add('js-intro')}catch(e){}",
           }}
         />
       </head>

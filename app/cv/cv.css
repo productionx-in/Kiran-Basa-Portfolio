@@ -9,11 +9,15 @@
  */
 
 .cv {
-  --cv-ink: #111014;
+  /* The same tokens the site derives from Kiran's own frames (see
+     scripts/palette.mjs), so the PDF a recruiter downloads and the page they
+     downloaded it from are recognisably one piece of work. The ground stays
+     white here: paper is a printing decision, not a screen one. */
+  --cv-ink: #100e13;
   --cv-mid: #3b3941;
-  --cv-grey: #615e55;
-  --cv-line: #d3cfc4;
-  --cv-accent: #1f2fd0;
+  --cv-grey: #545058;
+  --cv-line: #c9c8c5;
+  --cv-accent: #ae2936;
 
   width: 210mm;
   min-height: 297mm;
