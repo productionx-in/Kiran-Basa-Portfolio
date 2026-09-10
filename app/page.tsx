@@ -184,8 +184,8 @@ export default function Page() {
           <Rise>
             <p className="lede" style={{ paddingBottom: "1.2rem" }}>
               Every entry says two things: what the work was, and whether I did
-              it in-house or was hired in for it. Those read differently to a
-              hiring manager, so I&rsquo;m not folding one into the other.
+              it in-house or was hired in for it. Those read differently, so
+              I&rsquo;m not folding one into the other.
             </p>
           </Rise>
           <WorkIndex projects={projects} />
@@ -206,8 +206,9 @@ export default function Page() {
             <div className="method__aside">
               <Rise>
                 <p className="lede">
-                  Every portfolio shows the output. This is the part a hiring
-                  manager actually needs: what I am like to work with.
+                  Every portfolio shows the output. This one also shows how it
+                  gets made — what I&rsquo;m like to work with, not just what I can
+                  produce.
                 </p>
                 <p className="prose" style={{ marginTop: "1rem" }}>
                   Generation sits at step three of six, between direction and
