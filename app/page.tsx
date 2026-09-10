@@ -347,12 +347,6 @@ export default function Page() {
               <div className="contact__k">Open to</div>
               <div className="contact__v">Hyderabad · Visakhapatnam · Remote</div>
             </div>
-            <div>
-              <div className="contact__k">Studio</div>
-              <a className="contact__v" href={person.studioUrl} target="_blank" rel="noreferrer noopener">
-                {person.studio} ↗
-              </a>
-            </div>
           </div>
 
           <div className="mast__actions" style={{ marginTop: "clamp(1.5rem,3vw,2.4rem)" }}>
