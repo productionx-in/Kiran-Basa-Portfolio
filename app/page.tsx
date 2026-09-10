@@ -258,9 +258,9 @@ export default function Page() {
           </div>
           <Rise>
             <p className="lede">
-              A list of software names tells you nothing — everyone lists
-              Photoshop. What matters is the shape: craft, generation, build and
-              operations, run by one person.
+              Everyone lists Photoshop. That tells you nothing. Craft,
+              generation, build and ops — one person running all four is the
+              part worth noticing.
             </p>
           </Rise>
           <div className="cols">
