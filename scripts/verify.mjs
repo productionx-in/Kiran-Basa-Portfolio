@@ -128,7 +128,7 @@ console.log("\nInteraction");
   await p.waitForTimeout(3200);
   const count = (sel) => p.evaluate((s) => document.querySelectorAll(s).length, sel);
 
-  check("every project listed", await count(".row"), 11);
+  check("every project listed", await count(".row"), 8);
   check("one project open on arrival", await count(".row--open"), 1);
 
   await p.click(".row:nth-child(5) .row__btn");
@@ -143,8 +143,8 @@ console.log("\nInteraction");
 
   await p.click('.chip:has-text("Web & Digital")');
   await p.waitForTimeout(900);
-  check("filtering by craft", await count(".row"), 4);
-  check("the count is announced", (await p.textContent(".sr[aria-live]")).includes("4 of 11"), true);
+  check("filtering by craft", await count(".row"), 3);
+  check("the count is announced", (await p.textContent(".sr[aria-live]")).includes("3 of 8"), true);
 
   await p.click('.chip:has-text("White-label")');
   await p.waitForTimeout(900);
@@ -152,7 +152,7 @@ console.log("\nInteraction");
 
   await p.click(".filters__clear");
   await p.waitForTimeout(900);
-  check("clearing restores every project", await count(".row"), 11);
+  check("clearing restores every project", await count(".row"), 8);
 
   check("recent roles listed", await count(".job"), 4);
   await p.click(".more");

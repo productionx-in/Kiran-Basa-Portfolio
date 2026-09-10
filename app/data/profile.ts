@@ -279,14 +279,15 @@ export const work: Project[] = [
     name: "1UJ Fashion, 1UJ International Hub & Ujwala Group",
     group: "brand",
     engagement: "In-house",
-    shot: "Campaign frame, 1UJ Fashion",
+    shot: "Bugatti-line executive furniture, 1UJ International Hub",
     tags: ["Brand & strategy", "Digital", "AI"],
     kind: "Brand build · Retail & e-commerce",
     blurb:
       "Three brands from nothing. Identity, brand kit, campaign system, and a Shopify launch across 600+ fashion SKUs and 150+ luxury lines. The model and product imagery was generated, which took the shoot bill out without taking the standard out.",
     credit: "In-house · Head of Creative & Marketing, Ujwala Group",
     result: "₹48L+ in sales · 300+ qualified enquiries in four months · five-person team hired and trained",
-    poster: "/work/fashion.jpg",
+    poster: "/work/1uj-hub.jpg",
+    video: "/work/1uj-hub.webm",
   },
   {
     code: "02",
@@ -309,32 +310,17 @@ export const work: Project[] = [
     name: "AI previsualisation & generated content",
     group: "ai",
     engagement: "Studio",
-    shot: "",
+    shot: "Generated interior walkthrough, previsualisation pipeline",
     tags: ["AI", "Production"],
     kind: "AI · Production pipeline",
     blurb:
       "A pipeline for making the thing that cannot be photographed yet, because it is not built, not manufactured, or not worth what a shoot would cost. Property walkthroughs before the slab is poured are one use. Product, model and campaign imagery are the others. It is not a real-estate tool. It is a way to originate whatever visual a brief needs.",
     credit: "Studio · ProductionX",
-    /* No image: the only frame to hand was a property render, and this card
-       exists to say previz is not a real-estate tool. Awaiting a correct
-       still from the pipeline. */
-    poster: "",
+    poster: "/work/previsualisation.jpg",
+    video: "/work/previsualisation.webm",
   },
   {
     code: "04",
-    name: "Premium automotive retail",
-    group: "production",
-    engagement: "Freelance",
-    shot: "Tracking-vehicle frame, premium auto retail",
-    tags: ["Production"],
-    kind: "Automotive · Drive & performance",
-    blurb:
-      "Tracking-vehicle and gimbal work for premium auto retail. Cut twice: once long for the launch screen, once short for the feed.",
-    credit: "Freelance & studio · BMW, Krishna Motors, Silver Star Hyderabad",
-    poster: "/work/bmw.jpg",
-  },
-  {
-    code: "05",
     name: "Hospitality property films",
     group: "production",
     engagement: "Freelance",
@@ -347,7 +333,7 @@ export const work: Project[] = [
     poster: "/work/hotel.jpg",
   },
   {
-    code: "06",
+    code: "05",
     name: "Always-on food & beverage social",
     group: "production",
     engagement: "Freelance",
@@ -359,25 +345,12 @@ export const work: Project[] = [
     credit: "Freelance & studio · Hole in the Wall and others",
     poster: "/work/cafe.jpg",
   },
-  {
-    code: "07",
-    name: "Corporate launches & event coverage",
-    group: "production",
-    engagement: "Freelance",
-    shot: "Multi-camera event coverage",
-    tags: ["Production"],
-    kind: "Corporate · Multi-camera",
-    blurb:
-      "Brand launches, corporate films, product reveals, multi-camera event coverage. Delivered on the schedule the event set, not the one production wanted.",
-    credit: "Across roles · IRDAI, Everest Abercorn, Pit Stop Group",
-    poster: "/work/event.jpg",
-  },
 ];
 
 /** Live sites — the part that separates him from producers who only shoot. */
 export const digital: Project[] = [
   {
-    code: "08",
+    code: "06",
     name: "Mahati Bhikshu",
     group: "digital",
     engagement: "Studio",
@@ -391,21 +364,7 @@ export const digital: Project[] = [
     video: "/work/mahati.webm",
   },
   {
-    code: "09",
-    name: "Aruna Bhikshu",
-    group: "digital",
-    engagement: "Studio",
-    shot: "Live site, scrolling",
-    tags: ["Digital"],
-    kind: "Website · Design & build",
-    blurb:
-      "Built around repertoire, teaching and enquiry. The structure is what keeps decades of work findable.",
-    credit: "ProductionX · Live",
-    poster: "/work/aruna.jpg",
-    video: "/work/aruna.webm",
-  },
-  {
-    code: "10",
+    code: "07",
     name: "OTHO Realty",
     group: "digital",
     engagement: "Studio",
@@ -424,7 +383,7 @@ export const digital: Project[] = [
     poster: "/work/previz.jpg",
   },
   {
-    code: "11",
+    code: "08",
     name: "Sattva Amora",
     group: "digital",
     engagement: "White-label",
