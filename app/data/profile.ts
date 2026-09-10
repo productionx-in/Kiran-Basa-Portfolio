@@ -304,6 +304,7 @@ export const work: Project[] = [
     href: "https://www.instagram.com/mercedesbenzsilverstar/",
     hrefLabel: "See the account this work fed ↗",
     poster: "/work/mercedes.jpg",
+    video: "/work/mercedes.webm",
   },
   {
     code: "03",
