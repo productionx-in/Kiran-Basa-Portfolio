@@ -320,38 +320,12 @@ export const work: Project[] = [
     poster: "/work/previsualisation.jpg",
     video: "/work/previsualisation.webm",
   },
-  {
-    code: "04",
-    name: "Hospitality property films",
-    group: "production",
-    engagement: "Freelance",
-    shot: "Property film still",
-    tags: ["Production"],
-    kind: "Hospitality · Cinematic",
-    blurb:
-      "Property content for hotels and resorts. Rooms, ambience, service, and the quiet hours nobody photographs.",
-    credit: "Freelance & studio · Hotels, resorts and bars",
-    poster: "/work/hotel.jpg",
-  },
-  {
-    code: "05",
-    name: "Always-on food & beverage social",
-    group: "production",
-    engagement: "Freelance",
-    shot: "Interior coverage, food & beverage",
-    tags: ["Production", "Brand & strategy"],
-    kind: "F&B · Content systems",
-    blurb:
-      "A month of café and restaurant content out of one morning of coverage. Food styling, ambience, staff and stills, planned as a system instead of as a shoot.",
-    credit: "Freelance & studio · Hole in the Wall and others",
-    poster: "/work/cafe.jpg",
-  },
 ];
 
 /** Live sites — the part that separates him from producers who only shoot. */
 export const digital: Project[] = [
   {
-    code: "06",
+    code: "04",
     name: "Mahati Bhikshu",
     group: "digital",
     engagement: "Studio",
@@ -365,7 +339,7 @@ export const digital: Project[] = [
     video: "/work/mahati.webm",
   },
   {
-    code: "07",
+    code: "05",
     name: "OTHO Realty",
     group: "digital",
     engagement: "Studio",
@@ -384,7 +358,7 @@ export const digital: Project[] = [
     poster: "/work/previz.jpg",
   },
   {
-    code: "08",
+    code: "06",
     name: "Sattva Amora",
     group: "digital",
     engagement: "White-label",
@@ -466,6 +440,7 @@ export const skills: SkillGroup[] = [
     group: "Creative production",
     items: [
       "Film direction & cinematography",
+      "DSLR & mirrorless camera operation",
       "Visual storytelling",
       "Product & fashion shoots",
       "Multi-camera events",
@@ -494,6 +469,7 @@ export type Tool = { name: string; use: string; group: string };
  * is why a small team around him delivers past its headcount.
  */
 export const stack: Tool[] = [
+  { group: "Craft", name: "DSLR & mirrorless cameras", use: "Own the shoot end to end, as DOP and content producer" },
   { group: "Craft", name: "Adobe Creative Suite", use: "Premiere, After Effects, Photoshop. Edit, motion and retouch." },
   { group: "Craft", name: "DaVinci Resolve Studio", use: "Grade and finish, where a film gets its final look" },
 
