@@ -265,7 +265,7 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
     <>
       <div className="filters">
         <span className="filters__k">Craft</span>
-        {GROUPS.map((g) => (
+        {GROUPS.filter((g) => counts.g[g.key] > 0).map((g) => (
           <button
             key={g.key}
             type="button"
@@ -281,7 +281,7 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
 
       <div className="filters">
         <span className="filters__k">Engagement</span>
-        {ENGAGEMENTS.map((e) => (
+        {ENGAGEMENTS.filter((e) => counts.e[e] > 0).map((e) => (
           <button
             key={e}
             type="button"
