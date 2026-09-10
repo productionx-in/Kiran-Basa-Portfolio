@@ -37,8 +37,15 @@ export const person = {
   strapline:
     "Ten years, editor to creative lead. Three brands built from nothing to ₹48L+ in sales, India's first Mercedes-Maybach showroom, 100+ projects shot and cut. I shoot when a crew is the only way to get it. I generate when a camera can't get there. The rest I automate.",
   location: "Hyderabad, Telangana, India",
-  /** His stated constraint, verbatim in effect: Hyderabad or Vizag, else remote. */
-  availability: "Open to Creative Head roles in Hyderabad or Visakhapatnam — and to remote roles anywhere",
+  /**
+   * His stated constraint on location, unchanged: Hyderabad or Vizag, else
+   * remote. The titles named are the cluster he actually applies under —
+   * Creative Head, Executive Creative Director, Creative Strategist — so
+   * this line doesn't need editing every time a different one shows up on a
+   * job post. It names roles he's applying for, not ones he's held.
+   */
+  availability:
+    "Open to senior creative leadership and content roles — Creative Head, Executive Creative Director, Creative Strategist — in Hyderabad or Visakhapatnam, and remote anywhere",
   email: "basakiran9@gmail.com",
   phone: "+91 93919 26846",
   phoneHref: "+919391926846",

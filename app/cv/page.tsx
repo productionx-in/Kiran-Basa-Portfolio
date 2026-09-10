@@ -73,7 +73,8 @@ export default function CV() {
           first Mercedes-Maybach showroom, where the campaign work put showroom footfall
           up 50%. I still shoot and I still cut. I also build the sites, run the ads, and
           use AI where it takes cost out, which is how a team of five ships like a bigger
-          one. Looking for a Creative Head role.
+          one. Looking for a senior creative role — Creative Head, Executive Creative
+          Director or Creative Strategist.
         </p>
       </section>
 
