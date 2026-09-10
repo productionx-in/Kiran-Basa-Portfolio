@@ -183,8 +183,9 @@ export default function Page() {
           </div>
           <Rise>
             <p className="lede" style={{ paddingBottom: "1.2rem" }}>
-              Labelled twice: what the work was, and how it was engaged. In-house
-              and freelance are different jobs and are not merged here.
+              Every entry says two things: what the work was, and whether I did
+              it in-house or was hired in for it. Those read differently to a
+              hiring manager, so I&rsquo;m not folding one into the other.
             </p>
           </Rise>
           <WorkIndex projects={projects} />
@@ -258,9 +259,9 @@ export default function Page() {
           </div>
           <Rise>
             <p className="lede">
-              Everyone lists Photoshop. That tells you nothing. Craft,
-              generation, build and ops — one person running all four is the
-              part worth noticing.
+              I use every one of these myself, across craft, generation, build
+              and ops, instead of briefing them out. That&rsquo;s why five people
+              here can ship like a bigger team.
             </p>
           </Rise>
           <div className="cols">
