@@ -3,6 +3,7 @@ import {
   person,
   figures,
   experience,
+  earlyCredits,
   skills,
   education,
   languages,
@@ -11,7 +12,7 @@ import {
 import "./cv.css";
 
 export const metadata: Metadata = {
-  title: `${person.legalName} — ${person.title} · CV`,
+  title: `${person.legalName} · ${person.title} · CV`,
   description: `Curriculum vitae of ${person.name}, ${person.title}.`,
   robots: { index: false, follow: true },
 };
@@ -66,15 +67,16 @@ export default function CV() {
       <section>
         <h2>Profile</h2>
         <p className="cv__summary">
-          Ten years in production, the last three running the brand as well as the film.
-          At Ujwala Group I built three brands from nothing and took them to ₹48L+ in
-          sales inside six months, hiring the team, running the Shopify launch and
-          owning the ad spend myself. Before that I directed content for India&rsquo;s
-          first Mercedes-Maybach showroom, where the campaign work put showroom footfall
-          up 50%. I still shoot and I still cut. I also build the sites, run the ads, and
-          use AI where it takes cost out, which is how a team of five ships like a bigger
-          one. Looking for a senior creative role — Creative Head, Executive Creative
-          Director or Creative Strategist.
+          Ten years in production, from editing and cinematography through assistant
+          direction and production, into creative leadership. I direct, shoot, edit, and
+          understand the brand and business behind the work. At Ujwala Group I was
+          Creative Lead across three brands built from nothing, hiring the team, running
+          the Shopify launch and the ad spend, and taking them to ₹48L+ in sales inside
+          six months. Before that I directed content for India&rsquo;s first
+          Mercedes-Maybach showroom, where the campaign work put showroom footfall up
+          50%. I use AI to make production faster, not to replace the craft. Looking for
+          a Creative Lead role, also open to Creative Director, Head of Creative,
+          Creative Production Lead and Content Lead.
         </p>
       </section>
 
@@ -94,7 +96,7 @@ export default function CV() {
         <ul className="cv__skills">
           {skills.map((g) => (
             <li key={g.group}>
-              <strong>{g.group}</strong> — {g.items.join(", ")}
+              <strong>{g.group}</strong>: {g.items.join(", ")}
             </li>
           ))}
         </ul>
@@ -137,10 +139,23 @@ export default function CV() {
               <span className="cv__role-when">{r.period}</span>
             </div>
             <div className="cv__role-place">
-              {r.place} — {r.points[0]}
+              {r.place}, {r.points[0]}
             </div>
           </div>
         ))}
+
+        {/* Practical credits, not jobs — no company or date range, so they
+            read as what they were rather than as more full-time employment. */}
+        {earlyCredits.length > 0 && (
+          <div className="cv__role cv__role--slim">
+            <div className="cv__role-head">
+              <span className="cv__role-title">Early production credits</span>
+            </div>
+            <div className="cv__role-place">
+              {earlyCredits.map((c) => `${c.project}: ${c.role}`).join("; ")}.
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="cv__foot-grid">

@@ -64,7 +64,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8">
 </style></head><body>
   <div>
     <div class="top">
-      <span class="mono"><b>${name}</b> — ${title}</span>
+      <span class="mono"><b>${name}</b> · ${title}</span>
       <span class="flag">Open to roles</span>
     </div>
     <h1 style="margin-top:34px">Kiran<br><span class="o">Basa</span></h1>

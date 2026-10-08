@@ -16,7 +16,7 @@
  */
 
 import { useState } from "react";
-import type { Role } from "../data/profile";
+import { earlyCredits, type Role } from "../data/profile";
 
 function Job({ r, defaultOpen }: { r: Role; defaultOpen: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -82,15 +82,30 @@ export function Ledger({ roles }: { roles: Role[] }) {
 
       {early.length > 0 && (
         <>
-          {showEarly &&
-            early.map((r) => <Job key={r.org + r.period} r={r} defaultOpen={false} />)}
+          {showEarly && (
+            <>
+              {early.map((r) => <Job key={r.org + r.period} r={r} defaultOpen={false} />)}
+              {earlyCredits.length > 0 && (
+                <div className="credits">
+                  <div className="credits__k">Earlier production credits</div>
+                  <ul className="credits__list">
+                    {earlyCredits.map((c) => (
+                      <li key={c.project}>
+                        <span className="credits__role">{c.role}</span>, {c.project}. {c.note}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </>
+          )}
           <button
             type="button"
             className="more"
             aria-expanded={showEarly}
             onClick={() => setShowEarly(!showEarly)}
           >
-            {showEarly ? "— Hide the first four roles" : `+ Show ${early.length} earlier roles (2016 — 2022)`}
+            {showEarly ? "- Hide the first four roles" : `+ Show ${early.length} earlier roles (2016-2022)`}
           </button>
         </>
       )}

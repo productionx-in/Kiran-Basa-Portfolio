@@ -18,8 +18,12 @@ import { dirname, join } from "node:path";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const url = process.env.CV_URL ?? "http://127.0.0.1:3000/cv";
 
-/** The name the file lands under in a recruiter's downloads folder. */
-const OUT = join(root, "public", "Kiran-Basa-Creative-Head-CV.pdf");
+/**
+ * The name the file lands under in a recruiter's downloads folder. Kept in
+ * step with `cvFileName` in app/data/profile.ts by hand, since this script
+ * is plain JS rather than something that can import the TS source.
+ */
+const OUT = join(root, "public", "Kiran-Basa-Creative-Lead-CV.pdf");
 
 const CANDIDATES = [
   process.env.CHROME_PATH,

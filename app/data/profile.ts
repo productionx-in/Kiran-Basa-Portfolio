@@ -6,46 +6,50 @@
  * both places — which is the only way a portfolio and a résumé stay in agreement
  * over the months an actual job search takes.
  *
- * Every fact below is taken from Kiran's own CV. Where the ProductionX website
- * makes a larger claim than the CV supports, the CV wins: a recruiter who finds
- * a contradiction between two of your own pages stops believing both.
+ * Every fact below is taken from Kiran's own account of his career. Where the
+ * ProductionX website makes a larger claim than this file supports, this file
+ * wins: a recruiter who finds a contradiction between two of your own pages
+ * stops believing both.
  */
 
 export const person = {
   /** Legal name on the CV is Basa Kiran Kumar; he works as Kiran Basa. */
   name: "Kiran Basa",
   legalName: "Basa Kiran Kumar",
-  /** The role he is actually applying for. Everything on the page argues for it. */
-  title: "Creative Head",
-  subtitle: "Brand Strategy & Content Leadership",
   /**
-   * The headline claim. Craft and leadership carry it; AI appears as one of
-   * three tools in the strapline, which is the true proportion. An earlier
-   * draft led on "AI-native creative leader" and Kiran corrected it: the AI
-   * makes the work smart, it is not the skill being sold.
+   * He has held the title "Creative Lead" twice, at Ujwala Group and now at
+   * ProductionX, so it leads everywhere on the page rather than a grander
+   * title he has not actually held. Creative Director, Head of Creative and
+   * the rest are roles he is open to, not roles he has had, and they live in
+   * `availability` instead of here.
    */
-  headline: "I build brands, and the content that sells them.",
+  title: "Creative Lead",
+  subtitle: "Creative Production, Brand & Marketing",
+  /**
+   * The headline claim. Production first, because it is the foundation the
+   * rest was built on: editor, then cinematographer and assistant director,
+   * then producer, then creative lead. Brand and marketing came later, as he
+   * took on more responsibility for the business behind the work, so they
+   * read as what he also understands rather than as the lead identity.
+   */
+  headline: "I come from production, and I lead the creative work from brief to final cut.",
   /**
    * The one line a recruiter reads before deciding whether to keep scrolling.
-   * It leads with the arc, because ten years of range is the least replicable
-   * thing on the page, and closes on the three ways he actually makes a frame.
-   *
-   * Written as four short sentences rather than one balanced one. An earlier
-   * draft ran the last clause as a tidy comma triad and read like a machine
-   * had set it; breaking the rhythm is most of what makes prose sound written.
+   * Leads with the production arc rather than with a revenue number, because
+   * the arc is the part of the story that actually explains the rest of it.
    */
   strapline:
-    "Ten years, editor to creative lead. Three brands built from nothing to ₹48L+ in sales, India's first Mercedes-Maybach showroom, 100+ projects shot and cut. I shoot when a crew is the only way to get it. I generate when a camera can't get there. The rest I automate.",
+    "Ten years, editor to creative lead. I started in assistant direction and cinematography, cutting on a web series and short films before moving into production and then creative leadership. Three brands built from nothing, and the launch of India's first Mercedes-Maybach showroom. I still shoot, direct and edit. I use AI to make production faster, not to replace the craft.",
   location: "Hyderabad, Telangana, India",
   /**
    * His stated constraint on location, unchanged: Hyderabad or Vizag, else
-   * remote. The titles named are the cluster he actually applies under —
-   * Creative Head, Executive Creative Director, Creative Strategist — so
-   * this line doesn't need editing every time a different one shows up on a
-   * job post. It names roles he's applying for, not ones he's held.
+   * remote. Creative Lead is the title that leads the page; these are the
+   * other titles the same work maps to, so a recruiter searching under any
+   * of them still finds an accurate match. Names roles he's open to, not
+   * ones he's held.
    */
   availability:
-    "Open to senior creative leadership and content roles — Creative Head, Executive Creative Director, Creative Strategist — in Hyderabad or Visakhapatnam, and remote anywhere",
+    "Open to Creative Lead, Creative Director, Head of Creative, Creative Production Lead, Content Lead and Brand Creative Lead roles, in Hyderabad or Visakhapatnam, and remote anywhere",
   email: "basakiran9@gmail.com",
   phone: "+91 93919 26846",
   phoneHref: "+919391926846",
@@ -71,16 +75,16 @@ export const person = {
 } as const;
 
 /**
- * The four numbers, chosen for what a hiring manager can do with them.
- *
- * Revenue first — it is the only figure on the page that a CFO recognises, and
- * a creative who can name a revenue number is rare enough to be memorable.
+ * The four numbers, led by the production arc rather than by revenue. The
+ * ₹48L+ figure is real and stays on the page, but it sits last rather than
+ * first: a production-first creative lead is the identity being sold, and a
+ * revenue number on its own reads as a marketing identity instead.
  */
 export const figures = [
-  { value: "₹48L+", label: "Sales generated", note: "Three brands, six months, Ujwala Group" },
+  { value: "10 yrs", label: "Editor to creative lead", note: "Cutting in 2016. Leading creative by 2025." },
+  { value: "100+", label: "Projects shot and cut", note: "Film, photography and brand content across ten years" },
   { value: "50%", label: "Showroom footfall", note: "Increase at Mercedes-Benz Silver Star" },
-  { value: "300+", label: "Qualified enquiries", note: "First four months of paid spend" },
-  { value: "10 yrs", label: "Editor to creative lead", note: "Cutting in 2016. Running creative by 2025." },
+  { value: "₹48L+", label: "Sales generated", note: "Three brands, six months, Ujwala Group" },
 ];
 
 export type Role = {
@@ -102,46 +106,45 @@ export type Role = {
 export const experience: Role[] = [
   {
     org: "ProductionX",
-    role: "Founder",
-    period: "May 2026 — Present",
+    role: "Founder & Creative Lead",
+    period: "May 2026 - Present",
     place: "Hyderabad, India",
     url: "https://productionx.in",
     urlLabel: "productionx.in",
     points: [
-      "A small studio working with early-stage brands. Branding, content, production, and the site it all lands on.",
-      "Three client sites live, plus a launch microsite for a residential development. I design them and I build them.",
-      "Built an AI pipeline that pays for itself. Product and model shots with no studio booked, and property walkthroughs a sales team can show before the building exists.",
-      "Scoping, pricing, pitching, invoicing. The commercial side is mine as well as the creative.",
+      "A creative production studio. Film, photography, branding and brand content for early-stage brands.",
+      "Creative direction, production planning and concept development on every project, from the first brief to delivery.",
+      "AI-assisted content production for clients who need product, model or property imagery without a full shoot.",
+      "Client management, pricing, pitching and vendors. Websites and digital experiences too, when a brief calls for one.",
     ],
     detail:
-      "The studio is where I tested the AI side on real client money instead of on demos. It made me quicker and cheaper without dropping the standard. That is the thing I would bring in-house.",
+      "The studio is where I tested the AI side on real client money instead of on demos. It made production quicker and cheaper without dropping the standard. That is the thing I would bring in-house.",
   },
   {
     org: "Ujwala Group",
-    role: "Head of Creative & Marketing",
-    period: "Nov 2025 — May 2026",
+    role: "Creative Lead",
+    period: "Nov 2025 - May 2026",
     place: "Hyderabad, India",
     points: [
       "Walked into a warehouse of stock with no brand on any of it. Fashion, luxury furniture, smart-home. Built three identities from nothing: 1UJ Fashion, 1UJ The International Hub, and the parent Ujwala Group.",
       "Hired five people across social, content and inventory, trained them, and wrote the process they worked to.",
       "Took 600+ fashion SKUs and 150+ luxury and lifestyle lines from brand kit to a live Shopify store.",
-      "Ran the Google and Meta spend. 300+ qualified enquiries in the first four months.",
-      "₹30L+ in luxury and lifestyle, ₹18L+ in fashion. ₹48L+ altogether.",
-      "Shot the entire e-commerce catalogue without a shoot. Every garment, then the premium furniture line including the Bugatti office, dining and bedroom ranges, generated and retouched to something that held up on the storefront and in paid social.",
+      "Shot the entire e-commerce catalogue without a shoot. Every garment, then the premium furniture line including the Bugatti office, dining and bedroom ranges, generated and retouched to a standard that held up on the storefront and in paid social.",
+      "Marketing sat under the same role. Ran the Google and Meta spend, 300+ qualified enquiries in the first four months, and ₹48L+ in sales across the three brands in six months.",
     ],
     detail:
-      "Six months, three brands, one team, one storefront, and a revenue number at the end of it. The brand kit, the ad spend and the commerce were all mine. That is unusual, and it is most of why I would do it again.",
+      "Six months, three brands, one team, one storefront. The brand kit, the ad spend and the commerce were all mine. That is unusual, and it is most of why I would do it again.",
   },
   {
     org: "Mercedes-Benz Silver Star Hyderabad",
     role: "Content Producer",
-    period: "Dec 2024 — Nov 2025",
+    period: "Dec 2024 - Nov 2025",
     place: "Hyderabad, India",
     points: [
-      "Ran creative for the launch of India's first Mercedes-Maybach showroom, inside the marque's guidelines and its sign-off chain.",
-      "Photography and film across both ranges, to the standard the marque requires. 50+ campaign and delivery films directed and cut.",
-      "Worked with the Sales and Service Marketing GMs on campaigns across social, print and WhatsApp. Showroom footfall and lead conversion up 50%, service campaign engagement up 80%.",
-      "One service campaign brought in ₹14L of business inside a month. Grew the showroom's Instagram from 6,000 to 17,000 in eight months.",
+      "Creative direction and production across the dealership, including the Maybach range, inside the marque's guidelines and its sign-off chain.",
+      "Ran creative for the launch of India's first Mercedes-Maybach showroom. Photography and film across both ranges, print, WhatsApp campaigns and showroom launch events, all to the standard the marque requires.",
+      "50+ campaign and delivery films directed and cut. Content planning, posting schedules and customer communication, working with the Sales and Service Marketing GMs.",
+      "Showroom footfall and lead conversion up 50%, service campaign engagement up 80%. Grew the showroom's Instagram from 6,000 to 17,000 in eight months.",
     ],
     detail:
       "Working inside a marque that size taught me consistency beats any one brilliant asset. Guidelines are not the obstacle. They are the job.",
@@ -149,7 +152,7 @@ export const experience: Role[] = [
   {
     org: "Self-employed",
     role: "Independent Freelance Producer",
-    period: "Nov 2022 — Nov 2024",
+    period: "Nov 2022 - Nov 2024",
     place: "Hyderabad, India",
     points: [
       "Two years of contract shooting. Automotive, hotels, restaurants, corporate, events.",
@@ -159,7 +162,7 @@ export const experience: Role[] = [
   {
     org: "RVR PRO",
     role: "Cinematographer",
-    period: "Jun 2022 — Oct 2022",
+    period: "Jun 2022 - Oct 2022",
     place: "Hyderabad, India",
     early: true,
     points: [
@@ -170,7 +173,7 @@ export const experience: Role[] = [
   {
     org: "Telugu Desam Party",
     role: "Content Creator",
-    period: "Feb 2020 — May 2021",
+    period: "Feb 2020 - May 2021",
     place: "Mangalagiri, Andhra Pradesh",
     early: true,
     points: [
@@ -182,7 +185,7 @@ export const experience: Role[] = [
   {
     org: "Camzooms Services Pvt Ltd",
     role: "Video Producer",
-    period: "Dec 2018 — Jan 2020",
+    period: "Dec 2018 - Jan 2020",
     place: "Hyderabad, India",
     early: true,
     points: [
@@ -194,7 +197,7 @@ export const experience: Role[] = [
   {
     org: "7th Creations",
     role: "Video Editor",
-    period: "Oct 2016 — Nov 2018",
+    period: "Oct 2016 - Nov 2018",
     place: "Visakhapatnam, Andhra Pradesh",
     early: true,
     points: [
@@ -202,6 +205,38 @@ export const experience: Role[] = [
       "Added animation and VFX work that lifted client satisfaction by 40%.",
       "Built lasting client relationships, including with three major corporations.",
     ],
+  },
+];
+
+export type Credit = {
+  /** What it was, named plainly rather than dressed up as an employer. */
+  project: string;
+  role: string;
+  note: string;
+};
+
+/**
+ * Practical production credits from the same early years, before the roles
+ * above. Not separate full-time jobs, so they sit apart from `experience`
+ * rather than inside it with a company and a start and end date they never
+ * had. They matter because they show production was the foundation from the
+ * start, not something picked up later alongside brand and marketing work.
+ */
+export const earlyCredits: Credit[] = [
+  {
+    project: "Katha (web series)",
+    role: "Assistant Director",
+    note: "One of the assistant directors on the production team, for around five months, during the Camzooms period. Also edited two episodes.",
+  },
+  {
+    project: "Geetha Subramanyam (Season 2)",
+    role: "Assistant Director, Direction Department",
+    note: "One of the assistant directors, mainly through early pre-production.",
+  },
+  {
+    project: "Short film projects",
+    role: "Assistant Director & Post-Production",
+    note: "Independent freelance work, separate from Camzooms, across several short films.",
   },
 ];
 
@@ -245,7 +280,7 @@ export type Engagement = (typeof ENGAGEMENTS)[number];
 /** The shelves the work sits on. Named by craft, not by client. */
 export const GROUPS = [
   { key: "brand", label: "Brand & Campaign", blurb: "Identity, positioning and the campaigns that carry them." },
-  { key: "production", label: "Content Production", blurb: "Films, shoots and events — ten years behind the camera." },
+  { key: "production", label: "Content Production", blurb: "Films, shoots and events, ten years behind the camera." },
   { key: "digital", label: "Web & Digital", blurb: "Sites and storefronts, designed and built end to end." },
   { key: "ai", label: "AI & Generative", blurb: "Making the frame that cannot be photographed yet." },
 ] as const;
@@ -291,7 +326,7 @@ export const work: Project[] = [
     kind: "Brand build · Retail & e-commerce",
     blurb:
       "Three brands from nothing. Identity, brand kit, campaign system, and a Shopify launch across 600+ fashion SKUs and 150+ luxury lines. The model and product imagery was generated, which took the shoot bill out without taking the standard out.",
-    credit: "In-house · Head of Creative & Marketing, Ujwala Group",
+    credit: "In-house · Creative Lead, Ujwala Group",
     result: "₹48L+ in sales · 300+ qualified enquiries in four months · five-person team hired and trained",
     poster: "/work/1uj-hub.jpg",
     video: "/work/1uj-hub.webm",
@@ -398,69 +433,59 @@ export const method = [
 export type SkillGroup = { group: string; items: string[] };
 
 /**
- * Grouped rather than listed flat — someone scanning for one competence should
- * find its whole cluster in one place rather than reading thirty loose nouns.
- * The group names double as the shape of the job being applied for.
+ * Grouped rather than listed flat, and ordered so creative and production
+ * lead: roughly 60% creative and production, 25% brand and marketing, 15% AI
+ * and digital, both in the order the groups appear and in how much weight
+ * each one carries. Someone scanning for one competence should find its whole
+ * cluster in one place rather than reading forty loose nouns.
  */
 export const skills: SkillGroup[] = [
   {
-    group: "Brand & strategy",
+    group: "Creative Direction & Production",
     items: [
-      "Brand identity & positioning",
-      "Creative strategy",
-      "Campaign planning",
-      "Go-to-market execution",
-      "Brand systems & guidelines",
-    ],
-  },
-  {
-    group: "Leadership",
-    items: [
-      "Team hiring & training (5–8)",
-      "Cross-functional leadership",
-      "Creative operations & workflow automation",
-      "Process design (Zapier, ClickUp) to cut cost and turnaround",
-      "Budget & vendor management",
-      "Client & stakeholder relationships",
-    ],
-  },
-  {
-    group: "Marketing & e-commerce",
-    items: [
-      "Performance marketing (Google & Meta Ads)",
-      "Shopify storefronts",
-      "Integrated multi-channel campaigns",
-      "SEO & local search",
-      "Analytics & reporting",
-    ],
-  },
-  {
-    group: "Web & build",
-    items: [
-      "Website design and build (Next.js, React)",
-      "AI-assisted development (Claude Code, Cursor)",
-      "Git & GitHub",
-      "Rapid prototyping for client pitches",
-    ],
-  },
-  {
-    group: "Creative production",
-    items: [
+      "Creative direction & concept development",
       "Film direction & cinematography",
       "DSLR & mirrorless camera operation",
       "Visual storytelling",
       "Product & fashion shoots",
       "Multi-camera events",
-      "Post supervision & grade",
+      "Post-production supervision & grade",
     ],
   },
   {
-    group: "AI-augmented workflows",
+    group: "Leadership & Operations",
     items: [
+      "Team hiring & training (5-8)",
+      "Cross-functional leadership",
+      "Budget & vendor management",
+      "Client & stakeholder relationships",
+      "Creative operations & workflow automation",
+    ],
+  },
+  {
+    group: "Brand & Marketing",
+    items: [
+      "Brand strategy",
+      "Creative strategy",
+      "Content strategy",
+      "Campaign development",
+      "Digital marketing",
+      "Performance marketing",
+      "Social media marketing",
+      "Google Ads",
+      "Meta Ads",
+      "E-commerce",
+      "Shopify",
+    ],
+  },
+  {
+    group: "AI & Digital Production",
+    items: [
+      "AI-assisted creative and production workflows",
       "AI product & model imagery at commercial scale",
       "Generative video",
       "Previsualisation of anything not yet built or shot",
-      "AI-assisted brand building",
+      "Website design & build (Next.js, React)",
     ],
   },
 ];
@@ -485,28 +510,39 @@ export const stack: Tool[] = [
   { group: "Generative", name: "Nano Banana", use: "Product and model imagery, and precise image editing" },
   { group: "Generative", name: "Higgsfield", use: "Photoreal stills and motion for campaign work" },
 
-  { group: "Build", name: "Claude Code · Cursor", use: "Building the client sites, and the small tools around them" },
+  { group: "Build", name: "Claude Code · Cursor", use: "Building client sites when a brief calls for one" },
   { group: "Build", name: "Lovable · Emergent", use: "Fast front-end builds when a brief needs a page this week" },
-  { group: "Build", name: "Shopify", use: "Storefronts — a 600+ SKU catalogue taken live" },
+  { group: "Build", name: "Shopify", use: "Storefronts, including a 600+ SKU catalogue taken live" },
 
   { group: "Growth", name: "Meta Ads Manager", use: "Paid social, planned against the content it runs on" },
   { group: "Growth", name: "Google Ads", use: "Search and demand capture" },
   { group: "Growth", name: "Google Analytics", use: "What the work actually moved" },
 
   { group: "Ops", name: "Zapier", use: "Wiring the tools together so nobody re-types anything twice" },
-  { group: "Ops", name: "ClickUp", use: "Running the pipeline — briefs, review, delivery" },
+  { group: "Ops", name: "ClickUp", use: "Running the pipeline: briefs, review, delivery" },
   { group: "Ops", name: "Claude · ChatGPT", use: "Script, copy and SEO drafting against a brief" },
 ];
 
+/**
+ * B.A. comes first because it's the completed degree, and the footer cites
+ * `education[0]` as the one-line credential. D.F.Tech is real and relevant
+ * training, but the course was discontinued, so it is labelled as coursework
+ * rather than presented as a finished qualification.
+ */
 export const education = [
   {
     qualification: "B.A. in VFX & Animation",
-    institution: "Mahatma Gandhi University — Arena Multimedia",
-    period: "2013 — 2016",
+    institution: "Mahatma Gandhi University, Arena Multimedia",
+    period: "2013 - 2016",
+  },
+  {
+    qualification: "D.F.Tech in Direction (coursework, discontinued)",
+    institution: "Dadasaheb Phalke Film School",
+    period: "2018",
   },
 ];
 
 export const languages = ["English", "Telugu", "Hindi"];
 
 /** Used by both the site footer and the CV file name. */
-export const cvFileName = "Kiran-Basa-Creative-Head-CV.pdf";
+export const cvFileName = "Kiran-Basa-Creative-Lead-CV.pdf";

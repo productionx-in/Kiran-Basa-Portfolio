@@ -74,7 +74,7 @@ export default function Page() {
       <header className="topbar">
         <div className="wrap topbar__in">
           <span>
-            {person.name} <span style={{ color: "var(--muted)" }}>— {person.title}</span>
+            {person.name} <span style={{ color: "var(--muted)" }}>· {person.title}</span>
           </span>
           <Spy items={SECTIONS} />
           <span style={{ color: "var(--muted)" }}>Hyderabad · IN</span>
@@ -103,7 +103,7 @@ export default function Page() {
                 </li>
                 <li>
                   <b>{experience.length}</b>
-                  <span>roles, 2016 — 2026</span>
+                  <span>roles, 2016-2026</span>
                 </li>
                 <li>
                   <b>{clients.length}</b>
@@ -176,7 +176,7 @@ export default function Page() {
         {/* ------------------------------------------------------------- index */}
         <section className="wrap" id="work" aria-labelledby="work-h" style={{ paddingTop: "clamp(2.5rem,6vw,5rem)" }}>
           <div className="kicker">
-            <b id="work-h">Index — selected work</b>
+            <b id="work-h">Index: selected work</b>
             <span>
               {projects.length} entries · filter by craft or by engagement
             </span>
@@ -207,14 +207,14 @@ export default function Page() {
               <Rise>
                 <p className="lede">
                   Every portfolio shows the output. This one also shows how it
-                  gets made — what I&rsquo;m like to work with, not just what I can
-                  produce.
+                  gets made, what I&rsquo;m like to work with, not just what I
+                  can produce.
                 </p>
                 <p className="prose" style={{ marginTop: "1rem" }}>
                   Generation sits at step three of six, between direction and
                   shooting, which is honestly where it belongs. It is one tool
-                  among several — used where it wins on time or money, and never
-                  as a default.
+                  among several, used where it wins on time or money, and
+                  never as a default.
                 </p>
               </Rise>
             </div>
@@ -241,8 +241,8 @@ export default function Page() {
           style={{ paddingTop: "clamp(3rem,7vw,6rem)" }}
         >
           <div className="kicker">
-            <b id="exp-h">Ledger — where the work was done</b>
-            <span>Editor · 2016 → Creative Head · 2026</span>
+            <b id="exp-h">Ledger: where the work was done</b>
+            <span>Editor · 2016 → Creative Lead · 2026</span>
           </div>
           <Ledger roles={experience} />
         </section>
@@ -255,7 +255,7 @@ export default function Page() {
           style={{ paddingTop: "clamp(3rem,7vw,6rem)" }}
         >
           <div className="kicker">
-            <b id="stack-h">Stack — and what each one is for</b>
+            <b id="stack-h">Stack, and what each one is for</b>
             <span>Craft · Generative · Build · Growth · Ops</span>
           </div>
           <Rise>
@@ -317,7 +317,7 @@ export default function Page() {
             <span>Replies within a day</span>
           </div>
           <Lines as="p" className="contact__h">
-            Looking for a creative head who can direct it and also build it.
+            Looking for a creative lead role where production and brand both matter.
           </Lines>
 
           <div className="contact__grid">

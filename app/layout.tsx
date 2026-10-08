@@ -49,9 +49,9 @@ const body = Inter_Tight({
  */
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kiran-basa-portfolio.vercel.app";
 
-const title = `${person.name} — ${person.title}, ${person.subtitle}`;
+const title = `${person.name} · ${person.title}, ${person.subtitle}`;
 const description =
-  "Creative Head in Hyderabad. Ten years from the edit suite to creative leadership — three brands built to ₹48L+ in sales, India's first Mercedes-Maybach showroom, 100+ projects. Open to roles in Hyderabad or Visakhapatnam, and remote anywhere.";
+  "Creative Lead in Hyderabad. Ten years from the edit suite to creative leadership, starting in assistant direction and cinematography. Three brands built from nothing, India's first Mercedes-Maybach showroom, 100+ projects shot and cut. Open to roles in Hyderabad or Visakhapatnam, and remote anywhere.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -64,11 +64,13 @@ export const metadata: Metadata = {
   keywords: [
     "Kiran Basa",
     "Basa Kiran Kumar",
-    "Creative Head Hyderabad",
+    "Creative Lead Hyderabad",
     "Creative Director Hyderabad",
+    "Head of Creative",
+    "Creative Production Lead",
+    "Content Lead",
     "Brand Strategy",
     "Content Leadership",
-    "Head of Creative and Marketing",
     "Video Production Hyderabad",
     "ProductionX",
   ],
@@ -82,7 +84,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: person.name,
     locale: "en_IN",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${person.name} — ${person.title}` }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${person.name} · ${person.title}` }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
   robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },

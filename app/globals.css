@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Kiran Basa — Creative Head
+   Kiran Basa, Creative Lead
    --------------------------------------------------------------------------
    The design is an index: a document that lists a body of work the way a press
    archive lists it — numbered, ruled, labelled by discipline and by how the
@@ -859,6 +859,21 @@ html.motion-off .job__panel { transition: none; }
   transition: color var(--swift);
 }
 .more:hover { color: var(--accent); }
+
+/* Practical credits, not jobs — no dates or company name, so they cannot be
+   mistaken for separate full-time employment. */
+.credits { padding: 1.4rem 0; border-bottom: 1px solid var(--rule); }
+.credits__k {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+.credits__list { list-style: none; padding: 0; display: grid; gap: 0.7rem; }
+.credits__list li { font-family: var(--serif); font-size: 0.95rem; line-height: 1.5; max-width: 60ch; color: var(--ink); }
+.credits__role { font-weight: 600; }
 
 /* ==========================================================================
    Stack & capabilities

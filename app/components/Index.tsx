@@ -327,7 +327,7 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
             onPeek={setPeek}
           />
         ))}
-        {!shown.length && <p className="idx__empty">Nothing under that combination — clear a filter.</p>}
+        {!shown.length && <p className="idx__empty">Nothing under that combination. Clear a filter.</p>}
       </div>
 
       <div ref={peekEl} className="peek" data-on={peek ? "true" : "false"} aria-hidden="true">
