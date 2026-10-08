@@ -24,7 +24,13 @@ export const person = {
    * `availability` instead of here.
    */
   title: "Creative Lead",
-  subtitle: "Creative Production, Brand & Marketing",
+  /**
+   * Deliberately no "Marketing" in the headline. He understands marketing and
+   * it shows up in the skills and experience sections, but the headline is
+   * the one place a reader forms a first impression, and that impression
+   * should be production and creative direction, not a marketing title.
+   */
+  subtitle: "Creative Direction, Production & Brand Content",
   /**
    * The headline claim. Production first, because it is the foundation the
    * rest was built on: editor, then cinematographer and assistant director,
@@ -49,7 +55,7 @@ export const person = {
    * ones he's held.
    */
   availability:
-    "Open to Creative Lead, Creative Director, Head of Creative, Creative Production Lead, Content Lead and Brand Creative Lead roles, in Hyderabad or Visakhapatnam, and remote anywhere",
+    "Open to Creative Lead, Creative Production Lead, Creative Director, Head of Creative, Content Lead, Brand Creative and Creative Team Lead roles, in Hyderabad or Visakhapatnam, and remote anywhere",
   email: "basakiran9@gmail.com",
   phone: "+91 93919 26846",
   phoneHref: "+919391926846",
@@ -126,14 +132,16 @@ export const experience: Role[] = [
     period: "Nov 2025 - May 2026",
     place: "Hyderabad, India",
     points: [
-      "Walked into a warehouse of stock with no brand on any of it. Fashion, luxury furniture, smart-home. Built three identities from nothing: 1UJ Fashion, 1UJ The International Hub, and the parent Ujwala Group.",
-      "Hired five people across social, content and inventory, trained them, and wrote the process they worked to.",
-      "Took 600+ fashion SKUs and 150+ luxury and lifestyle lines from brand kit to a live Shopify store.",
-      "Shot the entire e-commerce catalogue without a shoot. Every garment, then the premium furniture line including the Bugatti office, dining and bedroom ranges, generated and retouched to a standard that held up on the storefront and in paid social.",
-      "Marketing sat under the same role. Ran the Google and Meta spend, 300+ qualified enquiries in the first four months, and ₹48L+ in sales across the three brands in six months.",
+      "Led the creative and marketing function across three brands: fashion, luxury furniture and smart-home, starting from a warehouse of stock with no brand on any of it.",
+      "Built all three brand identities and their visual communication from the ground up: 1UJ Fashion, 1UJ The International Hub, and the parent Ujwala Group.",
+      "Hired and trained a five-person team across social, content and inventory, and wrote the process they worked to.",
+      "Took 600+ fashion SKUs and 150+ luxury and lifestyle SKUs from brand development to a full Shopify launch.",
+      "Led content, campaigns and digital marketing across Google, Meta and social platforms.",
+      "Generated 300+ qualified enquiries through paid campaigns in the first four months.",
+      "Produced the complete e-commerce catalogue, including the premium furniture line, using AI-assisted product and model imagery instead of traditional photoshoots.",
     ],
     detail:
-      "Six months, three brands, one team, one storefront. The brand kit, the ad spend and the commerce were all mine. That is unusual, and it is most of why I would do it again.",
+      "Three brands, one team, one storefront, in six months. The brand kit, the ad spend and the commerce were all mine, and ₹48L+ in sales followed from that. The scale of it is the stronger story, not the number on its own.",
   },
   {
     org: "Mercedes-Benz Silver Star Hyderabad",
@@ -141,10 +149,11 @@ export const experience: Role[] = [
     period: "Dec 2024 - Nov 2025",
     place: "Hyderabad, India",
     points: [
-      "Creative direction and production across the dealership, including the Maybach range, inside the marque's guidelines and its sign-off chain.",
-      "Ran creative for the launch of India's first Mercedes-Maybach showroom. Photography and film across both ranges, print, WhatsApp campaigns and showroom launch events, all to the standard the marque requires.",
-      "50+ campaign and delivery films directed and cut. Content planning, posting schedules and customer communication, working with the Sales and Service Marketing GMs.",
-      "Showroom footfall and lead conversion up 50%, service campaign engagement up 80%. Grew the showroom's Instagram from 6,000 to 17,000 in eight months.",
+      "Led creative direction and production for the launch of India's first Mercedes-Maybach showroom, inside the marque's global guidelines and its sign-off chain.",
+      "Produced photography, video and campaign content across the Mercedes-Benz and Maybach ranges, including print and WhatsApp campaigns, working with the Sales and Service Marketing GMs.",
+      "Handled the creative side of showroom launches, events and customer experience, plus content planning and posting schedules across social.",
+      "Campaigns contributed to 50% growth in showroom footfall and lead conversion, and an 80% improvement in service campaign engagement.",
+      "Grew the showroom's Instagram following from 6,000 to 17,000 in eight months through consistent content.",
     ],
     detail:
       "Working inside a marque that size taught me consistency beats any one brilliant asset. Guidelines are not the obstacle. They are the job.",
@@ -216,22 +225,23 @@ export type Credit = {
 };
 
 /**
- * Practical production credits from the same early years, before the roles
- * above. Not separate full-time jobs, so they sit apart from `experience`
- * rather than inside it with a company and a start and end date they never
- * had. They matter because they show production was the foundation from the
- * start, not something picked up later alongside brand and marketing work.
+ * Practical production credits from the same early years. Not separate
+ * full-time jobs, so they sit apart from `experience` rather than inside it
+ * with a company and a start and end date they never had. They matter
+ * because they show production was the foundation from the start, not
+ * something picked up later. Katha ran during the Camzooms employment
+ * period (noted below); the other two were unrelated to Camzooms.
  */
 export const earlyCredits: Credit[] = [
   {
     project: "Katha (web series)",
     role: "Assistant Director",
-    note: "One of the assistant directors on the production team, for around five months, during the Camzooms period. Also edited two episodes.",
+    note: "A project during the Camzooms period. One of the assistant directors on the production team, for around five months. Also edited two episodes.",
   },
   {
     project: "Geetha Subramanyam (Season 2)",
     role: "Assistant Director, Direction Department",
-    note: "One of the assistant directors, mainly through early pre-production.",
+    note: "A separate production. One of the assistant directors, mainly through early pre-production.",
   },
   {
     project: "Short film projects",
@@ -443,23 +453,23 @@ export const skills: SkillGroup[] = [
   {
     group: "Creative Direction & Production",
     items: [
-      "Creative direction & concept development",
-      "Film direction & cinematography",
-      "DSLR & mirrorless camera operation",
+      "Creative direction",
+      "Creative production",
+      "Film direction",
+      "Cinematography",
+      "Video production",
+      "Photography",
       "Visual storytelling",
-      "Product & fashion shoots",
-      "Multi-camera events",
-      "Post-production supervision & grade",
     ],
   },
   {
-    group: "Leadership & Operations",
+    group: "Creative & Team Leadership",
     items: [
+      "Creative leadership",
+      "Team leadership",
       "Team hiring & training (5-8)",
-      "Cross-functional leadership",
       "Budget & vendor management",
       "Client & stakeholder relationships",
-      "Creative operations & workflow automation",
     ],
   },
   {
@@ -481,9 +491,9 @@ export const skills: SkillGroup[] = [
   {
     group: "AI & Digital Production",
     items: [
-      "AI-assisted creative and production workflows",
+      "Generative AI",
+      "AI-assisted production",
       "AI product & model imagery at commercial scale",
-      "Generative video",
       "Previsualisation of anything not yet built or shot",
       "Website design & build (Next.js, React)",
     ],

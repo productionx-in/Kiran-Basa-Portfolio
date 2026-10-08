@@ -67,16 +67,14 @@ export default function CV() {
       <section>
         <h2>Profile</h2>
         <p className="cv__summary">
-          Ten years in production, from editing and cinematography through assistant
-          direction and production, into creative leadership. I direct, shoot, edit, and
-          understand the brand and business behind the work. At Ujwala Group I was
-          Creative Lead across three brands built from nothing, hiring the team, running
-          the Shopify launch and the ad spend, and taking them to ₹48L+ in sales inside
-          six months. Before that I directed content for India&rsquo;s first
-          Mercedes-Maybach showroom, where the campaign work put showroom footfall up
-          50%. I use AI to make production faster, not to replace the craft. Looking for
-          a Creative Lead role, also open to Creative Director, Head of Creative,
-          Creative Production Lead and Content Lead.
+          Ten or more years in creative production, starting with editing, cinematography
+          and production work, and including assistant direction. I moved into creative
+          direction, brand content and marketing as my responsibilities grew. I still
+          direct, shoot and stay hands-on with production, and I understand the brand and
+          business objective behind the work. I use AI to make production faster and more
+          scalable, not to replace creative judgment. Looking for Creative Lead
+          opportunities, and open to Creative Director, Head of Creative, Creative
+          Production Lead and Content Lead roles.
         </p>
       </section>
 
