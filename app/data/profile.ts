@@ -400,7 +400,7 @@ export const digital: Project[] = [
     kind: "Website · White-label build",
     blurb:
       "Live site for a residential launch. Narrative scroll, floor plans, enquiry capture. Built white-label, so it went out under someone else's name.",
-    credit: "White-label · Live",
+    credit: "ProductionX · Live",
     href: "https://amorabysattva.com/",
     poster: "/work/sattva.jpg",
     video: "/work/sattva.webm",
