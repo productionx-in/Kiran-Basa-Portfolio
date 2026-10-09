@@ -395,12 +395,13 @@ export const digital: Project[] = [
     name: "Sattva Amora",
     group: "digital",
     engagement: "White-label",
-    shot: "Prototype build, scrolling",
+    shot: "Live site, scrolling",
     tags: ["Digital"],
-    kind: "Website · White-label prototype",
+    kind: "Website · White-label build",
     blurb:
-      "Website prototype for a residential launch. Narrative scroll, floor plans, enquiry capture. Built white-label, so it went out under someone else's name.",
-    credit: "White-label · Prototype build only",
+      "Live site for a residential launch. Narrative scroll, floor plans, enquiry capture. Built white-label, so it went out under someone else's name.",
+    credit: "White-label · Live",
+    href: "https://amorabysattva.com/",
     poster: "/work/sattva.jpg",
     video: "/work/sattva.webm",
   },
@@ -411,11 +412,11 @@ export const digital: Project[] = [
     engagement: "Studio",
     shot: "Generated walkthrough frame, OTHO Realty",
     tags: ["Brand & strategy", "Digital", "AI"],
-    kind: "Real estate · Brand & prototype",
+    kind: "Real estate · Brand & site",
     blurb:
-      "Brand building and a working site prototype for a realty client. This is where the previsualisation pipeline earns its money, with generated walkthroughs sitting next to the brand they are selling.",
-    credit: "ProductionX · Live prototype",
-    href: "https://otho-prototype.vercel.app/",
+      "Brand building and a live site for a realty client. This is where the previsualisation pipeline earns its money, with generated walkthroughs sitting next to the brand they are selling.",
+    credit: "ProductionX · Live",
+    href: "https://otho.co.in/",
     /* The property render belongs here rather than on the previsualisation
        entry: this is the realty client the pipeline was built for, so the frame
        is about the client rather than a claim that previz is a realty tool.
