@@ -392,6 +392,20 @@ export const digital: Project[] = [
   },
   {
     code: "05",
+    name: "Sattva Amora",
+    group: "digital",
+    engagement: "White-label",
+    shot: "Prototype build, scrolling",
+    tags: ["Digital"],
+    kind: "Website · White-label prototype",
+    blurb:
+      "Website prototype for a residential launch. Narrative scroll, floor plans, enquiry capture. Built white-label, so it went out under someone else's name.",
+    credit: "White-label · Prototype build only",
+    poster: "/work/sattva.jpg",
+    video: "/work/sattva.webm",
+  },
+  {
+    code: "06",
     name: "OTHO Realty",
     group: "digital",
     engagement: "Studio",
@@ -408,20 +422,6 @@ export const digital: Project[] = [
        It also stops OTHO and Sattva Amora sharing one image, which labelled one
        client's build as another's. */
     poster: "/work/previz.jpg",
-  },
-  {
-    code: "06",
-    name: "Sattva Amora",
-    group: "digital",
-    engagement: "White-label",
-    shot: "Prototype build, scrolling",
-    tags: ["Digital"],
-    kind: "Website · White-label prototype",
-    blurb:
-      "Website prototype for a residential launch. Narrative scroll, floor plans, enquiry capture. Built white-label, so it went out under someone else's name.",
-    credit: "White-label · Prototype build only",
-    poster: "/work/sattva.jpg",
-    video: "/work/sattva.webm",
   },
 ];
 
