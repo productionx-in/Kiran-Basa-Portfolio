@@ -81,16 +81,16 @@ export const person = {
 } as const;
 
 /**
- * The four numbers, led by the production arc rather than by revenue. The
- * ₹48L+ figure is real and stays on the page, but it sits last rather than
- * first: a production-first creative lead is the identity being sold, and a
- * revenue number on its own reads as a marketing identity instead.
+ * The four numbers, chosen for scale rather than revenue. ₹48L+ in sales was
+ * here before, but it is a small figure next to the scope of the roles he is
+ * targeting, and it risks anchoring the reader's sense of the role down
+ * rather than up. Dropped in favour of a number that signals scope instead.
  */
 export const figures = [
   { value: "10 yrs", label: "Editor to creative lead", note: "Cutting in 2016. Leading creative by 2025." },
   { value: "100+", label: "Projects shot and cut", note: "Film, photography and brand content across ten years" },
   { value: "50%", label: "Showroom footfall", note: "Increase at Mercedes-Benz Silver Star" },
-  { value: "₹48L+", label: "Sales generated", note: "Three brands, six months, Ujwala Group" },
+  { value: "750+", label: "SKUs taken live", note: "Fashion, luxury and lifestyle, Ujwala Group" },
 ];
 
 export type Role = {
@@ -141,7 +141,7 @@ export const experience: Role[] = [
       "Produced the complete e-commerce catalogue, including the premium furniture line, using AI-assisted product and model imagery instead of traditional photoshoots.",
     ],
     detail:
-      "Three brands, one team, one storefront, in six months. The brand kit, the ad spend and the commerce were all mine, and ₹48L+ in sales followed from that. The scale of it is the stronger story, not the number on its own.",
+      "Three brands, one team, one storefront, in six months. The brand kit, the ad spend and the commerce were all mine. That is unusual, and it is most of why I would do it again.",
   },
   {
     org: "Mercedes-Benz Silver Star Hyderabad",
@@ -337,7 +337,7 @@ export const work: Project[] = [
     blurb:
       "Three brands from nothing. Identity, brand kit, campaign system, and a Shopify launch across 600+ fashion SKUs and 150+ luxury lines. The model and product imagery was generated, which took the shoot bill out without taking the standard out.",
     credit: "In-house · Creative Lead, Ujwala Group",
-    result: "₹48L+ in sales · 300+ qualified enquiries in four months · five-person team hired and trained",
+    result: "750+ SKUs taken live · 300+ qualified enquiries in four months · five-person team hired and trained",
     poster: "/work/1uj-hub.jpg",
     video: "/work/1uj-hub.webm",
   },
