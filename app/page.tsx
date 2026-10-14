@@ -134,7 +134,7 @@ export default function Page() {
             </div>
             <div>
               <div className="mast__k">Practice</div>
-              <div className="mast__v">Brand · Production · Digital · AI</div>
+              <div className="mast__v">Production · Brand · Digital · AI</div>
             </div>
             <div>
               <div className="mast__k">Track record</div>

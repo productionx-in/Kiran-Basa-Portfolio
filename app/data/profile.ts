@@ -273,7 +273,7 @@ export const clients = [
   "OTHO Realty",
 ];
 
-export const DISCIPLINES = ["Brand & strategy", "Production", "Digital", "AI"] as const;
+export const DISCIPLINES = ["Production", "Brand & strategy", "Digital", "AI"] as const;
 export type Discipline = (typeof DISCIPLINES)[number];
 
 /**
@@ -289,8 +289,8 @@ export type Engagement = (typeof ENGAGEMENTS)[number];
 
 /** The shelves the work sits on. Named by craft, not by client. */
 export const GROUPS = [
-  { key: "brand", label: "Brand & Campaign", blurb: "Identity, positioning and the campaigns that carry them." },
   { key: "production", label: "Content Production", blurb: "Films, shoots and events, ten years behind the camera." },
+  { key: "brand", label: "Brand & Campaign", blurb: "Identity, positioning and the campaigns that carry them." },
   { key: "digital", label: "Web & Digital", blurb: "Sites and storefronts, designed and built end to end." },
   { key: "ai", label: "AI & Generative", blurb: "Making the frame that cannot be photographed yet." },
 ] as const;
@@ -344,10 +344,10 @@ export const work: Project[] = [
   {
     code: "02",
     name: "India's first Mercedes-Maybach showroom",
-    group: "brand",
+    group: "production",
     engagement: "In-house",
     shot: "Marque detail, Mercedes-Benz Silver Star",
-    tags: ["Brand & strategy", "Production"],
+    tags: ["Production", "Brand & strategy"],
     kind: "Automotive · Luxury launch",
     blurb:
       "Creative direction and execution for the launch of the first Maybach showroom in India. Film, photography and campaign work, all of it made inside a global marque's guidelines and its sign-off chain.",
