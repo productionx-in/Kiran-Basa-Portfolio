@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   person,
   figures,
@@ -49,7 +50,16 @@ const SECTIONS = [
   { id: "contact", label: "Contact" },
 ];
 
-const projects = [...work, ...digital];
+/**
+ * Split in two rather than one combined list: `work` is the numbered,
+ * filterable case studies, production and brand work he can walk through in
+ * detail. `digital` (Mahati, Sattva Amora, OTHO) are web builds, real and
+ * worth showing, but a secondary capability rather than the main pitch. Mixed
+ * into one list they diluted the case-study count with sites; split out, each
+ * reads for what it actually is.
+ */
+const indexProjects = work;
+const totalProjects = work.length + digital.length;
 
 /** Grouped in source order so the stack reads Craft → Generative → Build → Growth → Ops. */
 const stackGroups = stack.reduce<{ group: string; items: typeof stack }[]>((acc, tool) => {
@@ -98,7 +108,7 @@ export default function Page() {
               <div className="contents__k">In this document</div>
               <ul className="contents__l">
                 <li>
-                  <b>{projects.length}</b>
+                  <b>{totalProjects}</b>
                   <span>projects indexed</span>
                 </li>
                 <li>
@@ -178,7 +188,7 @@ export default function Page() {
           <div className="kicker">
             <b id="work-h">Index: selected work</b>
             <span>
-              {projects.length} entries · filter by craft or by engagement
+              {indexProjects.length} entries · filter by craft or by engagement
             </span>
           </div>
           <Rise>
@@ -188,7 +198,41 @@ export default function Page() {
               I&rsquo;m not folding one into the other.
             </p>
           </Rise>
-          <WorkIndex projects={projects} />
+          <WorkIndex projects={indexProjects} />
+
+          {/* Web and digital builds, kept apart from the case studies above
+              rather than folded into the same numbered list, so the main
+              index reads as production and brand work first. */}
+          <div className="kicker" style={{ marginTop: "clamp(2rem,4vw,3rem)" }}>
+            <b>Also: web &amp; digital</b>
+            <span>{digital.length} sites, designed and built</span>
+          </div>
+          <div className="digi">
+            {digital.map((d) => (
+              <div className="digi__card" key={d.code}>
+                {d.poster && (
+                  <Image
+                    className="digi__img"
+                    src={d.poster}
+                    alt={d.shot || d.name}
+                    width={480}
+                    height={300}
+                    sizes="(min-width: 900px) 30vw, 90vw"
+                  />
+                )}
+                <div className="digi__body">
+                  <div className="digi__n">{d.name}</div>
+                  <div className="digi__k">{d.kind}</div>
+                  <p className="digi__b">{d.blurb}</p>
+                  {d.href && (
+                    <a className="btn digi__link" href={d.href} target="_blank" rel="noreferrer noopener">
+                      {d.hrefLabel ?? "Open live site ↗"}
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* ------------------------------------------------------------ method */}

@@ -726,6 +726,26 @@ html.motion-off .row__panel { transition: none; }
 .peek img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ==========================================================================
+   Web & digital — secondary to the case studies above, so it is a plain
+   card grid rather than the row/panel treatment: no filters, no video, just
+   enough to show the build and link to it.
+   ========================================================================== */
+
+.digi {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  padding-block: clamp(1.2rem, 2.6vw, 2rem);
+}
+.digi__card { border-top: 1px solid var(--ink); }
+.digi__img { width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; display: block; }
+.digi__body { padding-top: 0.8rem; }
+.digi__n { font-family: var(--serif); font-weight: 600; font-size: 1.05rem; letter-spacing: -0.01em; }
+.digi__k { color: var(--muted); font-size: 0.85rem; margin-top: 0.3rem; }
+.digi__b { font-size: 0.9rem; line-height: 1.5; color: var(--ink); margin-top: 0.6rem; max-width: 36ch; }
+.digi__link { margin-top: 0.9rem; display: inline-flex; }
+
+/* ==========================================================================
    Method
    ========================================================================== */
 

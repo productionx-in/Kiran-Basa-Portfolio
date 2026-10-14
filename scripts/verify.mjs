@@ -64,7 +64,12 @@ console.log("\nNo JavaScript");
   check("nothing hidden by a reveal", r.hidden, 0);
   check("no panel stuck shut", r.collapsed, 0);
   check("the name is solid, not hollow", r.nameFilled, "100% 100%");
-  check("the whole document is readable", r.text > 12000, true);
+  // Threshold moved down from 12000: the web & digital builds now render as a
+  // plain card (name, kind, blurb, link) rather than a full row panel with
+  // credit, discipline and tags, which was deliberate (they're secondary to
+  // the case studies), not a content loss. 11000 still fails hard on an
+  // actually broken or near-empty page.
+  check("the whole document is readable", r.text > 11000, true);
   await ctx.close();
 }
 
@@ -128,31 +133,37 @@ console.log("\nInteraction");
   await p.waitForTimeout(3200);
   const count = (sel) => p.evaluate((s) => document.querySelectorAll(s).length, sel);
 
-  check("every project listed", await count(".row"), 6);
+  check("every project listed", await count(".row"), 3);
+  check("web and digital listed separately", await count(".digi__card"), 3);
   check("one project open on arrival", await count(".row--open"), 1);
 
-  await p.click(".row:nth-child(5) .row__btn");
+  await p.click(".row:nth-child(3) .row__btn");
   await p.waitForTimeout(700);
   check("opening one closes the last", await count(".row--open"), 1);
-  check("the clicked row is the open one", await p.evaluate(() => document.querySelector(".row--open .row__n").textContent), "05");
+  check("the clicked row is the open one", await p.evaluate(() => document.querySelector(".row--open .row__n").textContent), "03");
   check(
     "the open panel has real height",
     await p.evaluate(() => document.querySelector(".row--open .row__panelIn").getBoundingClientRect().height > 200),
     true,
   );
 
-  await p.click('.chip:has-text("Web & Digital")');
+  await p.click('.chip:has-text("AI & Generative")');
   await p.waitForTimeout(900);
-  check("filtering by craft", await count(".row"), 3);
-  check("the count is announced", (await p.textContent(".sr[aria-live]")).includes("3 of 6"), true);
+  check("filtering by craft", await count(".row"), 1);
+  check("the count is announced", (await p.textContent(".sr[aria-live]")).includes("1 of 3"), true);
 
-  await p.click('.chip:has-text("White-label")');
+  await p.click('.chip:has-text("In-house")');
   await p.waitForTimeout(900);
-  check("craft and engagement stack", await count(".row"), 1);
+  check("craft and engagement stack to nothing", await count(".row"), 0);
+  check(
+    "the empty state explains it",
+    (await p.textContent(".idx__empty")).includes("Nothing under that combination"),
+    true,
+  );
 
   await p.click(".filters__clear");
   await p.waitForTimeout(900);
-  check("clearing restores every project", await count(".row"), 6);
+  check("clearing restores every project", await count(".row"), 3);
 
   check("recent roles listed", await count(".job"), 4);
   await p.click(".more");
