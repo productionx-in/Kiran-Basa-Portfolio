@@ -17,20 +17,20 @@ export const person = {
   name: "Kiran Basa",
   legalName: "Basa Kiran Kumar",
   /**
-   * He has held the title "Creative Lead" twice, at Ujwala Group and now at
-   * ProductionX, so it leads everywhere on the page rather than a grander
-   * title he has not actually held. Creative Director, Head of Creative and
-   * the rest are roles he is open to, not roles he has had, and they live in
-   * `availability` instead of here.
+   * He has actually held this title, at Ujwala Group, so it leads the page
+   * rather than a grander one he hasn't. It also does in one title what the
+   * rest of the page otherwise has to do in a sentence: name creative and
+   * marketing as equally his, not one the headline and the other a footnote.
+   * Creative Lead (held at ProductionX too), Creative Director, Head of
+   * Creative and the rest live in `availability` instead of here.
    */
-  title: "Creative Lead",
+  title: "Head of Creative & Marketing",
   /**
-   * Marketing back in the headline, balanced against creative direction and
-   * production rather than leading or absent. He is applying to roles (Head
-   * of Marketing and Client Delivery included) that want both in the same
-   * person, so the headline should say both plainly.
+   * Production is the one thing the title above doesn't already say, so the
+   * subtitle's job is to say it. Brand and content are the other two real,
+   * established parts of the work.
    */
-  subtitle: "Creative Direction, Production & Marketing",
+  subtitle: "Production, Brand & Content",
   /**
    * The headline claim. Production first, because it is the foundation the
    * rest was built on: editor, then cinematographer and assistant director,
@@ -45,14 +45,14 @@ export const person = {
    * the arc is the part of the story that actually explains the rest of it.
    */
   strapline:
-    "Ten years, editor to creative lead. I started in assistant direction and cinematography, cutting on a web series and short films before moving into production, creative leadership and marketing. Three brands built from nothing, and the launch of India's first Mercedes-Maybach showroom. I still shoot, direct and edit. I use AI to make production faster, not to replace the craft.",
+    "Ten years, editor to creative and marketing lead. I started in assistant direction and cinematography, cutting on a web series and short films before moving into production, creative leadership and marketing. Three brands built from nothing, and the launch of India's first Mercedes-Maybach showroom. I still shoot, direct and edit. I use AI to make production faster, not to replace the craft.",
   location: "Hyderabad, Telangana, India",
   /**
    * His stated constraint on location, unchanged: Hyderabad or Vizag, else
-   * remote. Creative Lead is the title that leads the page; these are the
-   * other titles the same work maps to, so a recruiter searching under any
-   * of them still finds an accurate match. Names roles he's open to, not
-   * ones he's held.
+   * remote. Head of Creative & Marketing is the title that leads the page;
+   * these are the other titles the same work maps to, so a recruiter
+   * searching under any of them still finds an accurate match. Names roles
+   * he's open to, not ones he's held.
    */
   availability:
     "Open to Creative Lead, Creative Production Lead, Creative Director, Head of Creative, Head of Marketing, Content Lead, Brand Creative and Creative Team Lead roles, in Hyderabad or Visakhapatnam, and remote anywhere",
@@ -556,4 +556,4 @@ export const education = [
 export const languages = ["English", "Telugu", "Hindi"];
 
 /** Used by both the site footer and the CV file name. */
-export const cvFileName = "Kiran-Basa-Creative-Lead-CV.pdf";
+export const cvFileName = "Kiran-Basa-Head-of-Creative-Marketing-CV.pdf";

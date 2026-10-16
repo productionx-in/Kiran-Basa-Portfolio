@@ -23,7 +23,7 @@ const url = process.env.CV_URL ?? "http://127.0.0.1:3000/cv";
  * step with `cvFileName` in app/data/profile.ts by hand, since this script
  * is plain JS rather than something that can import the TS source.
  */
-const OUT = join(root, "public", "Kiran-Basa-Creative-Lead-CV.pdf");
+const OUT = join(root, "public", "Kiran-Basa-Head-of-Creative-Marketing-CV.pdf");
 
 const CANDIDATES = [
   process.env.CHROME_PATH,

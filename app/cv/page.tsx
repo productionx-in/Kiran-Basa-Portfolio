@@ -72,9 +72,9 @@ export default function CV() {
           direction, brand content and marketing as my responsibilities grew. I still
           direct, shoot and stay hands-on with production, and I understand the brand and
           business objective behind the work. I use AI to make production faster and more
-          scalable, not to replace creative judgment. Looking for Creative Lead
-          opportunities, and open to Creative Director, Head of Creative, Head of
-          Marketing, Creative Production Lead and Content Lead roles.
+          scalable, not to replace creative judgment. Looking for Head of Creative &amp;
+          Marketing opportunities, and open to Creative Lead, Creative Director, Head of
+          Creative, Creative Production Lead and Content Lead roles.
         </p>
       </section>
 

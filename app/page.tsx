@@ -286,7 +286,7 @@ export default function Page() {
         >
           <div className="kicker">
             <b id="exp-h">Ledger: where the work was done</b>
-            <span>Editor · 2016 → Creative Lead · 2026</span>
+            <span>Editor · 2016 → Head of Creative & Marketing · 2026</span>
           </div>
           <Ledger roles={experience} />
         </section>
@@ -361,7 +361,7 @@ export default function Page() {
             <span>Replies within a day</span>
           </div>
           <Lines as="p" className="contact__h">
-            Looking for a creative lead role where production and marketing both matter.
+            Looking for a creative and marketing lead role where production still matters.
           </Lines>
 
           <div className="contact__grid">
