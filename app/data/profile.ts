@@ -25,18 +25,18 @@ export const person = {
    */
   title: "Creative Lead",
   /**
-   * Deliberately no "Marketing" in the headline. He understands marketing and
-   * it shows up in the skills and experience sections, but the headline is
-   * the one place a reader forms a first impression, and that impression
-   * should be production and creative direction, not a marketing title.
+   * Marketing back in the headline, balanced against creative direction and
+   * production rather than leading or absent. He is applying to roles (Head
+   * of Marketing and Client Delivery included) that want both in the same
+   * person, so the headline should say both plainly.
    */
-  subtitle: "Creative Direction, Production & Brand Content",
+  subtitle: "Creative Direction, Production & Marketing",
   /**
    * The headline claim. Production first, because it is the foundation the
    * rest was built on: editor, then cinematographer and assistant director,
-   * then producer, then creative lead. Brand and marketing came later, as he
-   * took on more responsibility for the business behind the work, so they
-   * read as what he also understands rather than as the lead identity.
+   * then producer, then creative lead, then the marketing and client side of
+   * the same roles. Both are real and both are owned, not one subordinate to
+   * the other.
    */
   headline: "I come from production, and I lead the creative work from brief to final cut.",
   /**
@@ -45,7 +45,7 @@ export const person = {
    * the arc is the part of the story that actually explains the rest of it.
    */
   strapline:
-    "Ten years, editor to creative lead. I started in assistant direction and cinematography, cutting on a web series and short films before moving into production and then creative leadership. Three brands built from nothing, and the launch of India's first Mercedes-Maybach showroom. I still shoot, direct and edit. I use AI to make production faster, not to replace the craft.",
+    "Ten years, editor to creative lead. I started in assistant direction and cinematography, cutting on a web series and short films before moving into production, creative leadership and marketing. Three brands built from nothing, and the launch of India's first Mercedes-Maybach showroom. I still shoot, direct and edit. I use AI to make production faster, not to replace the craft.",
   location: "Hyderabad, Telangana, India",
   /**
    * His stated constraint on location, unchanged: Hyderabad or Vizag, else
@@ -55,7 +55,7 @@ export const person = {
    * ones he's held.
    */
   availability:
-    "Open to Creative Lead, Creative Production Lead, Creative Director, Head of Creative, Content Lead, Brand Creative and Creative Team Lead roles, in Hyderabad or Visakhapatnam, and remote anywhere",
+    "Open to Creative Lead, Creative Production Lead, Creative Director, Head of Creative, Head of Marketing, Content Lead, Brand Creative and Creative Team Lead roles, in Hyderabad or Visakhapatnam, and remote anywhere",
   email: "basakiran9@gmail.com",
   phone: "+91 93919 26846",
   phoneHref: "+919391926846",
@@ -128,7 +128,7 @@ export const experience: Role[] = [
   },
   {
     org: "Ujwala Group",
-    role: "Creative Lead",
+    role: "Head of Creative & Marketing",
     period: "Nov 2025 - May 2026",
     place: "Hyderabad, India",
     points: [
@@ -336,7 +336,7 @@ export const work: Project[] = [
     kind: "Brand build · Retail & e-commerce",
     blurb:
       "Three brands from nothing. Identity, brand kit, campaign system, and a Shopify launch across 600+ fashion SKUs and 150+ luxury lines. The model and product imagery was generated, which took the shoot bill out without taking the standard out.",
-    credit: "In-house · Creative Lead, Ujwala Group",
+    credit: "In-house · Head of Creative & Marketing, Ujwala Group",
     result: "750+ SKUs taken live · 300+ qualified enquiries in four months · five-person team hired and trained",
     poster: "/work/1uj-hub.jpg",
     video: "/work/1uj-hub.webm",

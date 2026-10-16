@@ -361,7 +361,7 @@ export default function Page() {
             <span>Replies within a day</span>
           </div>
           <Lines as="p" className="contact__h">
-            Looking for a creative lead role where production and brand both matter.
+            Looking for a creative lead role where production and marketing both matter.
           </Lines>
 
           <div className="contact__grid">
