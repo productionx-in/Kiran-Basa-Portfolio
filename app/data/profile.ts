@@ -45,7 +45,7 @@ export const person = {
    * the arc is the part of the story that actually explains the rest of it.
    */
   strapline:
-    "Ten years, editor to creative and marketing lead. I started in assistant direction and cinematography, cutting on a web series and short films before moving into production, creative leadership and marketing. Three brands built from nothing, and the launch of India's first Mercedes-Maybach showroom. I still shoot, direct and edit. I use AI to make production faster, not to replace the craft.",
+    "Ten years, editor to creative and marketing lead. I started in assistant direction and cinematography, cutting on a web series and short films before moving into production, creative leadership and marketing. Three brands built from nothing, and the launch of India's first Mercedes-Maybach showroom. I still direct and lead production hands-on. I use AI to make production faster, not to replace the craft.",
   location: "Hyderabad, Telangana, India",
   /**
    * His stated constraint on location, unchanged: Hyderabad or Vizag, else
@@ -87,8 +87,8 @@ export const person = {
  * rather than up. Dropped in favour of a number that signals scope instead.
  */
 export const figures = [
-  { value: "10 yrs", label: "Editor to creative lead", note: "Cutting in 2016. Leading creative by 2025." },
-  { value: "100+", label: "Projects shot and cut", note: "Film, photography and brand content across ten years" },
+  { value: "10 yrs", label: "Editor to creative and marketing lead", note: "Cutting in 2016. Leading creative by 2025." },
+  { value: "100+", label: "Projects directed and delivered", note: "Film, photography and brand content across ten years" },
   { value: "50%", label: "Showroom footfall", note: "Increase at Mercedes-Benz Silver Star" },
   { value: "750+", label: "SKUs taken live", note: "Fashion, luxury and lifestyle, Ujwala Group" },
 ];

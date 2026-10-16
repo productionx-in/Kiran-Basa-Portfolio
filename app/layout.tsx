@@ -51,7 +51,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kiran-basa-portfoli
 
 const title = `${person.name} · ${person.title}, ${person.subtitle}`;
 const description =
-  "Head of Creative & Marketing in Hyderabad. Ten years from the edit suite to creative and marketing leadership, starting in assistant direction and cinematography. Three brands built from nothing, India's first Mercedes-Maybach showroom, 100+ projects shot and cut. Open to roles in Hyderabad or Visakhapatnam, and remote anywhere.";
+  "Head of Creative & Marketing in Hyderabad. Ten years from the edit suite to creative and marketing leadership, starting in assistant direction and cinematography. Three brands built from nothing, India's first Mercedes-Maybach showroom, 100+ projects directed and delivered. Open to roles in Hyderabad or Visakhapatnam, and remote anywhere.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
